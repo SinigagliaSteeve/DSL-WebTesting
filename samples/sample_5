@@ -1,0 +1,25 @@
+Test 5 (result=TRUE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
+* uncheck all checkboxes
+* check the checkboxes “Anglais” and “A domicile”
+* click on the button "Appliquer les critères"
+* verify that the page contains the text "Aucune formation trouvée répondant à vos critères"
+
+open browser chrome
+	go "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
+	CHECKBOX ALL {
+		uncheck
+	}
+	CHECKBOX LABEL:"Anglais" {
+		check
+	}
+	CHECKBOX LABEL:"A domicile" {
+		check
+	}
+	BUTTON LABEL:"Appliquer les filtres" {
+		click
+	}
+	PAGE {
+		verify contains TEXT:"Aucune formation trouvée répondant à vos critères"
+	}

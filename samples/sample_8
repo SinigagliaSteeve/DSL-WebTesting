@@ -1,0 +1,32 @@
+Test 8 (result=FALSE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+* insert "2007" in the search field
+* click on the button "Appliquer les filtres"
+* count how many results (class=”views-row”) are shown
+* choose the option "Le mois dernier" in the combobox
+* click on the button "Appliquer les filtres"
+* verify that the number of results is the same of the previous one
+
+open browser chrome
+	go "http://www.imt-atlantique.fr/fr/rechercher"
+	SEARCH_FIELD FIRST {
+		set "2007"
+	}
+	BUTTON LABEL:"Appliquer les filtres" {
+		click
+	}
+	PAGE {
+		 store (count DIV CLASS:”views-row”) in “nbResult“
+	}
+
+	COMBO_BOX FIRST {
+		select "Le mois dernier"
+	}
+	BUTTON LABEL:"Appliquer les filtres" {
+		click
+	}
+	PAGE {
+		store (count DIV CLASS:”views-row”) in “newNbResult“
+		verify VAR:”nbResult” equals VAR:”newNbResult”
+}

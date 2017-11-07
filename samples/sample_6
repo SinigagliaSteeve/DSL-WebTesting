@@ -1,0 +1,22 @@
+Test 6 (result=FALSE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+* insert "2007" in the search field
+* choose the option "Le mois dernier" in the combobox
+* click on the button "Appliquer les filtres"
+* verify that the page contains the text "Aucun résultat ne correspond à votre recherche"
+
+open browser chrome
+	go "http://www.imt-atlantique.fr/fr/rechercher"
+	SEARCH_FIELD FIRST {
+		set "2007"
+	}
+	COMBO_BOX FIRST {
+		select "Le mois dernier"
+	}
+	BUTTON LABEL:"Appliquer les filtres" {
+		click
+	}
+	PAGE {
+		verify contains TEXT:"Aucun résultat ne correspond à votre recherche"
+	}

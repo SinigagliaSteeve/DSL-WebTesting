@@ -1,0 +1,26 @@
+Test 7 (result=TRUE) 
+* open a browser window 
+* go to the url "http://www.imt-atlantique.fr/fr" 
+* read the text of one title (class="actu_home_ctner_inner_cell1_titre") in the page and the url it points 
+* go to the url "http://www.imt-atlantique.fr/fr/rechercher" 
+* paste the title in the search field * click on the button "Appliquer les filtres" 
+* verify that the page contains a link to the previous url 
+
+open browser chrome
+go "http://www.imt-atlantique.fr/fr"
+DIV CLASS=”actu_home_ctner_inner_cell1_titre” {
+	store TITLE in ”title”
+		A PARENT {
+			store href in “url”
+		}
+}
+go "http://www.imt-atlantique.fr/fr/rechercher"
+SEARCH_FIELD FIRST {
+		set VAR:”title”
+	}
+BUTTON LABEL:"Appliquer les filtres" {
+		click
+	}
+	PAGE {
+		verify contains HREF equals VAR:“url”
+	}

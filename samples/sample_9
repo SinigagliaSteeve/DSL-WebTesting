@@ -1,0 +1,28 @@
+Test 9 (result=TRUE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr"
+* go to the page "COMMUNIQUÉS DE PRESSE" by clicking its link
+* verify that the page contains an image "Imprimer"
+* click on the image
+* repeat all the procedure for the pages DOSSIERS DE PRESSE, VISUELS POUR LA PRESSE, LA
+PRESSE EN PARLE, TRIBUNES DE PRESSE, LES PALMARÈS
+
+PROCEDURE test_link(“NOM1”) {
+	go "http://www.imt-atlantique.fr/fr"
+	LINK LABEL:ARG(“NOM1”) {
+		click
+	}
+	PAGE {
+		verify contains LINK TITLE:”Imprimer”
+	}
+	LINK TITLE:”Imprimer” {
+		click
+	}
+}
+
+open browser chrome
+PROC:test_link(“COMMUNIQUES DE PRESSE”)
+PROC:test_link(“VISUELS POUR LA PRESSE”)
+PROC:test_link(“LA PRESSE EN PARLE”)
+PROC:test_link(“TRIBUNES DE PRESSE”)
+PROC:test_link(“LES PALMARÈS”)

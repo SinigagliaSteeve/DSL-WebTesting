@@ -1,0 +1,14 @@
+Test 2 (result=TRUE)
+* open a browser window
+* go to the url "http://www.imt-atlantique.fr/fr"
+* click on the link "Toutes les actualités"
+* verify that the page contains a link "Accueil"
+
+open browser chrome
+	go "http://www.imt-atlantique.fr/fr"
+	LINK LABEL:"Toutes les actualités" {
+		click
+	}
+	PAGE {
+		verify contains LINK LABEL:"Accueil"
+	}
