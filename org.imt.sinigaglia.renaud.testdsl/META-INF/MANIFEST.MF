@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.imt.sinigaglia.renaud.testdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.imt.sinigaglia.renaud.testdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.example.mydsl.testDsl,
+ org.xtext.example.mydsl.scoping,
+ org.xtext.example.mydsl.services,
+ org.xtext.example.mydsl.generator,
+ org.xtext.example.mydsl.testDsl.impl,
+ org.xtext.example.mydsl.validation,
+ org.xtext.example.mydsl,
+ org.xtext.example.mydsl.testDsl.util,
+ org.xtext.example.mydsl.serializer,
+ org.imt.sinigaglia.renaud.generator,
+ org.imt.sinigaglia.renaud.services,
+ org.imt.sinigaglia.renaud.testDsl,
+ org.imt.sinigaglia.renaud,
+ org.imt.sinigaglia.renaud.validation,
+ org.imt.sinigaglia.renaud.testDsl.impl,
+ org.imt.sinigaglia.renaud.serializer,
+ org.imt.sinigaglia.renaud.testDsl.util,
+ org.imt.sinigaglia.renaud.scoping
+Import-Package: org.apache.log4j

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="testDsl" nsURI="http://www.xtext.org/org/imt/sinigaglia/renaud/Testdsl"
+    nsPrefix="testDsl">
+  <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="#//Core" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Core">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="goActions" upperBound="-1"
+        eType="#//GoAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selections" upperBound="-1"
+        eType="#//Selection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GoAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Selection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkButtonSelection" eType="#//LinkButtonSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="searchfieldSelection" eType="#//SearchfieldSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="checkboxSelection" eType="#//CheckboxSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="comboboxSelection" eType="#//ComboboxSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="divSelection" eType="#//DivSelection"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LinkButtonSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalActions" eType="#//GeneralAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SearchfieldSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalAction" eType="#//GeneralAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CheckboxSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalAction" eType="#//GeneralAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ComboboxSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalAction" eType="#//GeneralAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DivSelection">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generalAction" eType="#//GeneralAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneralAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="setAction" eType="#//SetAction"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="storeAction" eType="#//StoreAction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StoreAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Var" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Var">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TypeSelection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
