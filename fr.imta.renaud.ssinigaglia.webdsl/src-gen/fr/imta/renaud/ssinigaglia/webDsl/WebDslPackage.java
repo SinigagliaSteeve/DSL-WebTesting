@@ -69,13 +69,22 @@ public interface WebDslPackage extends EPackage
   int PROGRAM = 0;
 
   /**
+   * The feature id for the '<em><b>Procedures</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROGRAM__PROCEDURES = 0;
+
+  /**
    * The feature id for the '<em><b>Core</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROGRAM__CORE = 0;
+  int PROGRAM__CORE = 1;
 
   /**
    * The number of structural features of the '<em>Program</em>' class.
@@ -84,7 +93,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROGRAM_FEATURE_COUNT = 1;
+  int PROGRAM_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl <em>Core</em>}' class.
@@ -124,6 +133,52 @@ public interface WebDslPackage extends EPackage
   int CORE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl <em>Procedure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getProcedure()
+   * @generated
+   */
+  int PROCEDURE = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__VAR = 1;
+
+  /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE__ACTIONS = 2;
+
+  /**
+   * The number of structural features of the '<em>Procedure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROCEDURE_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ActionImpl <em>Action</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -131,7 +186,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 2;
+  int ACTION = 3;
 
   /**
    * The feature id for the '<em><b>Go Action</b></em>' containment reference.
@@ -152,13 +207,59 @@ public interface WebDslPackage extends EPackage
   int ACTION__SELECTION = 1;
 
   /**
+   * The feature id for the '<em><b>Call Procedure</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__CALL_PROCEDURE = 2;
+
+  /**
    * The number of structural features of the '<em>Action</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ACTION_FEATURE_COUNT = 2;
+  int ACTION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CallProcedureImpl <em>Call Procedure</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.CallProcedureImpl
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getCallProcedure()
+   * @generated
+   */
+  int CALL_PROCEDURE = 4;
+
+  /**
+   * The feature id for the '<em><b>Ref</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_PROCEDURE__REF = 0;
+
+  /**
+   * The feature id for the '<em><b>Arg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_PROCEDURE__ARG = 1;
+
+  /**
+   * The number of structural features of the '<em>Call Procedure</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALL_PROCEDURE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GoActionImpl <em>Go Action</em>}' class.
@@ -168,7 +269,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getGoAction()
    * @generated
    */
-  int GO_ACTION = 3;
+  int GO_ACTION = 5;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -196,7 +297,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getSelection()
    * @generated
    */
-  int SELECTION = 4;
+  int SELECTION = 6;
 
   /**
    * The feature id for the '<em><b>Link Button Selection</b></em>' containment reference.
@@ -260,7 +361,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getLinkButtonSelection()
    * @generated
    */
-  int LINK_BUTTON_SELECTION = 5;
+  int LINK_BUTTON_SELECTION = 7;
 
   /**
    * The feature id for the '<em><b>Type Selection</b></em>' containment reference.
@@ -297,7 +398,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getGeneralSelection()
    * @generated
    */
-  int GENERAL_SELECTION = 6;
+  int GENERAL_SELECTION = 8;
 
   /**
    * The feature id for the '<em><b>Type Selection</b></em>' containment reference.
@@ -334,7 +435,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getCheckboxSelection()
    * @generated
    */
-  int CHECKBOX_SELECTION = 7;
+  int CHECKBOX_SELECTION = 9;
 
   /**
    * The feature id for the '<em><b>Type Selection</b></em>' containment reference.
@@ -371,7 +472,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getComboboxSelection()
    * @generated
    */
-  int COMBOBOX_SELECTION = 8;
+  int COMBOBOX_SELECTION = 10;
 
   /**
    * The feature id for the '<em><b>Type Selection</b></em>' containment reference.
@@ -408,7 +509,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getPageSelection()
    * @generated
    */
-  int PAGE_SELECTION = 9;
+  int PAGE_SELECTION = 11;
 
   /**
    * The feature id for the '<em><b>Store Action</b></em>' containment reference.
@@ -445,7 +546,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getGeneralAction()
    * @generated
    */
-  int GENERAL_ACTION = 10;
+  int GENERAL_ACTION = 12;
 
   /**
    * The feature id for the '<em><b>Set Action</b></em>' containment reference.
@@ -491,7 +592,25 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getStoreAction()
    * @generated
    */
-  int STORE_ACTION = 11;
+  int STORE_ACTION = 13;
+
+  /**
+   * The feature id for the '<em><b>Val</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORE_ACTION__VAL = 0;
+
+  /**
+   * The feature id for the '<em><b>Count</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STORE_ACTION__COUNT = 1;
 
   /**
    * The feature id for the '<em><b>Var</b></em>' containment reference.
@@ -500,7 +619,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STORE_ACTION__VAR = 0;
+  int STORE_ACTION__VAR = 2;
 
   /**
    * The number of structural features of the '<em>Store Action</em>' class.
@@ -509,7 +628,44 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STORE_ACTION_FEATURE_COUNT = 1;
+  int STORE_ACTION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl <em>Count Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl
+   * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getCountAction()
+   * @generated
+   */
+  int COUNT_ACTION = 14;
+
+  /**
+   * The feature id for the '<em><b>Html Element</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT_ACTION__HTML_ELEMENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Type Selection</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT_ACTION__TYPE_SELECTION = 1;
+
+  /**
+   * The number of structural features of the '<em>Count Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COUNT_ACTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.VarImpl <em>Var</em>}' class.
@@ -519,7 +675,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getVar()
    * @generated
    */
-  int VAR = 12;
+  int VAR = 15;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -547,7 +703,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getSetAction()
    * @generated
    */
-  int SET_ACTION = 13;
+  int SET_ACTION = 16;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -584,7 +740,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getTypeSelection()
    * @generated
    */
-  int TYPE_SELECTION = 14;
+  int TYPE_SELECTION = 17;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -605,13 +761,22 @@ public interface WebDslPackage extends EPackage
   int TYPE_SELECTION__VALUE = 1;
 
   /**
+   * The feature id for the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_SELECTION__VAR = 2;
+
+  /**
    * The number of structural features of the '<em>Type Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TYPE_SELECTION_FEATURE_COUNT = 2;
+  int TYPE_SELECTION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertImpl <em>Assert</em>}' class.
@@ -621,7 +786,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getAssert()
    * @generated
    */
-  int ASSERT = 15;
+  int ASSERT = 18;
 
   /**
    * The feature id for the '<em><b>Assert Contain</b></em>' containment reference.
@@ -658,7 +823,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getAssertContains()
    * @generated
    */
-  int ASSERT_CONTAINS = 16;
+  int ASSERT_CONTAINS = 19;
 
   /**
    * The feature id for the '<em><b>Html Element</b></em>' attribute.
@@ -695,7 +860,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getAssertEquals()
    * @generated
    */
-  int ASSERT_EQUALS = 17;
+  int ASSERT_EQUALS = 20;
 
   /**
    * The feature id for the '<em><b>C1</b></em>' containment reference.
@@ -732,7 +897,16 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getComparable()
    * @generated
    */
-  int COMPARABLE = 18;
+  int COMPARABLE = 21;
+
+  /**
+   * The feature id for the '<em><b>Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPARABLE__VAR = 0;
 
   /**
    * The feature id for the '<em><b>Html Element</b></em>' attribute.
@@ -741,7 +915,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARABLE__HTML_ELEMENT = 0;
+  int COMPARABLE__HTML_ELEMENT = 1;
 
   /**
    * The feature id for the '<em><b>Attribute</b></em>' attribute.
@@ -750,7 +924,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARABLE__ATTRIBUTE = 1;
+  int COMPARABLE__ATTRIBUTE = 2;
 
   /**
    * The number of structural features of the '<em>Comparable</em>' class.
@@ -759,7 +933,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPARABLE_FEATURE_COUNT = 2;
+  int COMPARABLE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.Browser <em>Browser</em>}' enum.
@@ -769,7 +943,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getBrowser()
    * @generated
    */
-  int BROWSER = 19;
+  int BROWSER = 22;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.HtmlElement <em>Html Element</em>}' enum.
@@ -779,7 +953,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getHtmlElement()
    * @generated
    */
-  int HTML_ELEMENT = 20;
+  int HTML_ELEMENT = 23;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.Attribute <em>Attribute</em>}' enum.
@@ -789,7 +963,7 @@ public interface WebDslPackage extends EPackage
    * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 21;
+  int ATTRIBUTE = 24;
 
 
   /**
@@ -801,6 +975,17 @@ public interface WebDslPackage extends EPackage
    * @generated
    */
   EClass getProgram();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getProcedures <em>Procedures</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Procedures</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Program#getProcedures()
+   * @see #getProgram()
+   * @generated
+   */
+  EReference getProgram_Procedures();
 
   /**
    * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getCore <em>Core</em>}'.
@@ -846,6 +1031,49 @@ public interface WebDslPackage extends EPackage
   EReference getCore_Actions();
 
   /**
+   * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.Procedure <em>Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Procedure</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Procedure
+   * @generated
+   */
+  EClass getProcedure();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.Procedure#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Procedure#getName()
+   * @see #getProcedure()
+   * @generated
+   */
+  EAttribute getProcedure_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.Procedure#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Procedure#getVar()
+   * @see #getProcedure()
+   * @generated
+   */
+  EReference getProcedure_Var();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.imta.renaud.ssinigaglia.webDsl.Procedure#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Procedure#getActions()
+   * @see #getProcedure()
+   * @generated
+   */
+  EReference getProcedure_Actions();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.Action <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -876,6 +1104,49 @@ public interface WebDslPackage extends EPackage
    * @generated
    */
   EReference getAction_Selection();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.Action#getCallProcedure <em>Call Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Call Procedure</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Action#getCallProcedure()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_CallProcedure();
+
+  /**
+   * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.CallProcedure <em>Call Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Call Procedure</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CallProcedure
+   * @generated
+   */
+  EClass getCallProcedure();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.imta.renaud.ssinigaglia.webDsl.CallProcedure#getRef <em>Ref</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CallProcedure#getRef()
+   * @see #getCallProcedure()
+   * @generated
+   */
+  EReference getCallProcedure_Ref();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.CallProcedure#getArg <em>Arg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Arg</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CallProcedure#getArg()
+   * @see #getCallProcedure()
+   * @generated
+   */
+  EAttribute getCallProcedure_Arg();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.GoAction <em>Go Action</em>}'.
@@ -1177,6 +1448,28 @@ public interface WebDslPackage extends EPackage
   EClass getStoreAction();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVal <em>Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Val</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVal()
+   * @see #getStoreAction()
+   * @generated
+   */
+  EAttribute getStoreAction_Val();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getCount <em>Count</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Count</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getCount()
+   * @see #getStoreAction()
+   * @generated
+   */
+  EReference getStoreAction_Count();
+
+  /**
    * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVar <em>Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1186,6 +1479,38 @@ public interface WebDslPackage extends EPackage
    * @generated
    */
   EReference getStoreAction_Var();
+
+  /**
+   * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.CountAction <em>Count Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Count Action</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CountAction
+   * @generated
+   */
+  EClass getCountAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.CountAction#getHtmlElement <em>Html Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Html Element</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CountAction#getHtmlElement()
+   * @see #getCountAction()
+   * @generated
+   */
+  EAttribute getCountAction_HtmlElement();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.CountAction#getTypeSelection <em>Type Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type Selection</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CountAction#getTypeSelection()
+   * @see #getCountAction()
+   * @generated
+   */
+  EReference getCountAction_TypeSelection();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.Var <em>Var</em>}'.
@@ -1271,6 +1596,17 @@ public interface WebDslPackage extends EPackage
    * @generated
    */
   EAttribute getTypeSelection_Value();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.imta.renaud.ssinigaglia.webDsl.TypeSelection#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Var</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.TypeSelection#getVar()
+   * @see #getTypeSelection()
+   * @generated
+   */
+  EReference getTypeSelection_Var();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.Assert <em>Assert</em>}'.
@@ -1379,6 +1715,17 @@ public interface WebDslPackage extends EPackage
   EClass getComparable();
 
   /**
+   * Returns the meta object for the containment reference '{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Var</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Comparable#getVar()
+   * @see #getComparable()
+   * @generated
+   */
+  EReference getComparable_Var();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getHtmlElement <em>Html Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1464,6 +1811,14 @@ public interface WebDslPackage extends EPackage
     EClass PROGRAM = eINSTANCE.getProgram();
 
     /**
+     * The meta object literal for the '<em><b>Procedures</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROGRAM__PROCEDURES = eINSTANCE.getProgram_Procedures();
+
+    /**
      * The meta object literal for the '<em><b>Core</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1498,6 +1853,40 @@ public interface WebDslPackage extends EPackage
     EReference CORE__ACTIONS = eINSTANCE.getCore_Actions();
 
     /**
+     * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl <em>Procedure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getProcedure()
+     * @generated
+     */
+    EClass PROCEDURE = eINSTANCE.getProcedure();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROCEDURE__NAME = eINSTANCE.getProcedure_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCEDURE__VAR = eINSTANCE.getProcedure_Var();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PROCEDURE__ACTIONS = eINSTANCE.getProcedure_Actions();
+
+    /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ActionImpl <em>Action</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1522,6 +1911,40 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EReference ACTION__SELECTION = eINSTANCE.getAction_Selection();
+
+    /**
+     * The meta object literal for the '<em><b>Call Procedure</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__CALL_PROCEDURE = eINSTANCE.getAction_CallProcedure();
+
+    /**
+     * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CallProcedureImpl <em>Call Procedure</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.CallProcedureImpl
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getCallProcedure()
+     * @generated
+     */
+    EClass CALL_PROCEDURE = eINSTANCE.getCallProcedure();
+
+    /**
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CALL_PROCEDURE__REF = eINSTANCE.getCallProcedure_Ref();
+
+    /**
+     * The meta object literal for the '<em><b>Arg</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CALL_PROCEDURE__ARG = eINSTANCE.getCallProcedure_Arg();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GoActionImpl <em>Go Action</em>}' class.
@@ -1766,12 +2189,54 @@ public interface WebDslPackage extends EPackage
     EClass STORE_ACTION = eINSTANCE.getStoreAction();
 
     /**
+     * The meta object literal for the '<em><b>Val</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STORE_ACTION__VAL = eINSTANCE.getStoreAction_Val();
+
+    /**
+     * The meta object literal for the '<em><b>Count</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STORE_ACTION__COUNT = eINSTANCE.getStoreAction_Count();
+
+    /**
      * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference STORE_ACTION__VAR = eINSTANCE.getStoreAction_Var();
+
+    /**
+     * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl <em>Count Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl
+     * @see fr.imta.renaud.ssinigaglia.webDsl.impl.WebDslPackageImpl#getCountAction()
+     * @generated
+     */
+    EClass COUNT_ACTION = eINSTANCE.getCountAction();
+
+    /**
+     * The meta object literal for the '<em><b>Html Element</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COUNT_ACTION__HTML_ELEMENT = eINSTANCE.getCountAction_HtmlElement();
+
+    /**
+     * The meta object literal for the '<em><b>Type Selection</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COUNT_ACTION__TYPE_SELECTION = eINSTANCE.getCountAction_TypeSelection();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.VarImpl <em>Var</em>}' class.
@@ -1842,6 +2307,14 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EAttribute TYPE_SELECTION__VALUE = eINSTANCE.getTypeSelection_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_SELECTION__VAR = eINSTANCE.getTypeSelection_Var();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertImpl <em>Assert</em>}' class.
@@ -1930,6 +2403,14 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EClass COMPARABLE = eINSTANCE.getComparable();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMPARABLE__VAR = eINSTANCE.getComparable_Var();
 
     /**
      * The meta object literal for the '<em><b>Html Element</b></em>' attribute feature.

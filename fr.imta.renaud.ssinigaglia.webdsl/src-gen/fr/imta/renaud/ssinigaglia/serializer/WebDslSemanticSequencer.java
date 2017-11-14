@@ -8,14 +8,17 @@ import fr.imta.renaud.ssinigaglia.services.WebDslGrammarAccess;
 import fr.imta.renaud.ssinigaglia.webDsl.Assert;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
@@ -60,6 +63,9 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case WebDslPackage.ASSERT_EQUALS:
 				sequence_AssertEquals(context, (AssertEquals) semanticObject); 
 				return; 
+			case WebDslPackage.CALL_PROCEDURE:
+				sequence_CallProcedure(context, (CallProcedure) semanticObject); 
+				return; 
 			case WebDslPackage.CHECKBOX_SELECTION:
 				sequence_CheckboxSelection(context, (CheckboxSelection) semanticObject); 
 				return; 
@@ -71,6 +77,9 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case WebDslPackage.CORE:
 				sequence_Core(context, (Core) semanticObject); 
+				return; 
+			case WebDslPackage.COUNT_ACTION:
+				sequence_CountAction(context, (CountAction) semanticObject); 
 				return; 
 			case WebDslPackage.GENERAL_ACTION:
 				sequence_GeneralAction(context, (GeneralAction) semanticObject); 
@@ -86,6 +95,9 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case WebDslPackage.PAGE_SELECTION:
 				sequence_PageSelection(context, (PageSelection) semanticObject); 
+				return; 
+			case WebDslPackage.PROCEDURE:
+				sequence_Procedure(context, (Procedure) semanticObject); 
 				return; 
 			case WebDslPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
@@ -115,7 +127,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Action returns Action
 	 *
 	 * Constraint:
-	 *     (goAction=GoAction | selection=Selection)
+	 *     (goAction=GoAction | selection=Selection | callProcedure=CallProcedure)
 	 */
 	protected void sequence_Action(ISerializationContext context, fr.imta.renaud.ssinigaglia.webDsl.Action semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -178,6 +190,27 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     CallProcedure returns CallProcedure
+	 *
+	 * Constraint:
+	 *     (ref=[Procedure|ID] arg=STRING)
+	 */
+	protected void sequence_CallProcedure(ISerializationContext context, CallProcedure semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.CALL_PROCEDURE__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.CALL_PROCEDURE__REF));
+			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.CALL_PROCEDURE__ARG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.CALL_PROCEDURE__ARG));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCallProcedureAccess().getRefProcedureIDTerminalRuleCall_1_0_1(), semanticObject.eGet(WebDslPackage.Literals.CALL_PROCEDURE__REF, false));
+		feeder.accept(grammarAccess.getCallProcedureAccess().getArgSTRINGTerminalRuleCall_3_0(), semanticObject.getArg());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     CheckboxSelection returns CheckboxSelection
 	 *
 	 * Constraint:
@@ -205,19 +238,10 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Comparable returns Comparable
 	 *
 	 * Constraint:
-	 *     (htmlElement=HtmlElement attribute=Attribute)
+	 *     (var=Var | (htmlElement=HtmlElement attribute=Attribute))
 	 */
 	protected void sequence_Comparable(ISerializationContext context, fr.imta.renaud.ssinigaglia.webDsl.Comparable semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.COMPARABLE__HTML_ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.COMPARABLE__HTML_ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.COMPARABLE__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.COMPARABLE__ATTRIBUTE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComparableAccess().getHtmlElementHtmlElementEnumRuleCall_1_1_0(), semanticObject.getHtmlElement());
-		feeder.accept(grammarAccess.getComparableAccess().getAttributeAttributeEnumRuleCall_1_2_0(), semanticObject.getAttribute());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -230,6 +254,27 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 */
 	protected void sequence_Core(ISerializationContext context, Core semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CountAction returns CountAction
+	 *
+	 * Constraint:
+	 *     (htmlElement=HtmlElement typeSelection=TypeSelection)
+	 */
+	protected void sequence_CountAction(ISerializationContext context, CountAction semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.COUNT_ACTION__HTML_ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.COUNT_ACTION__HTML_ELEMENT));
+			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.COUNT_ACTION__TYPE_SELECTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.COUNT_ACTION__TYPE_SELECTION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCountActionAccess().getHtmlElementHtmlElementEnumRuleCall_1_0(), semanticObject.getHtmlElement());
+		feeder.accept(grammarAccess.getCountActionAccess().getTypeSelectionTypeSelectionParserRuleCall_2_0(), semanticObject.getTypeSelection());
+		feeder.finish();
 	}
 	
 	
@@ -301,19 +346,25 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Procedure returns Procedure
+	 *
+	 * Constraint:
+	 *     (name=ID var=Var actions+=Action*)
+	 */
+	protected void sequence_Procedure(ISerializationContext context, Procedure semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     core=Core
+	 *     (procedures+=Procedure* core=Core)
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.PROGRAM__CORE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.PROGRAM__CORE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getProgramAccess().getCoreCoreParserRuleCall_0(), semanticObject.getCore());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -361,16 +412,10 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     StoreAction returns StoreAction
 	 *
 	 * Constraint:
-	 *     var=Var
+	 *     ((val=Attribute | count=CountAction) var=Var)
 	 */
 	protected void sequence_StoreAction(ISerializationContext context, StoreAction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.STORE_ACTION__VAR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.STORE_ACTION__VAR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getStoreActionAccess().getVarVarParserRuleCall_3_0(), semanticObject.getVar());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -379,19 +424,10 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     TypeSelection returns TypeSelection
 	 *
 	 * Constraint:
-	 *     (attribute=Attribute value=STRING)
+	 *     (attribute=Attribute (value=STRING | var=[Var|ID]))
 	 */
 	protected void sequence_TypeSelection(ISerializationContext context, TypeSelection semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.TYPE_SELECTION__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.TYPE_SELECTION__ATTRIBUTE));
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.TYPE_SELECTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.TYPE_SELECTION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeSelectionAccess().getAttributeAttributeEnumRuleCall_0_0_0(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getTypeSelectionAccess().getValueSTRINGTerminalRuleCall_0_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -400,7 +436,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Var returns Var
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     name=ID
 	 */
 	protected void sequence_Var(ISerializationContext context, Var semanticObject) {
 		if (errorAcceptor != null) {
@@ -408,7 +444,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.VAR__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getVarAccess().getNameSTRINGTerminalRuleCall_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getVarAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	

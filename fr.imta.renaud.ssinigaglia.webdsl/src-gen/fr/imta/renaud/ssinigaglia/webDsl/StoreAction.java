@@ -14,6 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVal <em>Val</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getCount <em>Count</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVar <em>Var</em>}</li>
  * </ul>
  *
@@ -23,6 +25,61 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface StoreAction extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Val</b></em>' attribute.
+   * The literals are from the enumeration {@link fr.imta.renaud.ssinigaglia.webDsl.Attribute}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Val</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Val</em>' attribute.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Attribute
+   * @see #setVal(Attribute)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getStoreAction_Val()
+   * @model
+   * @generated
+   */
+  Attribute getVal();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getVal <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Val</em>' attribute.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Attribute
+   * @see #getVal()
+   * @generated
+   */
+  void setVal(Attribute value);
+
+  /**
+   * Returns the value of the '<em><b>Count</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Count</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Count</em>' containment reference.
+   * @see #setCount(CountAction)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getStoreAction_Count()
+   * @model containment="true"
+   * @generated
+   */
+  CountAction getCount();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction#getCount <em>Count</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Count</em>' containment reference.
+   * @see #getCount()
+   * @generated
+   */
+  void setCount(CountAction value);
+
   /**
    * Returns the value of the '<em><b>Var</b></em>' containment reference.
    * <!-- begin-user-doc -->

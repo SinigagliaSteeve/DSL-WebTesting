@@ -3,13 +3,19 @@ grammar fr.imta.renaud.ssinigaglia.WebDsl with org.eclipse.xtext.common.Terminal
 generate webDsl "http://www.imta.fr/renaud/ssinigaglia/WebDsl"
 
 Program:
-	//procedures += Procedure*
+	procedures += Procedure*
 	core=Core
 ;
 
 Core:
 	'open_browser' name=Browser
 	actions += Action*
+;
+
+Procedure:
+	'PROCEDURE' name=ID'('var=Var'){'
+		actions+=Action*
+	'}'
 ;
 	
 enum Browser:
@@ -22,7 +28,11 @@ enum Browser:
 Action:
 	(goAction = GoAction) 
 	|(selection = Selection) 
-	//(callProcedures += CallProcedure*)
+	| (callProcedure = CallProcedure)
+;
+
+CallProcedure:
+	'PROC:'ref=[Procedure]'('arg=STRING')'
 ;
 
 GoAction:
@@ -80,11 +90,15 @@ GeneralAction:
 ;
 
 StoreAction:
-	'store' '()' 'in' var=Var //TODO
+	'store' '('(val=Attribute|count=CountAction)')' 'in' var=Var //TODO
+;
+
+CountAction:
+	'count' htmlElement = HtmlElement typeSelection=TypeSelection
 ;
 
 Var:
-	name=STRING
+	name=ID
 ;
 //
 
@@ -93,7 +107,7 @@ SetAction:
 ;
 
 TypeSelection:
-	(attribute=Attribute':'value=STRING)
+	(attribute=Attribute':'(value=(STRING)|var=[Var]))
 		|"PARENT" 
 		|"FIRST" 
 		|"LAST" 
@@ -112,7 +126,7 @@ AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | 'TE
 AssertEquals : c1=Comparable 'equals' c2=Comparable;
 
 Comparable:
-	'VAR:' STRING
+	'VAR:'var=Var
 	|'('htmlElement = HtmlElement attribute=Attribute')'
 	|STRING
 ;

@@ -42,6 +42,15 @@ public interface WebDslFactory extends EFactory
   Core createCore();
 
   /**
+   * Returns a new object of class '<em>Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Procedure</em>'.
+   * @generated
+   */
+  Procedure createProcedure();
+
+  /**
    * Returns a new object of class '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +58,15 @@ public interface WebDslFactory extends EFactory
    * @generated
    */
   Action createAction();
+
+  /**
+   * Returns a new object of class '<em>Call Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Call Procedure</em>'.
+   * @generated
+   */
+  CallProcedure createCallProcedure();
 
   /**
    * Returns a new object of class '<em>Go Action</em>'.
@@ -130,6 +148,15 @@ public interface WebDslFactory extends EFactory
    * @generated
    */
   StoreAction createStoreAction();
+
+  /**
+   * Returns a new object of class '<em>Count Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Count Action</em>'.
+   * @generated
+   */
+  CountAction createCountAction();
 
   /**
    * Returns a new object of class '<em>Var</em>'.

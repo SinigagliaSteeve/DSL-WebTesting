@@ -7,22 +7,22 @@ Test 9 (result=TRUE)
 * repeat all the procedure for the pages DOSSIERS DE PRESSE, VISUELS POUR LA PRESSE, LA
 PRESSE EN PARLE, TRIBUNES DE PRESSE, LES PALMARÈS
 
-PROCEDURE test_link(“NOM1”) {
-	go "http://www.imt-atlantique.fr/fr"
-	LINK LABEL:ARG(“NOM1”) {
+PROCEDURE test_link(nom){
+	go "http"
+	LINK LABEL:nom{
 		click
 	}
 	PAGE {
-		verify contains LINK TITLE:”Imprimer”
+		verify contains LINK TITLE:"Imprimer"
 	}
-	LINK TITLE:”Imprimer” {
+	LINK TITLE:"Imprimer" {
 		click
 	}
 }
 
-open browser chrome
-PROC:test_link(“COMMUNIQUES DE PRESSE”)
-PROC:test_link(“VISUELS POUR LA PRESSE”)
-PROC:test_link(“LA PRESSE EN PARLE”)
-PROC:test_link(“TRIBUNES DE PRESSE”)
-PROC:test_link(“LES PALMARÈS”)
+open_browser chrome
+PROC:test_link("COMMUNIQUES DE PRESSE")
+PROC:test_link("VISUELS POUR LA PRESSE")
+PROC:test_link("LA PRESSE EN PARLE")
+PROC:test_link("TRIBUNES DE PRESSE")
+PROC:test_link("LES PALMARÈS")

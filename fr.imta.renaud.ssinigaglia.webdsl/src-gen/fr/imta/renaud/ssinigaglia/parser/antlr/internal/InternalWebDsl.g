@@ -78,21 +78,42 @@ ruleProgram returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getProgramAccess().getCoreCoreParserRuleCall_0());
-			}
-			lv_core_0_0=ruleCore
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getProgramRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getProgramAccess().getProceduresProcedureParserRuleCall_0_0());
 				}
-				set(
-					$current,
-					"core",
-					lv_core_0_0,
-					"fr.imta.renaud.ssinigaglia.WebDsl.Core");
-				afterParserOrEnumRuleCall();
-			}
+				lv_procedures_0_0=ruleProcedure
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProgramRule());
+					}
+					add(
+						$current,
+						"procedures",
+						lv_procedures_0_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.Procedure");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProgramAccess().getCoreCoreParserRuleCall_1_0());
+				}
+				lv_core_1_0=ruleCore
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProgramRule());
+					}
+					set(
+						$current,
+						"core",
+						lv_core_1_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.Core");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;
@@ -158,6 +179,97 @@ ruleCore returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleProcedure
+entryRuleProcedure returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getProcedureRule()); }
+	iv_ruleProcedure=ruleProcedure
+	{ $current=$iv_ruleProcedure.current; }
+	EOF;
+
+// Rule Procedure
+ruleProcedure returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='PROCEDURE'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getProcedureAccess().getPROCEDUREKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getProcedureAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getProcedureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getProcedureAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProcedureAccess().getVarVarParserRuleCall_3_0());
+				}
+				lv_var_3_0=ruleVar
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProcedureRule());
+					}
+					set(
+						$current,
+						"var",
+						lv_var_3_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.Var");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_4='){'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getProcedureAccess().getRightParenthesisLeftCurlyBracketKeyword_4());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getProcedureAccess().getActionsActionParserRuleCall_5_0());
+				}
+				lv_actions_5_0=ruleAction
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getProcedureRule());
+					}
+					add(
+						$current,
+						"actions",
+						lv_actions_5_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.Action");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)*
+		otherlv_6='}'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getProcedureAccess().getRightCurlyBracketKeyword_6());
+		}
+	)
+;
+
 // Entry rule entryRuleAction
 entryRuleAction returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getActionRule()); }
@@ -213,6 +325,88 @@ ruleAction returns [EObject current=null]
 				}
 			)
 		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getActionAccess().getCallProcedureCallProcedureParserRuleCall_2_0());
+				}
+				lv_callProcedure_2_0=ruleCallProcedure
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getActionRule());
+					}
+					set(
+						$current,
+						"callProcedure",
+						lv_callProcedure_2_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.CallProcedure");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleCallProcedure
+entryRuleCallProcedure returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCallProcedureRule()); }
+	iv_ruleCallProcedure=ruleCallProcedure
+	{ $current=$iv_ruleCallProcedure.current; }
+	EOF;
+
+// Rule CallProcedure
+ruleCallProcedure returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='PROC:'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCallProcedureAccess().getPROCKeyword_0());
+		}
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCallProcedureRule());
+					}
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getCallProcedureAccess().getRefProcedureCrossReference_1_0());
+				}
+			)
+		)
+		otherlv_2='('
+		{
+			newLeafNode(otherlv_2, grammarAccess.getCallProcedureAccess().getLeftParenthesisKeyword_2());
+		}
+		(
+			(
+				lv_arg_3_0=RULE_STRING
+				{
+					newLeafNode(lv_arg_3_0, grammarAccess.getCallProcedureAccess().getArgSTRINGTerminalRuleCall_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getCallProcedureRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"arg",
+						lv_arg_3_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getCallProcedureAccess().getRightParenthesisKeyword_4());
+		}
 	)
 ;
 
@@ -872,20 +1066,65 @@ ruleStoreAction returns [EObject current=null]
 		{
 			newLeafNode(otherlv_0, grammarAccess.getStoreActionAccess().getStoreKeyword_0());
 		}
-		otherlv_1='()'
+		otherlv_1='('
 		{
-			newLeafNode(otherlv_1, grammarAccess.getStoreActionAccess().getLeftParenthesisRightParenthesisKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getStoreActionAccess().getLeftParenthesisKeyword_1());
 		}
-		otherlv_2='in'
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStoreActionAccess().getValAttributeEnumRuleCall_2_0_0());
+					}
+					lv_val_2_0=ruleAttribute
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStoreActionRule());
+						}
+						set(
+							$current,
+							"val",
+							lv_val_2_0,
+							"fr.imta.renaud.ssinigaglia.WebDsl.Attribute");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStoreActionAccess().getCountCountActionParserRuleCall_2_1_0());
+					}
+					lv_count_3_0=ruleCountAction
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStoreActionRule());
+						}
+						set(
+							$current,
+							"count",
+							lv_count_3_0,
+							"fr.imta.renaud.ssinigaglia.WebDsl.CountAction");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		otherlv_4=')'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getStoreActionAccess().getInKeyword_2());
+			newLeafNode(otherlv_4, grammarAccess.getStoreActionAccess().getRightParenthesisKeyword_3());
+		}
+		otherlv_5='in'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getStoreActionAccess().getInKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStoreActionAccess().getVarVarParserRuleCall_3_0());
+					newCompositeNode(grammarAccess.getStoreActionAccess().getVarVarParserRuleCall_5_0());
 				}
-				lv_var_3_0=ruleVar
+				lv_var_6_0=ruleVar
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStoreActionRule());
@@ -893,8 +1132,69 @@ ruleStoreAction returns [EObject current=null]
 					set(
 						$current,
 						"var",
-						lv_var_3_0,
+						lv_var_6_0,
 						"fr.imta.renaud.ssinigaglia.WebDsl.Var");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleCountAction
+entryRuleCountAction returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getCountActionRule()); }
+	iv_ruleCountAction=ruleCountAction
+	{ $current=$iv_ruleCountAction.current; }
+	EOF;
+
+// Rule CountAction
+ruleCountAction returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='count'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getCountActionAccess().getCountKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCountActionAccess().getHtmlElementHtmlElementEnumRuleCall_1_0());
+				}
+				lv_htmlElement_1_0=ruleHtmlElement
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCountActionRule());
+					}
+					set(
+						$current,
+						"htmlElement",
+						lv_htmlElement_1_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.HtmlElement");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getCountActionAccess().getTypeSelectionTypeSelectionParserRuleCall_2_0());
+				}
+				lv_typeSelection_2_0=ruleTypeSelection
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getCountActionRule());
+					}
+					set(
+						$current,
+						"typeSelection",
+						lv_typeSelection_2_0,
+						"fr.imta.renaud.ssinigaglia.WebDsl.TypeSelection");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -919,9 +1219,9 @@ ruleVar returns [EObject current=null]
 }:
 	(
 		(
-			lv_name_0_0=RULE_STRING
+			lv_name_0_0=RULE_ID
 			{
-				newLeafNode(lv_name_0_0, grammarAccess.getVarAccess().getNameSTRINGTerminalRuleCall_0());
+				newLeafNode(lv_name_0_0, grammarAccess.getVarAccess().getNameIDTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
@@ -931,7 +1231,7 @@ ruleVar returns [EObject current=null]
 					$current,
 					"name",
 					lv_name_0_0,
-					"org.eclipse.xtext.common.Terminals.STRING");
+					"org.eclipse.xtext.common.Terminals.ID");
 			}
 		)
 	)
@@ -1043,42 +1343,58 @@ ruleTypeSelection returns [EObject current=null]
 			}
 			(
 				(
-					lv_value_2_0=RULE_STRING
-					{
-						newLeafNode(lv_value_2_0, grammarAccess.getTypeSelectionAccess().getValueSTRINGTerminalRuleCall_0_2_0());
-					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTypeSelectionRule());
+					(
+						lv_value_2_0=RULE_STRING
+						{
+							newLeafNode(lv_value_2_0, grammarAccess.getTypeSelectionAccess().getValueSTRINGTerminalRuleCall_0_2_0_0());
 						}
-						setWithLastConsumed(
-							$current,
-							"value",
-							lv_value_2_0,
-							"org.eclipse.xtext.common.Terminals.STRING");
-					}
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getTypeSelectionRule());
+							}
+							setWithLastConsumed(
+								$current,
+								"value",
+								lv_value_2_0,
+								"org.eclipse.xtext.common.Terminals.STRING");
+						}
+					)
+				)
+				    |
+				(
+					(
+						{
+							if ($current==null) {
+								$current = createModelElement(grammarAccess.getTypeSelectionRule());
+							}
+						}
+						otherlv_3=RULE_ID
+						{
+							newLeafNode(otherlv_3, grammarAccess.getTypeSelectionAccess().getVarVarCrossReference_0_2_1_0());
+						}
+					)
 				)
 			)
 		)
 		    |
-		otherlv_3='PARENT'
+		otherlv_4='PARENT'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getTypeSelectionAccess().getPARENTKeyword_1());
+			newLeafNode(otherlv_4, grammarAccess.getTypeSelectionAccess().getPARENTKeyword_1());
 		}
 		    |
-		otherlv_4='FIRST'
+		otherlv_5='FIRST'
 		{
-			newLeafNode(otherlv_4, grammarAccess.getTypeSelectionAccess().getFIRSTKeyword_2());
+			newLeafNode(otherlv_5, grammarAccess.getTypeSelectionAccess().getFIRSTKeyword_2());
 		}
 		    |
-		otherlv_5='LAST'
+		otherlv_6='LAST'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getTypeSelectionAccess().getLASTKeyword_3());
+			newLeafNode(otherlv_6, grammarAccess.getTypeSelectionAccess().getLASTKeyword_3());
 		}
 		    |
-		otherlv_6='ALL'
+		otherlv_7='ALL'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getTypeSelectionAccess().getALLKeyword_4());
+			newLeafNode(otherlv_7, grammarAccess.getTypeSelectionAccess().getALLKeyword_4());
 		}
 	)
 ;
@@ -1307,10 +1623,25 @@ ruleComparable returns [EObject current=null]
 			{
 				newLeafNode(otherlv_0, grammarAccess.getComparableAccess().getVARKeyword_0_0());
 			}
-			this_STRING_1=RULE_STRING
-			{
-				newLeafNode(this_STRING_1, grammarAccess.getComparableAccess().getSTRINGTerminalRuleCall_0_1());
-			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getComparableAccess().getVarVarParserRuleCall_0_1_0());
+					}
+					lv_var_1_0=ruleVar
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getComparableRule());
+						}
+						set(
+							$current,
+							"var",
+							lv_var_1_0,
+							"fr.imta.renaud.ssinigaglia.WebDsl.Var");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
 		)
 		    |
 		(

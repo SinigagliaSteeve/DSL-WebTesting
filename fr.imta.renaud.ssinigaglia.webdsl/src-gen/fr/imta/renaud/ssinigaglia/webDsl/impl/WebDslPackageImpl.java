@@ -9,15 +9,18 @@ import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
 import fr.imta.renaud.ssinigaglia.webDsl.Attribute;
 import fr.imta.renaud.ssinigaglia.webDsl.Browser;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.HtmlElement;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
@@ -62,7 +65,21 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass procedureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass actionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass callProcedureEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -126,6 +143,13 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * @generated
    */
   private EClass storeActionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass countActionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -275,9 +299,19 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Core()
+  public EReference getProgram_Procedures()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProgram_Core()
+  {
+    return (EReference)programEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -315,6 +349,46 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getProcedure()
+  {
+    return procedureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getProcedure_Name()
+  {
+    return (EAttribute)procedureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProcedure_Var()
+  {
+    return (EReference)procedureEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getProcedure_Actions()
+  {
+    return (EReference)procedureEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAction()
   {
     return actionEClass;
@@ -338,6 +412,46 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EReference getAction_Selection()
   {
     return (EReference)actionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAction_CallProcedure()
+  {
+    return (EReference)actionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCallProcedure()
+  {
+    return callProcedureEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCallProcedure_Ref()
+  {
+    return (EReference)callProcedureEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCallProcedure_Arg()
+  {
+    return (EAttribute)callProcedureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -625,9 +739,59 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getStoreAction_Val()
+  {
+    return (EAttribute)storeActionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStoreAction_Count()
+  {
+    return (EReference)storeActionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getStoreAction_Var()
   {
-    return (EReference)storeActionEClass.getEStructuralFeatures().get(0);
+    return (EReference)storeActionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCountAction()
+  {
+    return countActionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCountAction_HtmlElement()
+  {
+    return (EAttribute)countActionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCountAction_TypeSelection()
+  {
+    return (EReference)countActionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -708,6 +872,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EAttribute getTypeSelection_Value()
   {
     return (EAttribute)typeSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeSelection_Var()
+  {
+    return (EReference)typeSelectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -815,9 +989,19 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getComparable_Var()
+  {
+    return (EReference)comparableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EAttribute getComparable_HtmlElement()
   {
-    return (EAttribute)comparableEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)comparableEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -827,7 +1011,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    */
   public EAttribute getComparable_Attribute()
   {
-    return (EAttribute)comparableEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)comparableEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -891,15 +1075,26 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
+    createEReference(programEClass, PROGRAM__PROCEDURES);
     createEReference(programEClass, PROGRAM__CORE);
 
     coreEClass = createEClass(CORE);
     createEAttribute(coreEClass, CORE__NAME);
     createEReference(coreEClass, CORE__ACTIONS);
 
+    procedureEClass = createEClass(PROCEDURE);
+    createEAttribute(procedureEClass, PROCEDURE__NAME);
+    createEReference(procedureEClass, PROCEDURE__VAR);
+    createEReference(procedureEClass, PROCEDURE__ACTIONS);
+
     actionEClass = createEClass(ACTION);
     createEReference(actionEClass, ACTION__GO_ACTION);
     createEReference(actionEClass, ACTION__SELECTION);
+    createEReference(actionEClass, ACTION__CALL_PROCEDURE);
+
+    callProcedureEClass = createEClass(CALL_PROCEDURE);
+    createEReference(callProcedureEClass, CALL_PROCEDURE__REF);
+    createEAttribute(callProcedureEClass, CALL_PROCEDURE__ARG);
 
     goActionEClass = createEClass(GO_ACTION);
     createEAttribute(goActionEClass, GO_ACTION__NAME);
@@ -937,7 +1132,13 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEReference(generalActionEClass, GENERAL_ACTION__SELECTION);
 
     storeActionEClass = createEClass(STORE_ACTION);
+    createEAttribute(storeActionEClass, STORE_ACTION__VAL);
+    createEReference(storeActionEClass, STORE_ACTION__COUNT);
     createEReference(storeActionEClass, STORE_ACTION__VAR);
+
+    countActionEClass = createEClass(COUNT_ACTION);
+    createEAttribute(countActionEClass, COUNT_ACTION__HTML_ELEMENT);
+    createEReference(countActionEClass, COUNT_ACTION__TYPE_SELECTION);
 
     varEClass = createEClass(VAR);
     createEAttribute(varEClass, VAR__NAME);
@@ -949,6 +1150,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     typeSelectionEClass = createEClass(TYPE_SELECTION);
     createEAttribute(typeSelectionEClass, TYPE_SELECTION__ATTRIBUTE);
     createEAttribute(typeSelectionEClass, TYPE_SELECTION__VALUE);
+    createEReference(typeSelectionEClass, TYPE_SELECTION__VAR);
 
     assertEClass = createEClass(ASSERT);
     createEReference(assertEClass, ASSERT__ASSERT_CONTAIN);
@@ -963,6 +1165,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEReference(assertEqualsEClass, ASSERT_EQUALS__C2);
 
     comparableEClass = createEClass(COMPARABLE);
+    createEReference(comparableEClass, COMPARABLE__VAR);
     createEAttribute(comparableEClass, COMPARABLE__HTML_ELEMENT);
     createEAttribute(comparableEClass, COMPARABLE__ATTRIBUTE);
 
@@ -1004,15 +1207,26 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProgram_Procedures(), this.getProcedure(), null, "procedures", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getProgram_Core(), this.getCore(), null, "core", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCore_Name(), this.getBrowser(), "name", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCore_Actions(), this.getAction(), null, "actions", null, 0, -1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getProcedure_Name(), ecorePackage.getEString(), "name", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Var(), this.getVar(), null, "var", null, 0, 1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProcedure_Actions(), this.getAction(), null, "actions", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAction_GoAction(), this.getGoAction(), null, "goAction", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAction_Selection(), this.getSelection(), null, "selection", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAction_CallProcedure(), this.getCallProcedure(), null, "callProcedure", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(callProcedureEClass, CallProcedure.class, "CallProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCallProcedure_Ref(), this.getProcedure(), null, "ref", null, 0, 1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCallProcedure_Arg(), ecorePackage.getEString(), "arg", null, 0, 1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goActionEClass, GoAction.class, "GoAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getGoAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1050,7 +1264,13 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEReference(getGeneralAction_Selection(), this.getSelection(), null, "selection", null, 0, 1, GeneralAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(storeActionEClass, StoreAction.class, "StoreAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStoreAction_Val(), this.getAttribute(), "val", null, 0, 1, StoreAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStoreAction_Count(), this.getCountAction(), null, "count", null, 0, 1, StoreAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStoreAction_Var(), this.getVar(), null, "var", null, 0, 1, StoreAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(countActionEClass, CountAction.class, "CountAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCountAction_HtmlElement(), this.getHtmlElement(), "htmlElement", null, 0, 1, CountAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCountAction_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, CountAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(varEClass, Var.class, "Var", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVar_Name(), ecorePackage.getEString(), "name", null, 0, 1, Var.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1062,6 +1282,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEClass(typeSelectionEClass, TypeSelection.class, "TypeSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeSelection_Attribute(), this.getAttribute(), "attribute", null, 0, 1, TypeSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTypeSelection_Value(), ecorePackage.getEString(), "value", null, 0, 1, TypeSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTypeSelection_Var(), this.getVar(), null, "var", null, 0, 1, TypeSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssert_AssertContain(), this.getAssertContains(), null, "assertContain", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1076,6 +1297,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEReference(getAssertEquals_C2(), this.getComparable(), null, "c2", null, 0, 1, AssertEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comparableEClass, fr.imta.renaud.ssinigaglia.webDsl.Comparable.class, "Comparable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComparable_Var(), this.getVar(), null, "var", null, 0, 1, fr.imta.renaud.ssinigaglia.webDsl.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComparable_HtmlElement(), this.getHtmlElement(), "htmlElement", null, 0, 1, fr.imta.renaud.ssinigaglia.webDsl.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getComparable_Attribute(), this.getAttribute(), "attribute", null, 0, 1, fr.imta.renaud.ssinigaglia.webDsl.Comparable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

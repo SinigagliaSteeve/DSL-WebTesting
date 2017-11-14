@@ -3,10 +3,18 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="webDsl" nsURI="http://www.imta.fr/renaud/ssinigaglia/WebDsl"
     nsPrefix="webDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Program">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="procedures" upperBound="-1"
+        eType="#//Procedure" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="core" eType="#//Core" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Core">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="#//Browser"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//Action" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Procedure">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Var" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
@@ -22,6 +30,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//Selection"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="callProcedure" eType="#//CallProcedure"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CallProcedure">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Procedure"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="arg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GoAction">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -77,7 +91,15 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="StoreAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="val" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="count" eType="#//CountAction"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Var" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlElement" eType="#//HtmlElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Var">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -89,6 +111,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="TypeSelection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="#//Attribute"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Var"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Assert">
     <eStructuralFeatures xsi:type="ecore:EReference" name="assertContain" eType="#//AssertContains"
@@ -107,6 +130,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Comparable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="var" eType="#//Var" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlElement" eType="#//HtmlElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="#//Attribute"/>
   </eClassifiers>

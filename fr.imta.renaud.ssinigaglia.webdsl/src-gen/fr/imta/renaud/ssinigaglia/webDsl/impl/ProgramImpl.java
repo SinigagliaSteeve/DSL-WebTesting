@@ -4,17 +4,25 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProgramImpl#getProcedures <em>Procedures</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProgramImpl#getCore <em>Core</em>}</li>
  * </ul>
  *
@@ -31,6 +40,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
 {
+  /**
+   * The cached value of the '{@link #getProcedures() <em>Procedures</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProcedures()
+   * @generated
+   * @ordered
+   */
+  protected EList<Procedure> procedures;
+
   /**
    * The cached value of the '{@link #getCore() <em>Core</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +79,20 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   protected EClass eStaticClass()
   {
     return WebDslPackage.Literals.PROGRAM;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Procedure> getProcedures()
+  {
+    if (procedures == null)
+    {
+      procedures = new EObjectContainmentEList<Procedure>(Procedure.class, this, WebDslPackage.PROGRAM__PROCEDURES);
+    }
+    return procedures;
   }
 
   /**
@@ -120,6 +153,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case WebDslPackage.PROGRAM__PROCEDURES:
+        return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
       case WebDslPackage.PROGRAM__CORE:
         return basicSetCore(null, msgs);
     }
@@ -136,6 +171,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case WebDslPackage.PROGRAM__PROCEDURES:
+        return getProcedures();
       case WebDslPackage.PROGRAM__CORE:
         return getCore();
     }
@@ -147,11 +184,16 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case WebDslPackage.PROGRAM__PROCEDURES:
+        getProcedures().clear();
+        getProcedures().addAll((Collection<? extends Procedure>)newValue);
+        return;
       case WebDslPackage.PROGRAM__CORE:
         setCore((Core)newValue);
         return;
@@ -169,6 +211,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case WebDslPackage.PROGRAM__PROCEDURES:
+        getProcedures().clear();
+        return;
       case WebDslPackage.PROGRAM__CORE:
         setCore((Core)null);
         return;
@@ -186,6 +231,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   {
     switch (featureID)
     {
+      case WebDslPackage.PROGRAM__PROCEDURES:
+        return procedures != null && !procedures.isEmpty();
       case WebDslPackage.PROGRAM__CORE:
         return core != null;
     }

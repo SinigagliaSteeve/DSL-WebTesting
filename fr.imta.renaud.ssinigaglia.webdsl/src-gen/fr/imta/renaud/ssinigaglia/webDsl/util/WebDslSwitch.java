@@ -7,14 +7,17 @@ import fr.imta.renaud.ssinigaglia.webDsl.Action;
 import fr.imta.renaud.ssinigaglia.webDsl.Assert;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
@@ -105,10 +108,24 @@ public class WebDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case WebDslPackage.PROCEDURE:
+      {
+        Procedure procedure = (Procedure)theEObject;
+        T result = caseProcedure(procedure);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case WebDslPackage.ACTION:
       {
         Action action = (Action)theEObject;
         T result = caseAction(action);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WebDslPackage.CALL_PROCEDURE:
+      {
+        CallProcedure callProcedure = (CallProcedure)theEObject;
+        T result = caseCallProcedure(callProcedure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,6 +189,13 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         StoreAction storeAction = (StoreAction)theEObject;
         T result = caseStoreAction(storeAction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WebDslPackage.COUNT_ACTION:
+      {
+        CountAction countAction = (CountAction)theEObject;
+        T result = caseCountAction(countAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -261,6 +285,22 @@ public class WebDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Procedure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProcedure(Procedure object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Action</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -272,6 +312,22 @@ public class WebDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAction(Action object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Call Procedure</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Call Procedure</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCallProcedure(CallProcedure object)
   {
     return null;
   }
@@ -416,6 +472,22 @@ public class WebDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStoreAction(StoreAction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Count Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Count Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCountAction(CountAction object)
   {
     return null;
   }

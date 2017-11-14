@@ -4,8 +4,8 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.Action;
-import fr.imta.renaud.ssinigaglia.webDsl.Browser;
-import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
+import fr.imta.renaud.ssinigaglia.webDsl.Var;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
 import java.util.Collection;
@@ -26,19 +26,20 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Core</b></em>'.
+ * An implementation of the model object '<em><b>Procedure</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl#getVar <em>Var</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProcedureImpl#getActions <em>Actions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CoreImpl extends MinimalEObjectImpl.Container implements Core
+public class ProcedureImpl extends MinimalEObjectImpl.Container implements Procedure
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -48,7 +49,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * @generated
    * @ordered
    */
-  protected static final Browser NAME_EDEFAULT = Browser.CHROME;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -58,7 +59,17 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * @generated
    * @ordered
    */
-  protected Browser name = NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected Var var;
 
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -75,7 +86,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CoreImpl()
+  protected ProcedureImpl()
   {
     super();
   }
@@ -88,7 +99,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   @Override
   protected EClass eStaticClass()
   {
-    return WebDslPackage.Literals.CORE;
+    return WebDslPackage.Literals.PROCEDURE;
   }
 
   /**
@@ -96,7 +107,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * <!-- end-user-doc -->
    * @generated
    */
-  public Browser getName()
+  public String getName()
   {
     return name;
   }
@@ -106,12 +117,60 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(Browser newName)
+  public void setName(String newName)
   {
-    Browser oldName = name;
-    name = newName == null ? NAME_EDEFAULT : newName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.CORE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.PROCEDURE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Var getVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetVar(Var newVar, NotificationChain msgs)
+  {
+    Var oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.PROCEDURE__VAR, oldVar, newVar);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVar(Var newVar)
+  {
+    if (newVar != var)
+    {
+      NotificationChain msgs = null;
+      if (var != null)
+        msgs = ((InternalEObject)var).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PROCEDURE__VAR, null, msgs);
+      if (newVar != null)
+        msgs = ((InternalEObject)newVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PROCEDURE__VAR, null, msgs);
+      msgs = basicSetVar(newVar, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.PROCEDURE__VAR, newVar, newVar));
   }
 
   /**
@@ -123,7 +182,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     if (actions == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, WebDslPackage.CORE__ACTIONS);
+      actions = new EObjectContainmentEList<Action>(Action.class, this, WebDslPackage.PROCEDURE__ACTIONS);
     }
     return actions;
   }
@@ -138,7 +197,9 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     switch (featureID)
     {
-      case WebDslPackage.CORE__ACTIONS:
+      case WebDslPackage.PROCEDURE__VAR:
+        return basicSetVar(null, msgs);
+      case WebDslPackage.PROCEDURE__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -154,9 +215,11 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     switch (featureID)
     {
-      case WebDslPackage.CORE__NAME:
+      case WebDslPackage.PROCEDURE__NAME:
         return getName();
-      case WebDslPackage.CORE__ACTIONS:
+      case WebDslPackage.PROCEDURE__VAR:
+        return getVar();
+      case WebDslPackage.PROCEDURE__ACTIONS:
         return getActions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -173,10 +236,13 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     switch (featureID)
     {
-      case WebDslPackage.CORE__NAME:
-        setName((Browser)newValue);
+      case WebDslPackage.PROCEDURE__NAME:
+        setName((String)newValue);
         return;
-      case WebDslPackage.CORE__ACTIONS:
+      case WebDslPackage.PROCEDURE__VAR:
+        setVar((Var)newValue);
+        return;
+      case WebDslPackage.PROCEDURE__ACTIONS:
         getActions().clear();
         getActions().addAll((Collection<? extends Action>)newValue);
         return;
@@ -194,10 +260,13 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     switch (featureID)
     {
-      case WebDslPackage.CORE__NAME:
+      case WebDslPackage.PROCEDURE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case WebDslPackage.CORE__ACTIONS:
+      case WebDslPackage.PROCEDURE__VAR:
+        setVar((Var)null);
+        return;
+      case WebDslPackage.PROCEDURE__ACTIONS:
         getActions().clear();
         return;
     }
@@ -214,9 +283,11 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
   {
     switch (featureID)
     {
-      case WebDslPackage.CORE__NAME:
-        return name != NAME_EDEFAULT;
-      case WebDslPackage.CORE__ACTIONS:
+      case WebDslPackage.PROCEDURE__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case WebDslPackage.PROCEDURE__VAR:
+        return var != null;
+      case WebDslPackage.PROCEDURE__ACTIONS:
         return actions != null && !actions.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -239,4 +310,4 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
     return result.toString();
   }
 
-} //CoreImpl
+} //ProcedureImpl

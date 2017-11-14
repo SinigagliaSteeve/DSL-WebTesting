@@ -7,14 +7,17 @@ import fr.imta.renaud.ssinigaglia.webDsl.Action;
 import fr.imta.renaud.ssinigaglia.webDsl.Assert;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
@@ -104,9 +107,19 @@ public class WebDslAdapterFactory extends AdapterFactoryImpl
         return createCoreAdapter();
       }
       @Override
+      public Adapter caseProcedure(Procedure object)
+      {
+        return createProcedureAdapter();
+      }
+      @Override
       public Adapter caseAction(Action object)
       {
         return createActionAdapter();
+      }
+      @Override
+      public Adapter caseCallProcedure(CallProcedure object)
+      {
+        return createCallProcedureAdapter();
       }
       @Override
       public Adapter caseGoAction(GoAction object)
@@ -152,6 +165,11 @@ public class WebDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStoreAction(StoreAction object)
       {
         return createStoreActionAdapter();
+      }
+      @Override
+      public Adapter caseCountAction(CountAction object)
+      {
+        return createCountActionAdapter();
       }
       @Override
       public Adapter caseVar(Var object)
@@ -241,6 +259,21 @@ public class WebDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link fr.imta.renaud.ssinigaglia.webDsl.Procedure <em>Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Procedure
+   * @generated
+   */
+  public Adapter createProcedureAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link fr.imta.renaud.ssinigaglia.webDsl.Action <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -251,6 +284,21 @@ public class WebDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.imta.renaud.ssinigaglia.webDsl.CallProcedure <em>Call Procedure</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CallProcedure
+   * @generated
+   */
+  public Adapter createCallProcedureAdapter()
   {
     return null;
   }
@@ -386,6 +434,21 @@ public class WebDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStoreActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.imta.renaud.ssinigaglia.webDsl.CountAction <em>Count Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CountAction
+   * @generated
+   */
+  public Adapter createCountActionAdapter()
   {
     return null;
   }

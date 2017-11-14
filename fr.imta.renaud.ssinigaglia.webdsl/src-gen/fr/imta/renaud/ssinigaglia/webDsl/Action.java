@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Action#getGoAction <em>Go Action</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Action#getSelection <em>Selection</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Action#getCallProcedure <em>Call Procedure</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAction()
@@ -75,5 +76,31 @@ public interface Action extends EObject
    * @generated
    */
   void setSelection(Selection value);
+
+  /**
+   * Returns the value of the '<em><b>Call Procedure</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Call Procedure</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Call Procedure</em>' containment reference.
+   * @see #setCallProcedure(CallProcedure)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAction_CallProcedure()
+   * @model containment="true"
+   * @generated
+   */
+  CallProcedure getCallProcedure();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Action#getCallProcedure <em>Call Procedure</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Call Procedure</em>' containment reference.
+   * @see #getCallProcedure()
+   * @generated
+   */
+  void setCallProcedure(CallProcedure value);
 
 } // Action
