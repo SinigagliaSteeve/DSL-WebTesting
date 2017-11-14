@@ -1,0 +1,138 @@
+grammar fr.imta.renaud.ssinigaglia.WebDsl with org.eclipse.xtext.common.Terminals
+
+generate webDsl "http://www.imta.fr/renaud/ssinigaglia/WebDsl"
+
+Program:
+	//procedures += Procedure*
+	core=Core
+;
+
+Core:
+	'open_browser' name=Browser
+	actions += Action*
+;
+	
+enum Browser:
+	CHROME = "chrome" 
+	| FIREFOX = "firefox" 
+	| SAFARI = "safari" 
+	| EDGE = "edge" 
+	| IE = "ie";
+
+Action:
+	(goAction = GoAction) 
+	|(selection = Selection) 
+	//(callProcedures += CallProcedure*)
+;
+
+GoAction:
+	'go' name=STRING;
+	
+	
+Selection:
+	linkButtonSelection=LinkButtonSelection 
+	| generalSelection=GeneralSelection
+	| checkboxSelection=CheckboxSelection 
+	| comboboxSelection=ComboboxSelection
+	| pageSelection=PageSelection
+;
+
+LinkButtonSelection:
+	("LINK"|"BUTTON") typeSelection=TypeSelection '{'
+		(generalActions+=GeneralAction | 'click')*
+	'}'
+;
+
+GeneralSelection:
+	("SEARCH_FIELD"|"DIV"|"A") typeSelection=TypeSelection '{'
+		(generalActions+=GeneralAction)*
+	'}'
+;
+
+CheckboxSelection:
+	"CHECKBOX" typeSelection=TypeSelection '{'
+		(generalActions+=GeneralAction 
+			|'check' 
+			|'uncheck')*
+	'}'
+;
+
+ComboboxSelection:
+	"COMBO_BOX" typeSelection=TypeSelection '{'
+		(generalActions+=GeneralAction 
+			|'select' STRING)*
+	'}'
+;
+
+PageSelection :
+	"PAGE" '{'
+		(
+			storeAction=StoreAction
+			|assertion = Assert
+		)*
+	'}'
+;
+
+GeneralAction:
+	setAction=SetAction
+	| storeAction=StoreAction
+	| selection = Selection
+;
+
+StoreAction:
+	'store' '()' 'in' var=Var //TODO
+;
+
+Var:
+	name=STRING
+;
+//
+
+SetAction:
+	'set' attribute=Attribute':'value=STRING 
+;
+
+TypeSelection:
+	(attribute=Attribute':'value=STRING)
+		|"PARENT" 
+		|"FIRST" 
+		|"LAST" 
+		|"ALL"
+;
+
+Assert:
+	"verify"
+	(
+		assertContain=AssertContains
+		|assertEquals=AssertEquals
+	)
+;
+
+AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | 'TEXT') ':' STRING;
+AssertEquals : c1=Comparable 'equals' c2=Comparable;
+
+Comparable:
+	'VAR:' STRING
+	|'('htmlElement = HtmlElement attribute=Attribute')'
+	|STRING
+;
+enum HtmlElement:
+	LINK = "LINK"
+	|BUTTON = "BUTTON"
+	|CHECKBOX = "CHECKBOX"
+	|COMBOBOX = "COMBO_BOX"
+	|DIV = "DIV"
+	|IMAGE = "IMAGE"
+	|A = "A"
+	
+;
+enum Attribute:
+	LABEL = "LABEL" 
+	| ID = "ID" 
+	| CLASS = "CLASS" 
+	| ALT = "ALT" 
+	| VALUE = "VALUE" 
+	| HREF = "HREF" 
+	| TITLE = "TITLE"
+;
+

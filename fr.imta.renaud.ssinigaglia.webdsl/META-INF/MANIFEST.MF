@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: fr.imta.renaud.ssinigaglia.webdsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: fr.imta.renaud.ssinigaglia.webdsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: fr.imta.renaud.ssinigaglia.webDsl.util,
+ fr.imta.renaud.ssinigaglia.serializer,
+ fr.imta.renaud.ssinigaglia.generator,
+ fr.imta.renaud.ssinigaglia.parser.antlr,
+ fr.imta.renaud.ssinigaglia.webDsl.impl,
+ fr.imta.renaud.ssinigaglia.parser.antlr.internal,
+ fr.imta.renaud.ssinigaglia.validation,
+ fr.imta.renaud.ssinigaglia.services,
+ fr.imta.renaud.ssinigaglia.webDsl,
+ fr.imta.renaud.ssinigaglia,
+ fr.imta.renaud.ssinigaglia.scoping
+Import-Package: org.apache.log4j
