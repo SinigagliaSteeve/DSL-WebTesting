@@ -32,15 +32,26 @@
       <genEnumLiterals ecoreEnumLiteral="WebDsl.ecore#//Attribute/TITLE"/>
     </genEnums>
     <genClasses ecoreClass="WebDsl.ecore#//Program">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Program/procedures"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Program/core"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//Core">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//Core/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Core/actions"/>
     </genClasses>
+    <genClasses ecoreClass="WebDsl.ecore#//Procedure">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//Procedure/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Procedure/var"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Procedure/actions"/>
+    </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//Action">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Action/goAction"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Action/selection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Action/callProcedure"/>
+    </genClasses>
+    <genClasses ecoreClass="WebDsl.ecore#//CallProcedure">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebDsl.ecore#//CallProcedure/ref"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//CallProcedure/arg"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//GoAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//GoAction/name"/>
@@ -78,7 +89,13 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//GeneralAction/selection"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//StoreAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//StoreAction/val"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//StoreAction/count"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//StoreAction/var"/>
+    </genClasses>
+    <genClasses ecoreClass="WebDsl.ecore#//CountAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//CountAction/htmlElement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//CountAction/typeSelection"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//Var">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//Var/name"/>
@@ -90,6 +107,7 @@
     <genClasses ecoreClass="WebDsl.ecore#//TypeSelection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//TypeSelection/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//TypeSelection/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebDsl.ecore#//TypeSelection/var"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//Assert">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Assert/assertContain"/>
@@ -104,6 +122,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//AssertEquals/c2"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//Comparable">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Comparable/var"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//Comparable/htmlElement"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//Comparable/attribute"/>
     </genClasses>

@@ -3,6 +3,8 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getProcedures <em>Procedures</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getCore <em>Core</em>}</li>
  * </ul>
  *
@@ -23,6 +26,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Program extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Procedures</b></em>' containment reference list.
+   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.Procedure}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Procedures</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Procedures</em>' containment reference list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getProgram_Procedures()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Procedure> getProcedures();
+
   /**
    * Returns the value of the '<em><b>Core</b></em>' containment reference.
    * <!-- begin-user-doc -->

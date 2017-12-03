@@ -9,15 +9,18 @@ import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
 import fr.imta.renaud.ssinigaglia.webDsl.Attribute;
 import fr.imta.renaud.ssinigaglia.webDsl.Browser;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.HtmlElement;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
+import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
@@ -90,7 +93,9 @@ public class WebDslFactoryImpl extends EFactoryImpl implements WebDslFactory
     {
       case WebDslPackage.PROGRAM: return createProgram();
       case WebDslPackage.CORE: return createCore();
+      case WebDslPackage.PROCEDURE: return createProcedure();
       case WebDslPackage.ACTION: return createAction();
+      case WebDslPackage.CALL_PROCEDURE: return createCallProcedure();
       case WebDslPackage.GO_ACTION: return createGoAction();
       case WebDslPackage.SELECTION: return createSelection();
       case WebDslPackage.LINK_BUTTON_SELECTION: return createLinkButtonSelection();
@@ -100,6 +105,7 @@ public class WebDslFactoryImpl extends EFactoryImpl implements WebDslFactory
       case WebDslPackage.PAGE_SELECTION: return createPageSelection();
       case WebDslPackage.GENERAL_ACTION: return createGeneralAction();
       case WebDslPackage.STORE_ACTION: return createStoreAction();
+      case WebDslPackage.COUNT_ACTION: return createCountAction();
       case WebDslPackage.VAR: return createVar();
       case WebDslPackage.SET_ACTION: return createSetAction();
       case WebDslPackage.TYPE_SELECTION: return createTypeSelection();
@@ -181,10 +187,32 @@ public class WebDslFactoryImpl extends EFactoryImpl implements WebDslFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Procedure createProcedure()
+  {
+    ProcedureImpl procedure = new ProcedureImpl();
+    return procedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Action createAction()
   {
     ActionImpl action = new ActionImpl();
     return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CallProcedure createCallProcedure()
+  {
+    CallProcedureImpl callProcedure = new CallProcedureImpl();
+    return callProcedure;
   }
 
   /**
@@ -284,6 +312,17 @@ public class WebDslFactoryImpl extends EFactoryImpl implements WebDslFactory
   {
     StoreActionImpl storeAction = new StoreActionImpl();
     return storeAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CountAction createCountAction()
+  {
+    CountActionImpl countAction = new CountActionImpl();
+    return countAction;
   }
 
   /**

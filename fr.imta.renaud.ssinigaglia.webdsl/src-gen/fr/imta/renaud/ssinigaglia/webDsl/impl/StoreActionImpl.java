@@ -3,6 +3,8 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
+import fr.imta.renaud.ssinigaglia.webDsl.Attribute;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
 import fr.imta.renaud.ssinigaglia.webDsl.StoreAction;
 import fr.imta.renaud.ssinigaglia.webDsl.Var;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
@@ -24,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.StoreActionImpl#getVal <em>Val</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.StoreActionImpl#getCount <em>Count</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.StoreActionImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
@@ -31,6 +35,36 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class StoreActionImpl extends MinimalEObjectImpl.Container implements StoreAction
 {
+  /**
+   * The default value of the '{@link #getVal() <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVal()
+   * @generated
+   * @ordered
+   */
+  protected static final Attribute VAL_EDEFAULT = Attribute.LABEL;
+
+  /**
+   * The cached value of the '{@link #getVal() <em>Val</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVal()
+   * @generated
+   * @ordered
+   */
+  protected Attribute val = VAL_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCount() <em>Count</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCount()
+   * @generated
+   * @ordered
+   */
+  protected CountAction count;
+
   /**
    * The cached value of the '{@link #getVar() <em>Var</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +94,77 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   protected EClass eStaticClass()
   {
     return WebDslPackage.Literals.STORE_ACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute getVal()
+  {
+    return val;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVal(Attribute newVal)
+  {
+    Attribute oldVal = val;
+    val = newVal == null ? VAL_EDEFAULT : newVal;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.STORE_ACTION__VAL, oldVal, val));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CountAction getCount()
+  {
+    return count;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCount(CountAction newCount, NotificationChain msgs)
+  {
+    CountAction oldCount = count;
+    count = newCount;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.STORE_ACTION__COUNT, oldCount, newCount);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCount(CountAction newCount)
+  {
+    if (newCount != count)
+    {
+      NotificationChain msgs = null;
+      if (count != null)
+        msgs = ((InternalEObject)count).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.STORE_ACTION__COUNT, null, msgs);
+      if (newCount != null)
+        msgs = ((InternalEObject)newCount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.STORE_ACTION__COUNT, null, msgs);
+      msgs = basicSetCount(newCount, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.STORE_ACTION__COUNT, newCount, newCount));
   }
 
   /**
@@ -120,6 +225,8 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   {
     switch (featureID)
     {
+      case WebDslPackage.STORE_ACTION__COUNT:
+        return basicSetCount(null, msgs);
       case WebDslPackage.STORE_ACTION__VAR:
         return basicSetVar(null, msgs);
     }
@@ -136,6 +243,10 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   {
     switch (featureID)
     {
+      case WebDslPackage.STORE_ACTION__VAL:
+        return getVal();
+      case WebDslPackage.STORE_ACTION__COUNT:
+        return getCount();
       case WebDslPackage.STORE_ACTION__VAR:
         return getVar();
     }
@@ -152,6 +263,12 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   {
     switch (featureID)
     {
+      case WebDslPackage.STORE_ACTION__VAL:
+        setVal((Attribute)newValue);
+        return;
+      case WebDslPackage.STORE_ACTION__COUNT:
+        setCount((CountAction)newValue);
+        return;
       case WebDslPackage.STORE_ACTION__VAR:
         setVar((Var)newValue);
         return;
@@ -169,6 +286,12 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   {
     switch (featureID)
     {
+      case WebDslPackage.STORE_ACTION__VAL:
+        setVal(VAL_EDEFAULT);
+        return;
+      case WebDslPackage.STORE_ACTION__COUNT:
+        setCount((CountAction)null);
+        return;
       case WebDslPackage.STORE_ACTION__VAR:
         setVar((Var)null);
         return;
@@ -186,10 +309,31 @@ public class StoreActionImpl extends MinimalEObjectImpl.Container implements Sto
   {
     switch (featureID)
     {
+      case WebDslPackage.STORE_ACTION__VAL:
+        return val != VAL_EDEFAULT;
+      case WebDslPackage.STORE_ACTION__COUNT:
+        return count != null;
       case WebDslPackage.STORE_ACTION__VAR:
         return var != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (val: ");
+    result.append(val);
+    result.append(')');
+    return result.toString();
   }
 
 } //StoreActionImpl

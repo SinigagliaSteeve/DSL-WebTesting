@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getVar <em>Var</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getHtmlElement <em>Html Element</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getAttribute <em>Attribute</em>}</li>
  * </ul>
@@ -24,6 +25,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Comparable extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' containment reference.
+   * @see #setVar(Var)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getComparable_Var()
+   * @model containment="true"
+   * @generated
+   */
+  Var getVar();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Comparable#getVar <em>Var</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' containment reference.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(Var value);
+
   /**
    * Returns the value of the '<em><b>Html Element</b></em>' attribute.
    * The literals are from the enumeration {@link fr.imta.renaud.ssinigaglia.webDsl.HtmlElement}.

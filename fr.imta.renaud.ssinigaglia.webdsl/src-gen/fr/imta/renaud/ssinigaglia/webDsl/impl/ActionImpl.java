@@ -4,6 +4,7 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.Action;
+import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
@@ -27,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ActionImpl#getGoAction <em>Go Action</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ActionImpl#getSelection <em>Selection</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ActionImpl#getCallProcedure <em>Call Procedure</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +54,16 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * @ordered
    */
   protected Selection selection;
+
+  /**
+   * The cached value of the '{@link #getCallProcedure() <em>Call Procedure</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCallProcedure()
+   * @generated
+   * @ordered
+   */
+  protected CallProcedure callProcedure;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,6 +187,54 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
    * <!-- end-user-doc -->
    * @generated
    */
+  public CallProcedure getCallProcedure()
+  {
+    return callProcedure;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCallProcedure(CallProcedure newCallProcedure, NotificationChain msgs)
+  {
+    CallProcedure oldCallProcedure = callProcedure;
+    callProcedure = newCallProcedure;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.ACTION__CALL_PROCEDURE, oldCallProcedure, newCallProcedure);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCallProcedure(CallProcedure newCallProcedure)
+  {
+    if (newCallProcedure != callProcedure)
+    {
+      NotificationChain msgs = null;
+      if (callProcedure != null)
+        msgs = ((InternalEObject)callProcedure).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ACTION__CALL_PROCEDURE, null, msgs);
+      if (newCallProcedure != null)
+        msgs = ((InternalEObject)newCallProcedure).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ACTION__CALL_PROCEDURE, null, msgs);
+      msgs = basicSetCallProcedure(newCallProcedure, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ACTION__CALL_PROCEDURE, newCallProcedure, newCallProcedure));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -184,6 +244,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return basicSetGoAction(null, msgs);
       case WebDslPackage.ACTION__SELECTION:
         return basicSetSelection(null, msgs);
+      case WebDslPackage.ACTION__CALL_PROCEDURE:
+        return basicSetCallProcedure(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -202,6 +264,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return getGoAction();
       case WebDslPackage.ACTION__SELECTION:
         return getSelection();
+      case WebDslPackage.ACTION__CALL_PROCEDURE:
+        return getCallProcedure();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -221,6 +285,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return;
       case WebDslPackage.ACTION__SELECTION:
         setSelection((Selection)newValue);
+        return;
+      case WebDslPackage.ACTION__CALL_PROCEDURE:
+        setCallProcedure((CallProcedure)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,6 +309,9 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
       case WebDslPackage.ACTION__SELECTION:
         setSelection((Selection)null);
         return;
+      case WebDslPackage.ACTION__CALL_PROCEDURE:
+        setCallProcedure((CallProcedure)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -260,6 +330,8 @@ public class ActionImpl extends MinimalEObjectImpl.Container implements Action
         return goAction != null;
       case WebDslPackage.ACTION__SELECTION:
         return selection != null;
+      case WebDslPackage.ACTION__CALL_PROCEDURE:
+        return callProcedure != null;
     }
     return super.eIsSet(featureID);
   }

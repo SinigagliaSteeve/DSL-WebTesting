@@ -24,7 +24,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected WebDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a;
 	protected AbstractElementAlias match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a;
-	protected AbstractElementAlias match_Comparable_STRINGTerminalRuleCall_2_or___VARKeyword_0_0_STRINGTerminalRuleCall_0_1__;
 	protected AbstractElementAlias match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0;
 	protected AbstractElementAlias match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0;
 	protected AbstractElementAlias match_LinkButtonSelection_ClickKeyword_3_1_a;
@@ -35,7 +34,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (WebDslGrammarAccess) access;
 		match_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getCheckboxSelectionAccess().getCheckKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getCheckboxSelectionAccess().getUncheckKeyword_3_2()));
 		match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1()));
-		match_Comparable_STRINGTerminalRuleCall_2_or___VARKeyword_0_0_STRINGTerminalRuleCall_0_1__ = new AlternativeAlias(false, false, new GroupAlias(false, false, new TokenAlias(false, false, grammarAccess.getComparableAccess().getVARKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getComparableAccess().getSTRINGTerminalRuleCall_0_1())), new TokenAlias(false, false, grammarAccess.getComparableAccess().getSTRINGTerminalRuleCall_2()));
 		match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getAKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getDIVKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getSEARCH_FIELDKeyword_0_0()));
 		match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLinkButtonSelectionAccess().getBUTTONKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getLinkButtonSelectionAccess().getLINKKeyword_0_0()));
 		match_LinkButtonSelection_ClickKeyword_3_1_a = new TokenAlias(true, true, grammarAccess.getLinkButtonSelectionAccess().getClickKeyword_3_1());
@@ -71,8 +69,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a.equals(syntax))
 				emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_Comparable_STRINGTerminalRuleCall_2_or___VARKeyword_0_0_STRINGTerminalRuleCall_0_1__.equals(syntax))
-				emit_Comparable_STRINGTerminalRuleCall_2_or___VARKeyword_0_0_STRINGTerminalRuleCall_0_1__(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0.equals(syntax))
 				emit_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0.equals(syntax))
@@ -110,17 +106,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     typeSelection=TypeSelection '{' (ambiguity) generalActions+=GeneralAction
 	 */
 	protected void emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     STRING | ('VAR:' STRING)
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) (rule start)
-	 */
-	protected void emit_Comparable_STRINGTerminalRuleCall_2_or___VARKeyword_0_0_STRINGTerminalRuleCall_0_1__(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

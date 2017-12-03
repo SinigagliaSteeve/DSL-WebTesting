@@ -3,17 +3,13 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
-import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
+import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
+import fr.imta.renaud.ssinigaglia.webDsl.HtmlElement;
 import fr.imta.renaud.ssinigaglia.webDsl.TypeSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -21,25 +17,42 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Combobox Selection</b></em>'.
+ * An implementation of the model object '<em><b>Count Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl#getTypeSelection <em>Type Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl#getHtmlElement <em>Html Element</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CountActionImpl#getTypeSelection <em>Type Selection</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implements ComboboxSelection
+public class CountActionImpl extends MinimalEObjectImpl.Container implements CountAction
 {
+  /**
+   * The default value of the '{@link #getHtmlElement() <em>Html Element</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHtmlElement()
+   * @generated
+   * @ordered
+   */
+  protected static final HtmlElement HTML_ELEMENT_EDEFAULT = HtmlElement.LINK;
+
+  /**
+   * The cached value of the '{@link #getHtmlElement() <em>Html Element</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getHtmlElement()
+   * @generated
+   * @ordered
+   */
+  protected HtmlElement htmlElement = HTML_ELEMENT_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getTypeSelection() <em>Type Selection</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -51,21 +64,11 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   protected TypeSelection typeSelection;
 
   /**
-   * The cached value of the '{@link #getGeneralActions() <em>General Actions</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getGeneralActions()
-   * @generated
-   * @ordered
-   */
-  protected EList<GeneralAction> generalActions;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ComboboxSelectionImpl()
+  protected CountActionImpl()
   {
     super();
   }
@@ -78,7 +81,30 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   @Override
   protected EClass eStaticClass()
   {
-    return WebDslPackage.Literals.COMBOBOX_SELECTION;
+    return WebDslPackage.Literals.COUNT_ACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public HtmlElement getHtmlElement()
+  {
+    return htmlElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHtmlElement(HtmlElement newHtmlElement)
+  {
+    HtmlElement oldHtmlElement = htmlElement;
+    htmlElement = newHtmlElement == null ? HTML_ELEMENT_EDEFAULT : newHtmlElement;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.COUNT_ACTION__HTML_ELEMENT, oldHtmlElement, htmlElement));
   }
 
   /**
@@ -102,7 +128,7 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
     typeSelection = newTypeSelection;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION, oldTypeSelection, newTypeSelection);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.COUNT_ACTION__TYPE_SELECTION, oldTypeSelection, newTypeSelection);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -119,28 +145,14 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
     {
       NotificationChain msgs = null;
       if (typeSelection != null)
-        msgs = ((InternalEObject)typeSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION, null, msgs);
+        msgs = ((InternalEObject)typeSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.COUNT_ACTION__TYPE_SELECTION, null, msgs);
       if (newTypeSelection != null)
-        msgs = ((InternalEObject)newTypeSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION, null, msgs);
+        msgs = ((InternalEObject)newTypeSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.COUNT_ACTION__TYPE_SELECTION, null, msgs);
       msgs = basicSetTypeSelection(newTypeSelection, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION, newTypeSelection, newTypeSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<GeneralAction> getGeneralActions()
-  {
-    if (generalActions == null)
-    {
-      generalActions = new EObjectContainmentEList<GeneralAction>(GeneralAction.class, this, WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS);
-    }
-    return generalActions;
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.COUNT_ACTION__TYPE_SELECTION, newTypeSelection, newTypeSelection));
   }
 
   /**
@@ -153,10 +165,8 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
+      case WebDslPackage.COUNT_ACTION__TYPE_SELECTION:
         return basicSetTypeSelection(null, msgs);
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return ((InternalEList<?>)getGeneralActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -171,10 +181,10 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
+      case WebDslPackage.COUNT_ACTION__HTML_ELEMENT:
+        return getHtmlElement();
+      case WebDslPackage.COUNT_ACTION__TYPE_SELECTION:
         return getTypeSelection();
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return getGeneralActions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,18 +194,16 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
-        setTypeSelection((TypeSelection)newValue);
+      case WebDslPackage.COUNT_ACTION__HTML_ELEMENT:
+        setHtmlElement((HtmlElement)newValue);
         return;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
-        getGeneralActions().addAll((Collection<? extends GeneralAction>)newValue);
+      case WebDslPackage.COUNT_ACTION__TYPE_SELECTION:
+        setTypeSelection((TypeSelection)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,11 +219,11 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
-        setTypeSelection((TypeSelection)null);
+      case WebDslPackage.COUNT_ACTION__HTML_ELEMENT:
+        setHtmlElement(HTML_ELEMENT_EDEFAULT);
         return;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
+      case WebDslPackage.COUNT_ACTION__TYPE_SELECTION:
+        setTypeSelection((TypeSelection)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,12 +239,29 @@ public class ComboboxSelectionImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
+      case WebDslPackage.COUNT_ACTION__HTML_ELEMENT:
+        return htmlElement != HTML_ELEMENT_EDEFAULT;
+      case WebDslPackage.COUNT_ACTION__TYPE_SELECTION:
         return typeSelection != null;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return generalActions != null && !generalActions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ComboboxSelectionImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (htmlElement: ");
+    result.append(htmlElement);
+    result.append(')');
+    return result.toString();
+  }
+
+} //CountActionImpl
