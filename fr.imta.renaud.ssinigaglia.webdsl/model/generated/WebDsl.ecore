@@ -128,5 +128,6 @@
     <eLiterals name="VALUE" value="4" literal="VALUE"/>
     <eLiterals name="HREF" value="5" literal="HREF"/>
     <eLiterals name="TITLE" value="6" literal="TITLE"/>
+    <eLiterals name="NAME" value="7" literal="NAME"/>
   </eClassifiers>
 </ecore:EPackage>

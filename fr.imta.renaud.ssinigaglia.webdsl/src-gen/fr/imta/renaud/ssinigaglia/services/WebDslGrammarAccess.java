@@ -1129,12 +1129,14 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cHREFHREFKeyword_5_0 = (Keyword)cHREFEnumLiteralDeclaration_5.eContents().get(0);
 		private final EnumLiteralDeclaration cTITLEEnumLiteralDeclaration_6 = (EnumLiteralDeclaration)cAlternatives.eContents().get(6);
 		private final Keyword cTITLETITLEKeyword_6_0 = (Keyword)cTITLEEnumLiteralDeclaration_6.eContents().get(0);
+		private final EnumLiteralDeclaration cNAMEEnumLiteralDeclaration_7 = (EnumLiteralDeclaration)cAlternatives.eContents().get(7);
+		private final Keyword cNAMENAMEKeyword_7_0 = (Keyword)cNAMEEnumLiteralDeclaration_7.eContents().get(0);
 		
 		//enum Attribute:
-		//	LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE;
+		//	LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE | NAME;
 		public EnumRule getRule() { return rule; }
 		
-		//LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE
+		//LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE | NAME
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LABEL
@@ -1178,6 +1180,12 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"TITLE"
 		public Keyword getTITLETITLEKeyword_6_0() { return cTITLETITLEKeyword_6_0; }
+		
+		//NAME
+		public EnumLiteralDeclaration getNAMEEnumLiteralDeclaration_7() { return cNAMEEnumLiteralDeclaration_7; }
+		
+		//"NAME"
+		public Keyword getNAMENAMEKeyword_7_0() { return cNAMENAMEKeyword_7_0; }
 	}
 	
 	private final ProgramElements pProgram;
@@ -1550,7 +1558,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//enum Attribute:
-	//	LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE;
+	//	LABEL | ID | CLASS | ALT | VALUE | HREF | TITLE | NAME;
 	public AttributeElements getAttributeAccess() {
 		return eAttribute;
 	}

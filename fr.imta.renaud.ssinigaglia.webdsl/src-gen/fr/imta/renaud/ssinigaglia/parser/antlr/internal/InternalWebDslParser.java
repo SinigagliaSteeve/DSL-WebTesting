@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalWebDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'test'", "'{'", "'open_browser'", "'}'", "'PROCEDURE'", "'('", "'){'", "'PROC:'", "')'", "'go'", "'LINK'", "'BUTTON'", "'IMAGE'", "'click'", "'SEARCH_FIELD'", "'DIV'", "'CHECKBOX'", "'check'", "'uncheck'", "'COMBO_BOX'", "'select'", "'PAGE'", "'store'", "'in'", "'count'", "'set'", "':'", "'PARENT'", "'FIRST'", "'LAST'", "'ALL'", "'verify'", "'contains'", "'TEXT'", "'equals'", "'VAR:'", "'chrome'", "'firefox'", "'safari'", "'edge'", "'ie'", "'A'", "'LABEL'", "'ID'", "'CLASS'", "'ALT'", "'VALUE'", "'HREF'", "'TITLE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'test'", "'{'", "'open_browser'", "'}'", "'PROCEDURE'", "'('", "'){'", "'PROC:'", "')'", "'go'", "'LINK'", "'BUTTON'", "'IMAGE'", "'click'", "'SEARCH_FIELD'", "'DIV'", "'CHECKBOX'", "'check'", "'uncheck'", "'COMBO_BOX'", "'select'", "'PAGE'", "'store'", "'in'", "'count'", "'set'", "':'", "'PARENT'", "'FIRST'", "'LAST'", "'ALL'", "'verify'", "'contains'", "'TEXT'", "'equals'", "'VAR:'", "'chrome'", "'firefox'", "'safari'", "'edge'", "'ie'", "'A'", "'LABEL'", "'ID'", "'CLASS'", "'ALT'", "'VALUE'", "'HREF'", "'TITLE'", "'NAME'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -43,6 +43,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
     public static final int T__52=52;
     public static final int T__53=53;
     public static final int T__54=54;
+    public static final int T__60=60;
     public static final int RULE_ID=4;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -2763,7 +2764,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
             int alt15=2;
             int LA15_0 = input.LA(1);
 
-            if ( ((LA15_0>=53 && LA15_0<=59)) ) {
+            if ( ((LA15_0>=53 && LA15_0<=60)) ) {
                 alt15=1;
             }
             else if ( (LA15_0==35) ) {
@@ -3366,6 +3367,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
             case 57:
             case 58:
             case 59:
+            case 60:
                 {
                 alt17=1;
                 }
@@ -4705,7 +4707,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalWebDsl.g:1801:1: ruleAttribute returns [Enumerator current=null] : ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) ) ;
+    // InternalWebDsl.g:1801:1: ruleAttribute returns [Enumerator current=null] : ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) ;
     public final Enumerator ruleAttribute() throws RecognitionException {
         Enumerator current = null;
 
@@ -4716,16 +4718,17 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         Token enumLiteral_4=null;
         Token enumLiteral_5=null;
         Token enumLiteral_6=null;
+        Token enumLiteral_7=null;
 
 
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1807:2: ( ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) ) )
-            // InternalWebDsl.g:1808:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) )
+            // InternalWebDsl.g:1807:2: ( ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) )
+            // InternalWebDsl.g:1808:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
             {
-            // InternalWebDsl.g:1808:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) )
-            int alt23=7;
+            // InternalWebDsl.g:1808:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
+            int alt23=8;
             switch ( input.LA(1) ) {
             case 53:
                 {
@@ -4760,6 +4763,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
             case 59:
                 {
                 alt23=7;
+                }
+                break;
+            case 60:
+                {
+                alt23=8;
                 }
                 break;
             default:
@@ -4889,6 +4897,23 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
                     }
                     break;
+                case 8 :
+                    // InternalWebDsl.g:1865:3: (enumLiteral_7= 'NAME' )
+                    {
+                    // InternalWebDsl.g:1865:3: (enumLiteral_7= 'NAME' )
+                    // InternalWebDsl.g:1866:4: enumLiteral_7= 'NAME'
+                    {
+                    enumLiteral_7=(Token)match(input,60,FOLLOW_2); 
+
+                    				current = grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+                    				newLeafNode(enumLiteral_7, grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7());
+                    			
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -4928,16 +4953,16 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000080000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0FE003C000000000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x1FE003C000000000L});
     public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000134FE04000L});
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000000134EE04000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x000000137EE04000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000013CEE04000L});
     public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000040200004000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0FE0000800000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x1FE0000800000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x001000004CE00000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0FE0000000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x1FE0000000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000000030L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000480000010020L});

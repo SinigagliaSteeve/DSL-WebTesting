@@ -1164,6 +1164,12 @@ rule__Attribute__Alternatives
 		('TITLE')
 		{ after(grammarAccess.getAttributeAccess().getTITLEEnumLiteralDeclaration_6()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7()); }
+		('NAME')
+		{ after(grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

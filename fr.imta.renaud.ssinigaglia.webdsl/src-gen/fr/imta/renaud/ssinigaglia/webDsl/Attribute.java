@@ -88,7 +88,17 @@ public enum Attribute implements Enumerator
    * @generated
    * @ordered
    */
-  TITLE(6, "TITLE", "TITLE");
+  TITLE(6, "TITLE", "TITLE"),
+
+  /**
+   * The '<em><b>NAME</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #NAME_VALUE
+   * @generated
+   * @ordered
+   */
+  NAME(7, "NAME", "NAME");
 
   /**
    * The '<em><b>LABEL</b></em>' literal value.
@@ -196,6 +206,21 @@ public enum Attribute implements Enumerator
   public static final int TITLE_VALUE = 6;
 
   /**
+   * The '<em><b>NAME</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>NAME</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #NAME
+   * @model
+   * @generated
+   * @ordered
+   */
+  public static final int NAME_VALUE = 7;
+
+  /**
    * An array of all the '<em><b>Attribute</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -211,6 +236,7 @@ public enum Attribute implements Enumerator
       VALUE,
       HREF,
       TITLE,
+      NAME,
     };
 
   /**
@@ -282,6 +308,7 @@ public enum Attribute implements Enumerator
       case VALUE_VALUE: return VALUE;
       case HREF_VALUE: return HREF;
       case TITLE_VALUE: return TITLE;
+      case NAME_VALUE: return NAME;
     }
     return null;
   }

@@ -152,5 +152,6 @@ enum Attribute:
 	| VALUE = "VALUE" 
 	| HREF = "HREF" 
 	| TITLE = "TITLE"
+	| NAME = "NAME"
 ;
 

@@ -1231,6 +1231,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     addEEnumLiteral(attributeEEnum, Attribute.VALUE);
     addEEnumLiteral(attributeEEnum, Attribute.HREF);
     addEEnumLiteral(attributeEEnum, Attribute.TITLE);
+    addEEnumLiteral(attributeEEnum, Attribute.NAME);
 
     // Create resource
     createResource(eNS_URI);

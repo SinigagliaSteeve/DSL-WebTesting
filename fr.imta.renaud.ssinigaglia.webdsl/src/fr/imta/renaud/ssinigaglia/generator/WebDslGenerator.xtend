@@ -125,6 +125,7 @@ class WebDslGenerator extends AbstractGenerator {
 		driver.get("«action.url»");
 	'''
 
+	
 	dispatch def createAction(LinkButtonSelection action, int i) '''
 		«val selection = action.typeSelection»
 		«val htmlElem = getTypeHtmlElement(action.typeElement)»
@@ -146,6 +147,20 @@ class WebDslGenerator extends AbstractGenerator {
 	'''
 	
 	dispatch def createAction(GeneralSelection action, int i) '''
+		«val selection = action.typeSelection»
+		«val htmlElem = getTypeHtmlElement(action.typeElement)»
+		«var attType = ""»
+		«var attValue = ""»
+		«IF selection.attribute !== null»
+			//«attType = getTypeAttribute(selection.attribute)»
+			//«attValue = if (selection.value !== null) selection.value else selection.^var.name»
+		«ELSE»
+			//Faire quelque chose si c'est PARENT/FIRST/...
+		«ENDIF»
+		«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
+		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']"));
+		this.scrollTo(«htmlElem»«i».getLocation().y);
+		«for (generalAction : action.generalActions) generalAction.createAction(i)»
 	'''
 	
 	dispatch def createAction(CheckboxSelection action, int i) '''
@@ -180,6 +195,10 @@ class WebDslGenerator extends AbstractGenerator {
 	'''
 	
 	dispatch def createAction(SetAction action, int i) '''
+	«var GeneralSelection parent = action.eContainer as GeneralSelection»
+	«val htmlElem = getTypeHtmlElement(parent.typeElement)»
+	ICICIIDSDNSPBFQ
+	«htmlElem»«i».sendKeys("Donald Trump");
 	'''
 	
 	dispatch def createAction(StoreAction action, int i) '''
@@ -197,6 +216,7 @@ class WebDslGenerator extends AbstractGenerator {
 			case "VALUE" : return "value"
 			case "HREF" : return "href"
 			case "TITLE" : return "title"
+			case "NAME" : return "name"
 		}
 	}
 	

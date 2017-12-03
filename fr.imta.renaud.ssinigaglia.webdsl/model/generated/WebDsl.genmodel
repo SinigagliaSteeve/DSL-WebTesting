@@ -30,6 +30,7 @@
       <genEnumLiterals ecoreEnumLiteral="WebDsl.ecore#//Attribute/VALUE"/>
       <genEnumLiterals ecoreEnumLiteral="WebDsl.ecore#//Attribute/HREF"/>
       <genEnumLiterals ecoreEnumLiteral="WebDsl.ecore#//Attribute/TITLE"/>
+      <genEnumLiterals ecoreEnumLiteral="WebDsl.ecore#//Attribute/NAME"/>
     </genEnums>
     <genClasses ecoreClass="WebDsl.ecore#//Program">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//Program/procedures"/>

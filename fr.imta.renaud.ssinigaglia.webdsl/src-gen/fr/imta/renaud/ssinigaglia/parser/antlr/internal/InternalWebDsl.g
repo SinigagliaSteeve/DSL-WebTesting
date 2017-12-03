@@ -1861,6 +1861,14 @@ ruleAttribute returns [Enumerator current=null]
 				newLeafNode(enumLiteral_6, grammarAccess.getAttributeAccess().getTITLEEnumLiteralDeclaration_6());
 			}
 		)
+		    |
+		(
+			enumLiteral_7='NAME'
+			{
+				$current = grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7().getEnumLiteral().getInstance();
+				newLeafNode(enumLiteral_7, grammarAccess.getAttributeAccess().getNAMEEnumLiteralDeclaration_7());
+			}
+		)
 	)
 ;
 
