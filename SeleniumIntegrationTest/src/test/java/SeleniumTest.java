@@ -93,27 +93,24 @@ public class SeleniumTest {
     @Test
     public void test_four_search_field_and_button() throws InterruptedException {
         driver.get("http://www.imt-atlantique.fr/fr/rechercher");
-        WebElement searchField = findVisibleOne(By.xpath("//input[@type='text']"));
+        WebElement searchField = findVisibleOne(By.name("search_api_fulltext"));
         Assert.assertNotNull(searchField);
 
-//        scrollTo(searchField);
-//        Assert.assertFalse(searchField.isSelected());
-        new Actions(driver).moveToElement(searchField).click().perform();
         searchField.sendKeys("Donald Trump");
-        System.out.println(searchField.toString());
-        Assert.assertEquals("form-autocomplete form-text ui-autocomplete-input", searchField.getAttribute("class"));
-        Assert.assertEquals("Donald Trump", searchField.getText());
-//        WebDriverWait webDriverWait = new WebDriverWait(driver, 10);
-//        webDriverWait.wait(100);
+
         WebElement button = findVisibleOne(By.xpath("//input[@type='submit'][@value='Appliquer les filtres']"));
         scrollTo(button.getLocation().y);
         button.click();
-
-        WebElement labelNotContains = findVisibleOne(By.xpath("//div[text()='Aucun résultat ne correspond à votre recherche']"));
-//        Assert.assertNotNull(labelNotContains);
-//
+        WebElement lbl = findVisibleOne(By.xpath("//*[contains(text(),'Aucun résultat')]"));
+        Assert.assertNotNull(lbl);
     }
 
+    @Test
+    public void test_google_input() {
+        driver.get("http://www.google.fr");
+        driver.findElement(By.name("q")).sendKeys("Free Selenium Training");
+        driver.findElement(By.name("btnK")).click();
+    }
 
     private WebElement findVisibleOne(By by) {
         List<WebElement> elements = driver.findElements(by);
