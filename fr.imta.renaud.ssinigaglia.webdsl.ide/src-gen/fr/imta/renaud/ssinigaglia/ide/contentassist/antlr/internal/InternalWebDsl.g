@@ -729,6 +729,12 @@ rule__LinkButtonSelection__TypeElementAlternatives_0_0
 		'BUTTON'
 		{ after(grammarAccess.getLinkButtonSelectionAccess().getTypeElementBUTTONKeyword_0_0_1()); }
 	)
+	|
+	(
+		{ before(grammarAccess.getLinkButtonSelectionAccess().getTypeElementIMAGEKeyword_0_0_2()); }
+		'IMAGE'
+		{ after(grammarAccess.getLinkButtonSelectionAccess().getTypeElementIMAGEKeyword_0_0_2()); }
+	)
 ;
 finally {
 	restoreStackSize(stackSize);

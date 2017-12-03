@@ -296,6 +296,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cTypeElementAlternatives_0_0 = (Alternatives)cTypeElementAssignment_0.eContents().get(0);
 		private final Keyword cTypeElementLINKKeyword_0_0_0 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(0);
 		private final Keyword cTypeElementBUTTONKeyword_0_0_1 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(1);
+		private final Keyword cTypeElementIMAGEKeyword_0_0_2 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(2);
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -307,17 +308,19 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LinkButtonSelection:
-		//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')*
+		//	typeElement=("LINK" | "BUTTON" | "IMAGE") typeSelection=TypeSelection '{' (generalActions+=GeneralAction |
+		//	clicks+='click')*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')* '}'
+		//typeElement=("LINK" | "BUTTON" | "IMAGE") typeSelection=TypeSelection '{' (generalActions+=GeneralAction |
+		//clicks+='click')* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//typeElement=("LINK" | "BUTTON")
+		//typeElement=("LINK" | "BUTTON" | "IMAGE")
 		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
 		
-		//("LINK" | "BUTTON")
+		//("LINK" | "BUTTON" | "IMAGE")
 		public Alternatives getTypeElementAlternatives_0_0() { return cTypeElementAlternatives_0_0; }
 		
 		//"LINK"
@@ -325,6 +328,9 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//"BUTTON"
 		public Keyword getTypeElementBUTTONKeyword_0_0_1() { return cTypeElementBUTTONKeyword_0_0_1; }
+		
+		//"IMAGE"
+		public Keyword getTypeElementIMAGEKeyword_0_0_2() { return cTypeElementIMAGEKeyword_0_0_2; }
 		
 		//typeSelection=TypeSelection
 		public Assignment getTypeSelectionAssignment_1() { return cTypeSelectionAssignment_1; }
@@ -1362,7 +1368,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LinkButtonSelection:
-	//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')*
+	//	typeElement=("LINK" | "BUTTON" | "IMAGE") typeSelection=TypeSelection '{' (generalActions+=GeneralAction |
+	//	clicks+='click')*
 	//	'}';
 	public LinkButtonSelectionElements getLinkButtonSelectionAccess() {
 		return pLinkButtonSelection;

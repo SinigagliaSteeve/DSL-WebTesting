@@ -136,7 +136,8 @@ class WebDslGenerator extends AbstractGenerator {
 		«ELSE»
 			//Faire quelque chose si c'est PARENT/FIRST/...
 		«ENDIF»
-		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«attType»()='«attValue»']"));
+		«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
+		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']"));
 		this.scrollTo(«htmlElem»«i».getLocation().y);
 		«for (generalAction : action.generalActions) generalAction.createAction(i)»
 		«FOR click : action.clicks»
@@ -167,7 +168,8 @@ class WebDslGenerator extends AbstractGenerator {
 		«IF assert.attribute !== null»
 			«val htmlElem = getTypeHtmlElement(assert.htmlElement.getName())»
 			«val attType = getTypeAttribute(assert.attribute)»
-			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«attType»()='«attValue»']")));
+			«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
+			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']")));
 		«ELSE»
 			Assert.assertNotNull(findVisibleOne(By.xpath("//*[contains(text(), '«attValue»')]"));
 		«ENDIF»

@@ -54,6 +54,7 @@ public abstract class AbstractWebDslProposalProvider extends TerminalsProposalPr
 	public void completeLinkButtonSelection_TypeElement(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeLinkButtonSelection_TypeSelection(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);

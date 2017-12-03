@@ -551,6 +551,17 @@ ruleLinkButtonSelection returns [EObject current=null]
 						}
 						setWithLastConsumed($current, "typeElement", lv_typeElement_0_2, null);
 					}
+					    |
+					lv_typeElement_0_3='IMAGE'
+					{
+						newLeafNode(lv_typeElement_0_3, grammarAccess.getLinkButtonSelectionAccess().getTypeElementIMAGEKeyword_0_0_2());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getLinkButtonSelectionRule());
+						}
+						setWithLastConsumed($current, "typeElement", lv_typeElement_0_3, null);
+					}
 				)
 			)
 		)
