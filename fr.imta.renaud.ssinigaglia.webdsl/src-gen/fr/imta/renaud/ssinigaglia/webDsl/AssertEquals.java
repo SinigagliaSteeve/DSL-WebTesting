@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface AssertEquals extends EObject
+public interface AssertEquals extends Assert
 {
   /**
    * Returns the value of the '<em><b>C1</b></em>' containment reference.

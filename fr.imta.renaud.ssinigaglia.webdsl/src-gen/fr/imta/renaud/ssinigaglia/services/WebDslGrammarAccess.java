@@ -31,15 +31,15 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cProceduresAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cProceduresProcedureParserRuleCall_0_0 = (RuleCall)cProceduresAssignment_0.eContents().get(0);
-		private final Assignment cCoreAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cCoreCoreParserRuleCall_1_0 = (RuleCall)cCoreAssignment_1.eContents().get(0);
+		private final Assignment cCoresAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCoresCoreParserRuleCall_1_0 = (RuleCall)cCoresAssignment_1.eContents().get(0);
 		
 		//Program:
 		//	procedures+=Procedure*
-		//	core=Core;
+		//	cores+=Core*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//procedures+=Procedure* core=Core
+		//procedures+=Procedure* cores+=Core*
 		public Group getGroup() { return cGroup; }
 		
 		//procedures+=Procedure*
@@ -48,43 +48,66 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Procedure
 		public RuleCall getProceduresProcedureParserRuleCall_0_0() { return cProceduresProcedureParserRuleCall_0_0; }
 		
-		//core=Core
-		public Assignment getCoreAssignment_1() { return cCoreAssignment_1; }
+		//cores+=Core*
+		public Assignment getCoresAssignment_1() { return cCoresAssignment_1; }
 		
 		//Core
-		public RuleCall getCoreCoreParserRuleCall_1_0() { return cCoreCoreParserRuleCall_1_0; }
+		public RuleCall getCoresCoreParserRuleCall_1_0() { return cCoresCoreParserRuleCall_1_0; }
 	}
 	public class CoreElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.Core");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cOpen_browserKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cTestKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameBrowserEnumRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cActionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cActionsActionParserRuleCall_2_0 = (RuleCall)cActionsAssignment_2.eContents().get(0);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cOpen_browserKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cBrowserAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cBrowserBrowserEnumRuleCall_4_0 = (RuleCall)cBrowserAssignment_4.eContents().get(0);
+		private final Assignment cActionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cActionsActionParserRuleCall_5_0 = (RuleCall)cActionsAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
+		//// A test class
 		//Core:
-		//	'open_browser' name=Browser
-		//	actions+=Action*;
+		//	'test' name=ID '{'
+		//	'open_browser' browser=Browser
+		//	actions+=Action*
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'open_browser' name=Browser actions+=Action*
+		//'test' name=ID '{' 'open_browser' browser=Browser actions+=Action* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//'open_browser'
-		public Keyword getOpen_browserKeyword_0() { return cOpen_browserKeyword_0; }
+		//'test'
+		public Keyword getTestKeyword_0() { return cTestKeyword_0; }
 		
-		//name=Browser
+		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//'open_browser'
+		public Keyword getOpen_browserKeyword_3() { return cOpen_browserKeyword_3; }
+		
+		//browser=Browser
+		public Assignment getBrowserAssignment_4() { return cBrowserAssignment_4; }
+		
 		//Browser
-		public RuleCall getNameBrowserEnumRuleCall_1_0() { return cNameBrowserEnumRuleCall_1_0; }
+		public RuleCall getBrowserBrowserEnumRuleCall_4_0() { return cBrowserBrowserEnumRuleCall_4_0; }
 		
 		//actions+=Action*
-		public Assignment getActionsAssignment_2() { return cActionsAssignment_2; }
+		public Assignment getActionsAssignment_5() { return cActionsAssignment_5; }
 		
 		//Action
-		public RuleCall getActionsActionParserRuleCall_2_0() { return cActionsActionParserRuleCall_2_0; }
+		public RuleCall getActionsActionParserRuleCall_5_0() { return cActionsActionParserRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class ProcedureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.Procedure");
@@ -142,37 +165,28 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.Action");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cGoActionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cGoActionGoActionParserRuleCall_0_0 = (RuleCall)cGoActionAssignment_0.eContents().get(0);
-		private final Assignment cSelectionAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cSelectionSelectionParserRuleCall_1_0 = (RuleCall)cSelectionAssignment_1.eContents().get(0);
-		private final Assignment cCallProcedureAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cCallProcedureCallProcedureParserRuleCall_2_0 = (RuleCall)cCallProcedureAssignment_2.eContents().get(0);
+		private final RuleCall cGoActionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCallProcedureParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
+		//// Possible actions : Go to an url, select an html element, call a stored procedure
 		//Action:
-		//	goAction=GoAction | selection=Selection | callProcedure=CallProcedure;
+		//	GoAction
+		//	| Selection
+		//	| CallProcedure;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//goAction=GoAction | selection=Selection | callProcedure=CallProcedure
+		//GoAction | Selection | CallProcedure
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//goAction=GoAction
-		public Assignment getGoActionAssignment_0() { return cGoActionAssignment_0; }
-		
 		//GoAction
-		public RuleCall getGoActionGoActionParserRuleCall_0_0() { return cGoActionGoActionParserRuleCall_0_0; }
-		
-		//selection=Selection
-		public Assignment getSelectionAssignment_1() { return cSelectionAssignment_1; }
+		public RuleCall getGoActionParserRuleCall_0() { return cGoActionParserRuleCall_0; }
 		
 		//Selection
-		public RuleCall getSelectionSelectionParserRuleCall_1_0() { return cSelectionSelectionParserRuleCall_1_0; }
-		
-		//callProcedure=CallProcedure
-		public Assignment getCallProcedureAssignment_2() { return cCallProcedureAssignment_2; }
+		public RuleCall getSelectionParserRuleCall_1() { return cSelectionParserRuleCall_1; }
 		
 		//CallProcedure
-		public RuleCall getCallProcedureCallProcedureParserRuleCall_2_0() { return cCallProcedureCallProcedureParserRuleCall_2_0; }
+		public RuleCall getCallProcedureParserRuleCall_2() { return cCallProcedureParserRuleCall_2; }
 	}
 	public class CallProcedureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.CallProcedure");
@@ -221,87 +235,67 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.GoAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cGoKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameSTRINGTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cUrlAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUrlSTRINGTerminalRuleCall_1_0 = (RuleCall)cUrlAssignment_1.eContents().get(0);
 		
 		//GoAction:
-		//	'go' name=STRING;
+		//	'go' url=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'go' name=STRING
+		//'go' url=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'go'
 		public Keyword getGoKeyword_0() { return cGoKeyword_0; }
 		
-		//name=STRING
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		//url=STRING
+		public Assignment getUrlAssignment_1() { return cUrlAssignment_1; }
 		
 		//STRING
-		public RuleCall getNameSTRINGTerminalRuleCall_1_0() { return cNameSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getUrlSTRINGTerminalRuleCall_1_0() { return cUrlSTRINGTerminalRuleCall_1_0; }
 	}
 	public class SelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.Selection");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cLinkButtonSelectionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cLinkButtonSelectionLinkButtonSelectionParserRuleCall_0_0 = (RuleCall)cLinkButtonSelectionAssignment_0.eContents().get(0);
-		private final Assignment cGeneralSelectionAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cGeneralSelectionGeneralSelectionParserRuleCall_1_0 = (RuleCall)cGeneralSelectionAssignment_1.eContents().get(0);
-		private final Assignment cCheckboxSelectionAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cCheckboxSelectionCheckboxSelectionParserRuleCall_2_0 = (RuleCall)cCheckboxSelectionAssignment_2.eContents().get(0);
-		private final Assignment cComboboxSelectionAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
-		private final RuleCall cComboboxSelectionComboboxSelectionParserRuleCall_3_0 = (RuleCall)cComboboxSelectionAssignment_3.eContents().get(0);
-		private final Assignment cPageSelectionAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final RuleCall cPageSelectionPageSelectionParserRuleCall_4_0 = (RuleCall)cPageSelectionAssignment_4.eContents().get(0);
+		private final RuleCall cLinkButtonSelectionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGeneralSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCheckboxSelectionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cComboboxSelectionParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPageSelectionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Selection:
-		//	linkButtonSelection=LinkButtonSelection
-		//	| generalSelection=GeneralSelection
-		//	| checkboxSelection=CheckboxSelection
-		//	| comboboxSelection=ComboboxSelection
-		//	| pageSelection=PageSelection;
+		//	LinkButtonSelection
+		//	| GeneralSelection
+		//	| CheckboxSelection
+		//	| ComboboxSelection
+		//	| PageSelection;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//linkButtonSelection=LinkButtonSelection | generalSelection=GeneralSelection | checkboxSelection=CheckboxSelection |
-		//comboboxSelection=ComboboxSelection | pageSelection=PageSelection
+		//LinkButtonSelection | GeneralSelection | CheckboxSelection | ComboboxSelection | PageSelection
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//linkButtonSelection=LinkButtonSelection
-		public Assignment getLinkButtonSelectionAssignment_0() { return cLinkButtonSelectionAssignment_0; }
-		
 		//LinkButtonSelection
-		public RuleCall getLinkButtonSelectionLinkButtonSelectionParserRuleCall_0_0() { return cLinkButtonSelectionLinkButtonSelectionParserRuleCall_0_0; }
-		
-		//generalSelection=GeneralSelection
-		public Assignment getGeneralSelectionAssignment_1() { return cGeneralSelectionAssignment_1; }
+		public RuleCall getLinkButtonSelectionParserRuleCall_0() { return cLinkButtonSelectionParserRuleCall_0; }
 		
 		//GeneralSelection
-		public RuleCall getGeneralSelectionGeneralSelectionParserRuleCall_1_0() { return cGeneralSelectionGeneralSelectionParserRuleCall_1_0; }
-		
-		//checkboxSelection=CheckboxSelection
-		public Assignment getCheckboxSelectionAssignment_2() { return cCheckboxSelectionAssignment_2; }
+		public RuleCall getGeneralSelectionParserRuleCall_1() { return cGeneralSelectionParserRuleCall_1; }
 		
 		//CheckboxSelection
-		public RuleCall getCheckboxSelectionCheckboxSelectionParserRuleCall_2_0() { return cCheckboxSelectionCheckboxSelectionParserRuleCall_2_0; }
-		
-		//comboboxSelection=ComboboxSelection
-		public Assignment getComboboxSelectionAssignment_3() { return cComboboxSelectionAssignment_3; }
+		public RuleCall getCheckboxSelectionParserRuleCall_2() { return cCheckboxSelectionParserRuleCall_2; }
 		
 		//ComboboxSelection
-		public RuleCall getComboboxSelectionComboboxSelectionParserRuleCall_3_0() { return cComboboxSelectionComboboxSelectionParserRuleCall_3_0; }
-		
-		//pageSelection=PageSelection
-		public Assignment getPageSelectionAssignment_4() { return cPageSelectionAssignment_4; }
+		public RuleCall getComboboxSelectionParserRuleCall_3() { return cComboboxSelectionParserRuleCall_3; }
 		
 		//PageSelection
-		public RuleCall getPageSelectionPageSelectionParserRuleCall_4_0() { return cPageSelectionPageSelectionParserRuleCall_4_0; }
+		public RuleCall getPageSelectionParserRuleCall_4() { return cPageSelectionParserRuleCall_4; }
 	}
 	public class LinkButtonSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.LinkButtonSelection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cLINKKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cBUTTONKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
+		private final Assignment cTypeElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cTypeElementAlternatives_0_0 = (Alternatives)cTypeElementAssignment_0.eContents().get(0);
+		private final Keyword cTypeElementLINKKeyword_0_0_0 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(0);
+		private final Keyword cTypeElementBUTTONKeyword_0_0_1 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(1);
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -312,21 +306,24 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LinkButtonSelection:
-		//	("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
+		//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')* '}'
+		//typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//"LINK" | "BUTTON"
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//typeElement=("LINK" | "BUTTON")
+		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
+		
+		//("LINK" | "BUTTON")
+		public Alternatives getTypeElementAlternatives_0_0() { return cTypeElementAlternatives_0_0; }
 		
 		//"LINK"
-		public Keyword getLINKKeyword_0_0() { return cLINKKeyword_0_0; }
+		public Keyword getTypeElementLINKKeyword_0_0_0() { return cTypeElementLINKKeyword_0_0_0; }
 		
 		//"BUTTON"
-		public Keyword getBUTTONKeyword_0_1() { return cBUTTONKeyword_0_1; }
+		public Keyword getTypeElementBUTTONKeyword_0_0_1() { return cTypeElementBUTTONKeyword_0_0_1; }
 		
 		//typeSelection=TypeSelection
 		public Assignment getTypeSelectionAssignment_1() { return cTypeSelectionAssignment_1; }
@@ -355,10 +352,10 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class GeneralSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.GeneralSelection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cSEARCH_FIELDKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cDIVKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Keyword cAKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
+		private final Assignment cTypeElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Alternatives cTypeElementAlternatives_0_0 = (Alternatives)cTypeElementAssignment_0.eContents().get(0);
+		private final Keyword cTypeElementSEARCH_FIELDKeyword_0_0_0 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(0);
+		private final Keyword cTypeElementDIVKeyword_0_0_1 = (Keyword)cTypeElementAlternatives_0_0.eContents().get(1);
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -367,25 +364,25 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//GeneralSelection:
-		//	("SEARCH_FIELD" | "DIV" | "A") typeSelection=TypeSelection '{'
+		//	typeElement=("SEARCH_FIELD" | "DIV") typeSelection=TypeSelection '{'
 		//	generalActions+=GeneralAction*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//("SEARCH_FIELD" | "DIV" | "A") typeSelection=TypeSelection '{' generalActions+=GeneralAction* '}'
+		//typeElement=("SEARCH_FIELD" | "DIV") typeSelection=TypeSelection '{' generalActions+=GeneralAction* '}'
 		public Group getGroup() { return cGroup; }
 		
-		//"SEARCH_FIELD" | "DIV" | "A"
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//typeElement=("SEARCH_FIELD" | "DIV")
+		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
+		
+		//("SEARCH_FIELD" | "DIV")
+		public Alternatives getTypeElementAlternatives_0_0() { return cTypeElementAlternatives_0_0; }
 		
 		//"SEARCH_FIELD"
-		public Keyword getSEARCH_FIELDKeyword_0_0() { return cSEARCH_FIELDKeyword_0_0; }
+		public Keyword getTypeElementSEARCH_FIELDKeyword_0_0_0() { return cTypeElementSEARCH_FIELDKeyword_0_0_0; }
 		
 		//"DIV"
-		public Keyword getDIVKeyword_0_1() { return cDIVKeyword_0_1; }
-		
-		//"A"
-		public Keyword getAKeyword_0_2() { return cAKeyword_0_2; }
+		public Keyword getTypeElementDIVKeyword_0_0_1() { return cTypeElementDIVKeyword_0_0_1; }
 		
 		//typeSelection=TypeSelection
 		public Assignment getTypeSelectionAssignment_1() { return cTypeSelectionAssignment_1; }
@@ -408,7 +405,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class CheckboxSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.CheckboxSelection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCHECKBOXKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cTypeElementCHECKBOXKeyword_0_0 = (Keyword)cTypeElementAssignment_0.eContents().get(0);
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -420,17 +418,20 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//CheckboxSelection:
-		//	"CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
+		//	typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
 		//	| 'check'
 		//	| 'uncheck')*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'check' | 'uncheck')* '}'
+		//typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'check' | 'uncheck')* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//typeElement="CHECKBOX"
+		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
+		
 		//"CHECKBOX"
-		public Keyword getCHECKBOXKeyword_0() { return cCHECKBOXKeyword_0; }
+		public Keyword getTypeElementCHECKBOXKeyword_0_0() { return cTypeElementCHECKBOXKeyword_0_0; }
 		
 		//typeSelection=TypeSelection
 		public Assignment getTypeSelectionAssignment_1() { return cTypeSelectionAssignment_1; }
@@ -462,7 +463,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ComboboxSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.ComboboxSelection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCOMBO_BOXKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cTypeElementCOMBO_BOXKeyword_0_0 = (Keyword)cTypeElementAssignment_0.eContents().get(0);
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -475,16 +477,19 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ComboboxSelection:
-		//	"COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
+		//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
 		//	| 'select' STRING)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'select' STRING)* '}'
+		//typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'select' STRING)* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//typeElement="COMBO_BOX"
+		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
+		
 		//"COMBO_BOX"
-		public Keyword getCOMBO_BOXKeyword_0() { return cCOMBO_BOXKeyword_0; }
+		public Keyword getTypeElementCOMBO_BOXKeyword_0_0() { return cTypeElementCOMBO_BOXKeyword_0_0; }
 		
 		//typeSelection=TypeSelection
 		public Assignment getTypeSelectionAssignment_1() { return cTypeSelectionAssignment_1; }
@@ -519,44 +524,48 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class PageSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.PageSelection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPAGEKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeElementAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cTypeElementPAGEKeyword_0_0 = (Keyword)cTypeElementAssignment_0.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cStoreActionAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cStoreActionStoreActionParserRuleCall_2_0_0 = (RuleCall)cStoreActionAssignment_2_0.eContents().get(0);
-		private final Assignment cAssertionAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cAssertionAssertParserRuleCall_2_1_0 = (RuleCall)cAssertionAssignment_2_1.eContents().get(0);
+		private final Assignment cStoreActionsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cStoreActionsStoreActionParserRuleCall_2_0_0 = (RuleCall)cStoreActionsAssignment_2_0.eContents().get(0);
+		private final Assignment cAssertionsAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cAssertionsAssertParserRuleCall_2_1_0 = (RuleCall)cAssertionsAssignment_2_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//PageSelection:
-		//	"PAGE" '{' (storeAction=StoreAction
-		//	| assertion=Assert)*
+		//	typeElement="PAGE" '{' (storeActions+=StoreAction
+		//	| assertions+=Assert)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"PAGE" '{' (storeAction=StoreAction | assertion=Assert)* '}'
+		//typeElement="PAGE" '{' (storeActions+=StoreAction | assertions+=Assert)* '}'
 		public Group getGroup() { return cGroup; }
 		
+		//typeElement="PAGE"
+		public Assignment getTypeElementAssignment_0() { return cTypeElementAssignment_0; }
+		
 		//"PAGE"
-		public Keyword getPAGEKeyword_0() { return cPAGEKeyword_0; }
+		public Keyword getTypeElementPAGEKeyword_0_0() { return cTypeElementPAGEKeyword_0_0; }
 		
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 		
-		//(storeAction=StoreAction | assertion=Assert)*
+		//(storeActions+=StoreAction | assertions+=Assert)*
 		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 		
-		//storeAction=StoreAction
-		public Assignment getStoreActionAssignment_2_0() { return cStoreActionAssignment_2_0; }
+		//storeActions+=StoreAction
+		public Assignment getStoreActionsAssignment_2_0() { return cStoreActionsAssignment_2_0; }
 		
 		//StoreAction
-		public RuleCall getStoreActionStoreActionParserRuleCall_2_0_0() { return cStoreActionStoreActionParserRuleCall_2_0_0; }
+		public RuleCall getStoreActionsStoreActionParserRuleCall_2_0_0() { return cStoreActionsStoreActionParserRuleCall_2_0_0; }
 		
-		//assertion=Assert
-		public Assignment getAssertionAssignment_2_1() { return cAssertionAssignment_2_1; }
+		//assertions+=Assert
+		public Assignment getAssertionsAssignment_2_1() { return cAssertionsAssignment_2_1; }
 		
 		//Assert
-		public RuleCall getAssertionAssertParserRuleCall_2_1_0() { return cAssertionAssertParserRuleCall_2_1_0; }
+		public RuleCall getAssertionsAssertParserRuleCall_2_1_0() { return cAssertionsAssertParserRuleCall_2_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
@@ -564,39 +573,27 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class GeneralActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.GeneralAction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cSetActionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cSetActionSetActionParserRuleCall_0_0 = (RuleCall)cSetActionAssignment_0.eContents().get(0);
-		private final Assignment cStoreActionAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final RuleCall cStoreActionStoreActionParserRuleCall_1_0 = (RuleCall)cStoreActionAssignment_1.eContents().get(0);
-		private final Assignment cSelectionAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
-		private final RuleCall cSelectionSelectionParserRuleCall_2_0 = (RuleCall)cSelectionAssignment_2.eContents().get(0);
+		private final RuleCall cSetActionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cStoreActionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSelectionParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//GeneralAction:
-		//	setAction=SetAction
-		//	| storeAction=StoreAction
-		//	| selection=Selection;
+		//	SetAction
+		//	| StoreAction
+		//	| Selection;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//setAction=SetAction | storeAction=StoreAction | selection=Selection
+		//SetAction | StoreAction | Selection
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//setAction=SetAction
-		public Assignment getSetActionAssignment_0() { return cSetActionAssignment_0; }
-		
 		//SetAction
-		public RuleCall getSetActionSetActionParserRuleCall_0_0() { return cSetActionSetActionParserRuleCall_0_0; }
-		
-		//storeAction=StoreAction
-		public Assignment getStoreActionAssignment_1() { return cStoreActionAssignment_1; }
+		public RuleCall getSetActionParserRuleCall_0() { return cSetActionParserRuleCall_0; }
 		
 		//StoreAction
-		public RuleCall getStoreActionStoreActionParserRuleCall_1_0() { return cStoreActionStoreActionParserRuleCall_1_0; }
-		
-		//selection=Selection
-		public Assignment getSelectionAssignment_2() { return cSelectionAssignment_2; }
+		public RuleCall getStoreActionParserRuleCall_1() { return cStoreActionParserRuleCall_1; }
 		
 		//Selection
-		public RuleCall getSelectionSelectionParserRuleCall_2_0() { return cSelectionSelectionParserRuleCall_2_0; }
+		public RuleCall getSelectionParserRuleCall_2() { return cSelectionParserRuleCall_2; }
 	}
 	public class StoreActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.StoreAction");
@@ -811,36 +808,28 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cVerifyKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cAssertContainAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cAssertContainAssertContainsParserRuleCall_1_0_0 = (RuleCall)cAssertContainAssignment_1_0.eContents().get(0);
-		private final Assignment cAssertEqualsAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cAssertEqualsAssertEqualsParserRuleCall_1_1_0 = (RuleCall)cAssertEqualsAssignment_1_1.eContents().get(0);
+		private final RuleCall cAssertContainsParserRuleCall_1_0 = (RuleCall)cAlternatives_1.eContents().get(0);
+		private final RuleCall cAssertEqualsParserRuleCall_1_1 = (RuleCall)cAlternatives_1.eContents().get(1);
 		
 		//Assert:
-		//	"verify" (assertContain=AssertContains
-		//	| assertEquals=AssertEquals);
+		//	"verify" (AssertContains
+		//	| AssertEquals);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"verify" (assertContain=AssertContains | assertEquals=AssertEquals)
+		//"verify" (AssertContains | AssertEquals)
 		public Group getGroup() { return cGroup; }
 		
 		//"verify"
 		public Keyword getVerifyKeyword_0() { return cVerifyKeyword_0; }
 		
-		//assertContain=AssertContains | assertEquals=AssertEquals
+		//AssertContains | AssertEquals
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//assertContain=AssertContains
-		public Assignment getAssertContainAssignment_1_0() { return cAssertContainAssignment_1_0; }
-		
 		//AssertContains
-		public RuleCall getAssertContainAssertContainsParserRuleCall_1_0_0() { return cAssertContainAssertContainsParserRuleCall_1_0_0; }
-		
-		//assertEquals=AssertEquals
-		public Assignment getAssertEqualsAssignment_1_1() { return cAssertEqualsAssignment_1_1; }
+		public RuleCall getAssertContainsParserRuleCall_1_0() { return cAssertContainsParserRuleCall_1_0; }
 		
 		//AssertEquals
-		public RuleCall getAssertEqualsAssertEqualsParserRuleCall_1_1_0() { return cAssertEqualsAssertEqualsParserRuleCall_1_1_0; }
+		public RuleCall getAssertEqualsParserRuleCall_1_1() { return cAssertEqualsParserRuleCall_1_1; }
 	}
 	public class AssertContainsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.AssertContains");
@@ -854,13 +843,14 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAttributeAttributeEnumRuleCall_1_0_1_0 = (RuleCall)cAttributeAssignment_1_0_1.eContents().get(0);
 		private final Keyword cTEXTKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cSTRINGTerminalRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//AssertContains:
-		//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' STRING;
+		//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' STRING
+		//'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'contains'
@@ -890,8 +880,11 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
+		//value=STRING
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_3() { return cSTRINGTerminalRuleCall_3; }
+		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
 	}
 	public class AssertEqualsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.AssertEquals");
@@ -1268,7 +1261,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Program:
 	//	procedures+=Procedure*
-	//	core=Core;
+	//	cores+=Core*;
 	public ProgramElements getProgramAccess() {
 		return pProgram;
 	}
@@ -1277,9 +1270,12 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getProgramAccess().getRule();
 	}
 	
+	//// A test class
 	//Core:
-	//	'open_browser' name=Browser
-	//	actions+=Action*;
+	//	'test' name=ID '{'
+	//	'open_browser' browser=Browser
+	//	actions+=Action*
+	//	'}';
 	public CoreElements getCoreAccess() {
 		return pCore;
 	}
@@ -1314,8 +1310,11 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getBrowserAccess().getRule();
 	}
 	
+	//// Possible actions : Go to an url, select an html element, call a stored procedure
 	//Action:
-	//	goAction=GoAction | selection=Selection | callProcedure=CallProcedure;
+	//	GoAction
+	//	| Selection
+	//	| CallProcedure;
 	public ActionElements getActionAccess() {
 		return pAction;
 	}
@@ -1335,7 +1334,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GoAction:
-	//	'go' name=STRING;
+	//	'go' url=STRING;
 	public GoActionElements getGoActionAccess() {
 		return pGoAction;
 	}
@@ -1345,11 +1344,11 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Selection:
-	//	linkButtonSelection=LinkButtonSelection
-	//	| generalSelection=GeneralSelection
-	//	| checkboxSelection=CheckboxSelection
-	//	| comboboxSelection=ComboboxSelection
-	//	| pageSelection=PageSelection;
+	//	LinkButtonSelection
+	//	| GeneralSelection
+	//	| CheckboxSelection
+	//	| ComboboxSelection
+	//	| PageSelection;
 	public SelectionElements getSelectionAccess() {
 		return pSelection;
 	}
@@ -1359,7 +1358,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LinkButtonSelection:
-	//	("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
+	//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
 	//	'}';
 	public LinkButtonSelectionElements getLinkButtonSelectionAccess() {
 		return pLinkButtonSelection;
@@ -1370,7 +1369,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GeneralSelection:
-	//	("SEARCH_FIELD" | "DIV" | "A") typeSelection=TypeSelection '{'
+	//	typeElement=("SEARCH_FIELD" | "DIV") typeSelection=TypeSelection '{'
 	//	generalActions+=GeneralAction*
 	//	'}';
 	public GeneralSelectionElements getGeneralSelectionAccess() {
@@ -1382,7 +1381,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CheckboxSelection:
-	//	"CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
+	//	typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
 	//	| 'check'
 	//	| 'uncheck')*
 	//	'}';
@@ -1395,7 +1394,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ComboboxSelection:
-	//	"COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
+	//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
 	//	| 'select' STRING)*
 	//	'}';
 	public ComboboxSelectionElements getComboboxSelectionAccess() {
@@ -1407,8 +1406,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//PageSelection:
-	//	"PAGE" '{' (storeAction=StoreAction
-	//	| assertion=Assert)*
+	//	typeElement="PAGE" '{' (storeActions+=StoreAction
+	//	| assertions+=Assert)*
 	//	'}';
 	public PageSelectionElements getPageSelectionAccess() {
 		return pPageSelection;
@@ -1419,9 +1418,9 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//GeneralAction:
-	//	setAction=SetAction
-	//	| storeAction=StoreAction
-	//	| selection=Selection;
+	//	SetAction
+	//	| StoreAction
+	//	| Selection;
 	public GeneralActionElements getGeneralActionAccess() {
 		return pGeneralAction;
 	}
@@ -1486,8 +1485,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Assert:
-	//	"verify" (assertContain=AssertContains
-	//	| assertEquals=AssertEquals);
+	//	"verify" (AssertContains
+	//	| AssertEquals);
 	public AssertElements getAssertAccess() {
 		return pAssert;
 	}
@@ -1497,7 +1496,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AssertContains:
-	//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' STRING;
+	//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING;
 	public AssertContainsElements getAssertContainsAccess() {
 		return pAssertContains;
 	}

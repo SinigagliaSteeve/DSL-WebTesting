@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface StoreAction extends EObject
+public interface StoreAction extends GeneralAction
 {
   /**
    * Returns the value of the '<em><b>Val</b></em>' attribute.

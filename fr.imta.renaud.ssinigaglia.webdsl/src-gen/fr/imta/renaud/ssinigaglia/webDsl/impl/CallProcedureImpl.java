@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class CallProcedureImpl extends MinimalEObjectImpl.Container implements CallProcedure
+public class CallProcedureImpl extends ActionImpl implements CallProcedure
 {
   /**
    * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.

@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,32 +20,32 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GoActionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GoActionImpl#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GoActionImpl extends MinimalEObjectImpl.Container implements GoAction
+public class GoActionImpl extends ActionImpl implements GoAction
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getUrl() <em>Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getUrl()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final String URL_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getUrl() <em>Url</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getUrl()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected String url = URL_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,9 +73,9 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public String getUrl()
   {
-    return name;
+    return url;
   }
 
   /**
@@ -84,12 +83,12 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  public void setUrl(String newUrl)
   {
-    String oldName = name;
-    name = newName;
+    String oldUrl = url;
+    url = newUrl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.GO_ACTION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.GO_ACTION__URL, oldUrl, url));
   }
 
   /**
@@ -102,8 +101,8 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
   {
     switch (featureID)
     {
-      case WebDslPackage.GO_ACTION__NAME:
-        return getName();
+      case WebDslPackage.GO_ACTION__URL:
+        return getUrl();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,8 +117,8 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
   {
     switch (featureID)
     {
-      case WebDslPackage.GO_ACTION__NAME:
-        setName((String)newValue);
+      case WebDslPackage.GO_ACTION__URL:
+        setUrl((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +134,8 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
   {
     switch (featureID)
     {
-      case WebDslPackage.GO_ACTION__NAME:
-        setName(NAME_EDEFAULT);
+      case WebDslPackage.GO_ACTION__URL:
+        setUrl(URL_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -152,8 +151,8 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
   {
     switch (featureID)
     {
-      case WebDslPackage.GO_ACTION__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case WebDslPackage.GO_ACTION__URL:
+        return URL_EDEFAULT == null ? url != null : !URL_EDEFAULT.equals(url);
     }
     return super.eIsSet(featureID);
   }
@@ -169,8 +168,8 @@ public class GoActionImpl extends MinimalEObjectImpl.Container implements GoActi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (url: ");
+    result.append(url);
     result.append(')');
     return result.toString();
   }

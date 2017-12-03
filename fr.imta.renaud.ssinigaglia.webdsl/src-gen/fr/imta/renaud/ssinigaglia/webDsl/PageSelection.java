@@ -3,7 +3,7 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,66 +14,46 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getStoreAction <em>Store Action</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getAssertion <em>Assertion</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getStoreActions <em>Store Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getAssertions <em>Assertions</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getPageSelection()
  * @model
  * @generated
  */
-public interface PageSelection extends EObject
+public interface PageSelection extends Selection
 {
   /**
-   * Returns the value of the '<em><b>Store Action</b></em>' containment reference.
+   * Returns the value of the '<em><b>Store Actions</b></em>' containment reference list.
+   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.StoreAction}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Store Action</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Store Actions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Store Action</em>' containment reference.
-   * @see #setStoreAction(StoreAction)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getPageSelection_StoreAction()
+   * @return the value of the '<em>Store Actions</em>' containment reference list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getPageSelection_StoreActions()
    * @model containment="true"
    * @generated
    */
-  StoreAction getStoreAction();
+  EList<StoreAction> getStoreActions();
 
   /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getStoreAction <em>Store Action</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Store Action</em>' containment reference.
-   * @see #getStoreAction()
-   * @generated
-   */
-  void setStoreAction(StoreAction value);
-
-  /**
-   * Returns the value of the '<em><b>Assertion</b></em>' containment reference.
+   * Returns the value of the '<em><b>Assertions</b></em>' containment reference list.
+   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.Assert}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Assertion</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Assertions</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Assertion</em>' containment reference.
-   * @see #setAssertion(Assert)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getPageSelection_Assertion()
+   * @return the value of the '<em>Assertions</em>' containment reference list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getPageSelection_Assertions()
    * @model containment="true"
    * @generated
    */
-  Assert getAssertion();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection#getAssertion <em>Assertion</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Assertion</em>' containment reference.
-   * @see #getAssertion()
-   * @generated
-   */
-  void setAssertion(Assert value);
+  EList<Assert> getAssertions();
 
 } // PageSelection

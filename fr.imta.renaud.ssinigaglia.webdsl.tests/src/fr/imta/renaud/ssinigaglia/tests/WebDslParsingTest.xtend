@@ -4,7 +4,6 @@
 package fr.imta.renaud.ssinigaglia.tests
 
 import com.google.inject.Inject
-import fr.imta.renaud.ssinigaglia.webDsl.Model
 import org.eclipse.xtext.testing.InjectWith
 import org.eclipse.xtext.testing.XtextRunner
 import org.eclipse.xtext.testing.util.ParseHelper

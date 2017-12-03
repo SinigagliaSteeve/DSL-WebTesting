@@ -4,12 +4,15 @@ generate webDsl "http://www.imta.fr/renaud/ssinigaglia/WebDsl"
 
 Program:
 	procedures += Procedure*
-	core=Core
+	cores+=Core*
 ;
 
+// A test class
 Core:
-	'open_browser' name=Browser
-	actions += Action*
+	'test' name=ID '{'
+		'open_browser' browser=Browser
+		actions += Action*
+	'}'
 ;
 
 Procedure:
@@ -25,10 +28,11 @@ enum Browser:
 	| EDGE = "edge" 
 	| IE = "ie";
 
+// Possible actions : Go to an url, select an html element, call a stored procedure
 Action:
-	(goAction = GoAction) 
-	|(selection = Selection) 
-	| (callProcedure = CallProcedure)
+	GoAction
+	| Selection 
+	| CallProcedure
 ;
 
 CallProcedure:
@@ -36,31 +40,31 @@ CallProcedure:
 ;
 
 GoAction:
-	'go' name=STRING;
+	'go' url=STRING;
 	
 	
 Selection:
-	linkButtonSelection=LinkButtonSelection 
-	| generalSelection=GeneralSelection
-	| checkboxSelection=CheckboxSelection 
-	| comboboxSelection=ComboboxSelection
-	| pageSelection=PageSelection
+	LinkButtonSelection 
+	| GeneralSelection
+	| CheckboxSelection 
+	| ComboboxSelection
+	| PageSelection
 ;
 
 LinkButtonSelection:
-	("LINK"|"BUTTON") typeSelection=TypeSelection '{'
+	typeElement=("LINK"|"BUTTON") typeSelection=TypeSelection '{'
 		(generalActions+=GeneralAction | 'click')*
 	'}'
 ;
 
 GeneralSelection:
-	("SEARCH_FIELD"|"DIV"|"A") typeSelection=TypeSelection '{'
+	typeElement=("SEARCH_FIELD"|"DIV") typeSelection=TypeSelection '{'
 		(generalActions+=GeneralAction)*
 	'}'
 ;
 
 CheckboxSelection:
-	"CHECKBOX" typeSelection=TypeSelection '{'
+	typeElement="CHECKBOX" typeSelection=TypeSelection '{'
 		(generalActions+=GeneralAction 
 			|'check' 
 			|'uncheck')*
@@ -68,25 +72,25 @@ CheckboxSelection:
 ;
 
 ComboboxSelection:
-	"COMBO_BOX" typeSelection=TypeSelection '{'
+	typeElement="COMBO_BOX" typeSelection=TypeSelection '{'
 		(generalActions+=GeneralAction 
 			|'select' STRING)*
 	'}'
 ;
 
 PageSelection :
-	"PAGE" '{'
+	typeElement="PAGE" '{'
 		(
-			storeAction=StoreAction
-			|assertion = Assert
+			storeActions += StoreAction
+			|assertions += Assert
 		)*
 	'}'
 ;
 
 GeneralAction:
-	setAction=SetAction
-	| storeAction=StoreAction
-	| selection = Selection
+	SetAction
+	| StoreAction
+	| Selection
 ;
 
 StoreAction:
@@ -117,12 +121,12 @@ TypeSelection:
 Assert:
 	"verify"
 	(
-		assertContain=AssertContains
-		|assertEquals=AssertEquals
+		AssertContains
+		|AssertEquals
 	)
 ;
 
-AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | 'TEXT') ':' STRING;
+AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | 'TEXT') ':' value=STRING;
 AssertEquals : c1=Comparable 'equals' c2=Comparable;
 
 Comparable:

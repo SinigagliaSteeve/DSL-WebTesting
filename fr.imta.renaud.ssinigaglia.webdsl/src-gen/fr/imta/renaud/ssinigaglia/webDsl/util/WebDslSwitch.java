@@ -126,6 +126,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         CallProcedure callProcedure = (CallProcedure)theEObject;
         T result = caseCallProcedure(callProcedure);
+        if (result == null) result = caseAction(callProcedure);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,6 +134,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         GoAction goAction = (GoAction)theEObject;
         T result = caseGoAction(goAction);
+        if (result == null) result = caseAction(goAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -140,6 +142,8 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         Selection selection = (Selection)theEObject;
         T result = caseSelection(selection);
+        if (result == null) result = caseAction(selection);
+        if (result == null) result = caseGeneralAction(selection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -147,6 +151,9 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         LinkButtonSelection linkButtonSelection = (LinkButtonSelection)theEObject;
         T result = caseLinkButtonSelection(linkButtonSelection);
+        if (result == null) result = caseSelection(linkButtonSelection);
+        if (result == null) result = caseAction(linkButtonSelection);
+        if (result == null) result = caseGeneralAction(linkButtonSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -154,6 +161,9 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         GeneralSelection generalSelection = (GeneralSelection)theEObject;
         T result = caseGeneralSelection(generalSelection);
+        if (result == null) result = caseSelection(generalSelection);
+        if (result == null) result = caseAction(generalSelection);
+        if (result == null) result = caseGeneralAction(generalSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -161,6 +171,9 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         CheckboxSelection checkboxSelection = (CheckboxSelection)theEObject;
         T result = caseCheckboxSelection(checkboxSelection);
+        if (result == null) result = caseSelection(checkboxSelection);
+        if (result == null) result = caseAction(checkboxSelection);
+        if (result == null) result = caseGeneralAction(checkboxSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -168,6 +181,9 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         ComboboxSelection comboboxSelection = (ComboboxSelection)theEObject;
         T result = caseComboboxSelection(comboboxSelection);
+        if (result == null) result = caseSelection(comboboxSelection);
+        if (result == null) result = caseAction(comboboxSelection);
+        if (result == null) result = caseGeneralAction(comboboxSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -175,6 +191,9 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         PageSelection pageSelection = (PageSelection)theEObject;
         T result = casePageSelection(pageSelection);
+        if (result == null) result = caseSelection(pageSelection);
+        if (result == null) result = caseAction(pageSelection);
+        if (result == null) result = caseGeneralAction(pageSelection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -189,6 +208,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         StoreAction storeAction = (StoreAction)theEObject;
         T result = caseStoreAction(storeAction);
+        if (result == null) result = caseGeneralAction(storeAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -210,6 +230,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         SetAction setAction = (SetAction)theEObject;
         T result = caseSetAction(setAction);
+        if (result == null) result = caseGeneralAction(setAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -231,6 +252,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         AssertContains assertContains = (AssertContains)theEObject;
         T result = caseAssertContains(assertContains);
+        if (result == null) result = caseAssert(assertContains);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -238,6 +260,7 @@ public class WebDslSwitch<T> extends Switch<T>
       {
         AssertEquals assertEquals = (AssertEquals)theEObject;
         T result = caseAssertEquals(assertEquals);
+        if (result == null) result = caseAssert(assertEquals);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

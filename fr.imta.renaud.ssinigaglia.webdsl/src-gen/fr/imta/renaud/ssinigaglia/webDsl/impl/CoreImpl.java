@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl#getBrowser <em>Browser</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CoreImpl#getActions <em>Actions</em>}</li>
  * </ul>
  *
@@ -48,7 +49,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * @generated
    * @ordered
    */
-  protected static final Browser NAME_EDEFAULT = Browser.CHROME;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -58,7 +59,27 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * @generated
    * @ordered
    */
-  protected Browser name = NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBrowser() <em>Browser</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrowser()
+   * @generated
+   * @ordered
+   */
+  protected static final Browser BROWSER_EDEFAULT = Browser.CHROME;
+
+  /**
+   * The cached value of the '{@link #getBrowser() <em>Browser</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrowser()
+   * @generated
+   * @ordered
+   */
+  protected Browser browser = BROWSER_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
@@ -96,7 +117,7 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * <!-- end-user-doc -->
    * @generated
    */
-  public Browser getName()
+  public String getName()
   {
     return name;
   }
@@ -106,12 +127,35 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(Browser newName)
+  public void setName(String newName)
   {
-    Browser oldName = name;
-    name = newName == null ? NAME_EDEFAULT : newName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.CORE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Browser getBrowser()
+  {
+    return browser;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBrowser(Browser newBrowser)
+  {
+    Browser oldBrowser = browser;
+    browser = newBrowser == null ? BROWSER_EDEFAULT : newBrowser;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.CORE__BROWSER, oldBrowser, browser));
   }
 
   /**
@@ -156,6 +200,8 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
     {
       case WebDslPackage.CORE__NAME:
         return getName();
+      case WebDslPackage.CORE__BROWSER:
+        return getBrowser();
       case WebDslPackage.CORE__ACTIONS:
         return getActions();
     }
@@ -174,7 +220,10 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
     switch (featureID)
     {
       case WebDslPackage.CORE__NAME:
-        setName((Browser)newValue);
+        setName((String)newValue);
+        return;
+      case WebDslPackage.CORE__BROWSER:
+        setBrowser((Browser)newValue);
         return;
       case WebDslPackage.CORE__ACTIONS:
         getActions().clear();
@@ -197,6 +246,9 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
       case WebDslPackage.CORE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case WebDslPackage.CORE__BROWSER:
+        setBrowser(BROWSER_EDEFAULT);
+        return;
       case WebDslPackage.CORE__ACTIONS:
         getActions().clear();
         return;
@@ -215,7 +267,9 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
     switch (featureID)
     {
       case WebDslPackage.CORE__NAME:
-        return name != NAME_EDEFAULT;
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case WebDslPackage.CORE__BROWSER:
+        return browser != BROWSER_EDEFAULT;
       case WebDslPackage.CORE__ACTIONS:
         return actions != null && !actions.isEmpty();
     }
@@ -235,6 +289,8 @@ public class CoreImpl extends MinimalEObjectImpl.Container implements Core
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", browser: ");
+    result.append(browser);
     result.append(')');
     return result.toString();
   }

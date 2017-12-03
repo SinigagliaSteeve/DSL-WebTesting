@@ -8,14 +8,17 @@ import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.StoreAction;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,33 +28,33 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.PageSelectionImpl#getStoreAction <em>Store Action</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.PageSelectionImpl#getAssertion <em>Assertion</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.PageSelectionImpl#getStoreActions <em>Store Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.PageSelectionImpl#getAssertions <em>Assertions</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PageSelectionImpl extends MinimalEObjectImpl.Container implements PageSelection
+public class PageSelectionImpl extends SelectionImpl implements PageSelection
 {
   /**
-   * The cached value of the '{@link #getStoreAction() <em>Store Action</em>}' containment reference.
+   * The cached value of the '{@link #getStoreActions() <em>Store Actions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getStoreAction()
+   * @see #getStoreActions()
    * @generated
    * @ordered
    */
-  protected StoreAction storeAction;
+  protected EList<StoreAction> storeActions;
 
   /**
-   * The cached value of the '{@link #getAssertion() <em>Assertion</em>}' containment reference.
+   * The cached value of the '{@link #getAssertions() <em>Assertions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAssertion()
+   * @see #getAssertions()
    * @generated
    * @ordered
    */
-  protected Assert assertion;
+  protected EList<Assert> assertions;
 
   /**
    * <!-- begin-user-doc -->
@@ -79,26 +82,13 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public StoreAction getStoreAction()
+  public EList<StoreAction> getStoreActions()
   {
-    return storeAction;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetStoreAction(StoreAction newStoreAction, NotificationChain msgs)
-  {
-    StoreAction oldStoreAction = storeAction;
-    storeAction = newStoreAction;
-    if (eNotificationRequired())
+    if (storeActions == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.PAGE_SELECTION__STORE_ACTION, oldStoreAction, newStoreAction);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      storeActions = new EObjectContainmentEList<StoreAction>(StoreAction.class, this, WebDslPackage.PAGE_SELECTION__STORE_ACTIONS);
     }
-    return msgs;
+    return storeActions;
   }
 
   /**
@@ -106,68 +96,13 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setStoreAction(StoreAction newStoreAction)
+  public EList<Assert> getAssertions()
   {
-    if (newStoreAction != storeAction)
+    if (assertions == null)
     {
-      NotificationChain msgs = null;
-      if (storeAction != null)
-        msgs = ((InternalEObject)storeAction).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PAGE_SELECTION__STORE_ACTION, null, msgs);
-      if (newStoreAction != null)
-        msgs = ((InternalEObject)newStoreAction).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PAGE_SELECTION__STORE_ACTION, null, msgs);
-      msgs = basicSetStoreAction(newStoreAction, msgs);
-      if (msgs != null) msgs.dispatch();
+      assertions = new EObjectContainmentEList<Assert>(Assert.class, this, WebDslPackage.PAGE_SELECTION__ASSERTIONS);
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.PAGE_SELECTION__STORE_ACTION, newStoreAction, newStoreAction));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Assert getAssertion()
-  {
-    return assertion;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAssertion(Assert newAssertion, NotificationChain msgs)
-  {
-    Assert oldAssertion = assertion;
-    assertion = newAssertion;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.PAGE_SELECTION__ASSERTION, oldAssertion, newAssertion);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAssertion(Assert newAssertion)
-  {
-    if (newAssertion != assertion)
-    {
-      NotificationChain msgs = null;
-      if (assertion != null)
-        msgs = ((InternalEObject)assertion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PAGE_SELECTION__ASSERTION, null, msgs);
-      if (newAssertion != null)
-        msgs = ((InternalEObject)newAssertion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PAGE_SELECTION__ASSERTION, null, msgs);
-      msgs = basicSetAssertion(newAssertion, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.PAGE_SELECTION__ASSERTION, newAssertion, newAssertion));
+    return assertions;
   }
 
   /**
@@ -180,10 +115,10 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case WebDslPackage.PAGE_SELECTION__STORE_ACTION:
-        return basicSetStoreAction(null, msgs);
-      case WebDslPackage.PAGE_SELECTION__ASSERTION:
-        return basicSetAssertion(null, msgs);
+      case WebDslPackage.PAGE_SELECTION__STORE_ACTIONS:
+        return ((InternalEList<?>)getStoreActions()).basicRemove(otherEnd, msgs);
+      case WebDslPackage.PAGE_SELECTION__ASSERTIONS:
+        return ((InternalEList<?>)getAssertions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -198,10 +133,10 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case WebDslPackage.PAGE_SELECTION__STORE_ACTION:
-        return getStoreAction();
-      case WebDslPackage.PAGE_SELECTION__ASSERTION:
-        return getAssertion();
+      case WebDslPackage.PAGE_SELECTION__STORE_ACTIONS:
+        return getStoreActions();
+      case WebDslPackage.PAGE_SELECTION__ASSERTIONS:
+        return getAssertions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -211,16 +146,19 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case WebDslPackage.PAGE_SELECTION__STORE_ACTION:
-        setStoreAction((StoreAction)newValue);
+      case WebDslPackage.PAGE_SELECTION__STORE_ACTIONS:
+        getStoreActions().clear();
+        getStoreActions().addAll((Collection<? extends StoreAction>)newValue);
         return;
-      case WebDslPackage.PAGE_SELECTION__ASSERTION:
-        setAssertion((Assert)newValue);
+      case WebDslPackage.PAGE_SELECTION__ASSERTIONS:
+        getAssertions().clear();
+        getAssertions().addAll((Collection<? extends Assert>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -236,11 +174,11 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case WebDslPackage.PAGE_SELECTION__STORE_ACTION:
-        setStoreAction((StoreAction)null);
+      case WebDslPackage.PAGE_SELECTION__STORE_ACTIONS:
+        getStoreActions().clear();
         return;
-      case WebDslPackage.PAGE_SELECTION__ASSERTION:
-        setAssertion((Assert)null);
+      case WebDslPackage.PAGE_SELECTION__ASSERTIONS:
+        getAssertions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -256,10 +194,10 @@ public class PageSelectionImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case WebDslPackage.PAGE_SELECTION__STORE_ACTION:
-        return storeAction != null;
-      case WebDslPackage.PAGE_SELECTION__ASSERTION:
-        return assertion != null;
+      case WebDslPackage.PAGE_SELECTION__STORE_ACTIONS:
+        return storeActions != null && !storeActions.isEmpty();
+      case WebDslPackage.PAGE_SELECTION__ASSERTIONS:
+        return assertions != null && !assertions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

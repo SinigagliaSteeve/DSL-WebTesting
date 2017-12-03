@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface CallProcedure extends EObject
+public interface CallProcedure extends Action
 {
   /**
    * Returns the value of the '<em><b>Ref</b></em>' reference.
