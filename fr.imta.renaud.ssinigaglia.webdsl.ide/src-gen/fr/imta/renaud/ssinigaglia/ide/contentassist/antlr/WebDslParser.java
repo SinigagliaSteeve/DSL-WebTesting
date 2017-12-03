@@ -84,6 +84,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkButtonSelectionAccess().getTypeElementAssignment_0(), "rule__LinkButtonSelection__TypeElementAssignment_0");
 					put(grammarAccess.getLinkButtonSelectionAccess().getTypeSelectionAssignment_1(), "rule__LinkButtonSelection__TypeSelectionAssignment_1");
 					put(grammarAccess.getLinkButtonSelectionAccess().getGeneralActionsAssignment_3_0(), "rule__LinkButtonSelection__GeneralActionsAssignment_3_0");
+					put(grammarAccess.getLinkButtonSelectionAccess().getClicksAssignment_3_1(), "rule__LinkButtonSelection__ClicksAssignment_3_1");
 					put(grammarAccess.getGeneralSelectionAccess().getTypeElementAssignment_0(), "rule__GeneralSelection__TypeElementAssignment_0");
 					put(grammarAccess.getGeneralSelectionAccess().getTypeSelectionAssignment_1(), "rule__GeneralSelection__TypeSelectionAssignment_1");
 					put(grammarAccess.getGeneralSelectionAccess().getGeneralActionsAssignment_3(), "rule__GeneralSelection__GeneralActionsAssignment_3");

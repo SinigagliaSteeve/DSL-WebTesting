@@ -281,7 +281,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     GeneralAction returns LinkButtonSelection
 	 *
 	 * Constraint:
-	 *     ((typeElement='LINK' | typeElement='BUTTON') typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     ((typeElement='LINK' | typeElement='BUTTON') typeSelection=TypeSelection (generalActions+=GeneralAction | clicks+='click')*)
 	 */
 	protected void sequence_LinkButtonSelection(ISerializationContext context, LinkButtonSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

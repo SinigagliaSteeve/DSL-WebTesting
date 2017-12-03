@@ -131,13 +131,17 @@ class WebDslGenerator extends AbstractGenerator {
 		«var attType = ""»
 		«var attValue = ""»
 		«IF selection.attribute !== null»
-			«attType = getTypeAttribute(selection.attribute)»
-			«attValue = if (selection.value !== null) selection.value else selection.^var.name»
+			//«attType = getTypeAttribute(selection.attribute)»
+			//«attValue = if (selection.value !== null) selection.value else selection.^var.name»
 		«ELSE»
 			//Faire quelque chose si c'est PARENT/FIRST/...
 		«ENDIF»
 		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«attType»()='«attValue»']"));
+		this.scrollTo(«htmlElem»«i».getLocation().y);
 		«for (generalAction : action.generalActions) generalAction.createAction(i)»
+		«FOR click : action.clicks»
+			«htmlElem»«i».click();
+		«ENDFOR»
 	'''
 	
 	dispatch def createAction(GeneralSelection action, int i) '''

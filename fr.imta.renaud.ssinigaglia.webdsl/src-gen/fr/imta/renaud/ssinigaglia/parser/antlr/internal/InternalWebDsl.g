@@ -598,10 +598,20 @@ ruleLinkButtonSelection returns [EObject current=null]
 				)
 			)
 			    |
-			otherlv_4='click'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getLinkButtonSelectionAccess().getClickKeyword_3_1());
-			}
+			(
+				(
+					lv_clicks_4_0='click'
+					{
+						newLeafNode(lv_clicks_4_0, grammarAccess.getLinkButtonSelectionAccess().getClicksClickKeyword_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getLinkButtonSelectionRule());
+						}
+						addWithLastConsumed($current, "clicks", lv_clicks_4_0, "click");
+					}
+				)
+			)
 		)*
 		otherlv_5='}'
 		{

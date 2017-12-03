@@ -337,13 +337,22 @@ public interface WebDslPackage extends EPackage
   int LINK_BUTTON_SELECTION__GENERAL_ACTIONS = SELECTION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Clicks</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LINK_BUTTON_SELECTION__CLICKS = SELECTION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Link Button Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LINK_BUTTON_SELECTION_FEATURE_COUNT = SELECTION_FEATURE_COUNT + 2;
+  int LINK_BUTTON_SELECTION_FEATURE_COUNT = SELECTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GeneralSelectionImpl <em>General Selection</em>}' class.
@@ -1156,6 +1165,17 @@ public interface WebDslPackage extends EPackage
   EReference getLinkButtonSelection_GeneralActions();
 
   /**
+   * Returns the meta object for the attribute list '{@link fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection#getClicks <em>Clicks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Clicks</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection#getClicks()
+   * @see #getLinkButtonSelection()
+   * @generated
+   */
+  EAttribute getLinkButtonSelection_Clicks();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection <em>General Selection</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1836,6 +1856,14 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EReference LINK_BUTTON_SELECTION__GENERAL_ACTIONS = eINSTANCE.getLinkButtonSelection_GeneralActions();
+
+    /**
+     * The meta object literal for the '<em><b>Clicks</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LINK_BUTTON_SELECTION__CLICKS = eINSTANCE.getLinkButtonSelection_Clicks();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.GeneralSelectionImpl <em>General Selection</em>}' class.

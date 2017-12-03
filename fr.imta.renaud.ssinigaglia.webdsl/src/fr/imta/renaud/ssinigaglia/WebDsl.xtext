@@ -53,7 +53,7 @@ Selection:
 
 LinkButtonSelection:
 	typeElement=("LINK"|"BUTTON") typeSelection=TypeSelection '{'
-		(generalActions+=GeneralAction | 'click')*
+		(generalActions+=GeneralAction | clicks+='click')*
 	'}'
 ;
 

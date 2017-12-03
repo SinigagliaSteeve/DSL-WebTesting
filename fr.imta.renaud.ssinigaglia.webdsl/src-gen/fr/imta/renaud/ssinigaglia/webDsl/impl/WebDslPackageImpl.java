@@ -509,6 +509,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getLinkButtonSelection_Clicks()
+  {
+    return (EAttribute)linkButtonSelectionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getGeneralSelection()
   {
     return generalSelectionEClass;
@@ -1003,6 +1013,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     linkButtonSelectionEClass = createEClass(LINK_BUTTON_SELECTION);
     createEReference(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__TYPE_SELECTION);
     createEReference(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__GENERAL_ACTIONS);
+    createEAttribute(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__CLICKS);
 
     generalSelectionEClass = createEClass(GENERAL_SELECTION);
     createEReference(generalSelectionEClass, GENERAL_SELECTION__TYPE_SELECTION);
@@ -1138,6 +1149,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEClass(linkButtonSelectionEClass, LinkButtonSelection.class, "LinkButtonSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLinkButtonSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLinkButtonSelection_GeneralActions(), this.getGeneralAction(), null, "generalActions", null, 0, -1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLinkButtonSelection_Clicks(), ecorePackage.getEString(), "clicks", null, 0, -1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalSelectionEClass, GeneralSelection.class, "GeneralSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGeneralSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, GeneralSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

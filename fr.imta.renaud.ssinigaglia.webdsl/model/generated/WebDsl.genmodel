@@ -59,6 +59,7 @@
     <genClasses ecoreClass="WebDsl.ecore#//LinkButtonSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//LinkButtonSelection/typeSelection"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//LinkButtonSelection/generalActions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//LinkButtonSelection/clicks"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//GeneralSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//GeneralSelection/typeSelection"/>

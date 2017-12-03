@@ -746,9 +746,9 @@ rule__LinkButtonSelection__Alternatives_3
 	)
 	|
 	(
-		{ before(grammarAccess.getLinkButtonSelectionAccess().getClickKeyword_3_1()); }
-		'click'
-		{ after(grammarAccess.getLinkButtonSelectionAccess().getClickKeyword_3_1()); }
+		{ before(grammarAccess.getLinkButtonSelectionAccess().getClicksAssignment_3_1()); }
+		(rule__LinkButtonSelection__ClicksAssignment_3_1)
+		{ after(grammarAccess.getLinkButtonSelectionAccess().getClicksAssignment_3_1()); }
 	)
 ;
 finally {
@@ -3585,6 +3585,25 @@ rule__LinkButtonSelection__GeneralActionsAssignment_3_0
 		{ before(grammarAccess.getLinkButtonSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
 		ruleGeneralAction
 		{ after(grammarAccess.getLinkButtonSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__LinkButtonSelection__ClicksAssignment_3_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getLinkButtonSelectionAccess().getClicksClickKeyword_3_1_0()); }
+		(
+			{ before(grammarAccess.getLinkButtonSelectionAccess().getClicksClickKeyword_3_1_0()); }
+			'click'
+			{ after(grammarAccess.getLinkButtonSelectionAccess().getClicksClickKeyword_3_1_0()); }
+		)
+		{ after(grammarAccess.getLinkButtonSelectionAccess().getClicksClickKeyword_3_1_0()); }
 	)
 ;
 finally {

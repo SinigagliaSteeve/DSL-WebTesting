@@ -302,15 +302,16 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
 		private final Assignment cGeneralActionsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
 		private final RuleCall cGeneralActionsGeneralActionParserRuleCall_3_0_0 = (RuleCall)cGeneralActionsAssignment_3_0.eContents().get(0);
-		private final Keyword cClickKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
+		private final Assignment cClicksAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final Keyword cClicksClickKeyword_3_1_0 = (Keyword)cClicksAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//LinkButtonSelection:
-		//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
+		//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')* '}'
+		//typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//typeElement=("LINK" | "BUTTON")
@@ -334,7 +335,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(generalActions+=GeneralAction | 'click')*
+		//(generalActions+=GeneralAction | clicks+='click')*
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//generalActions+=GeneralAction
@@ -343,8 +344,11 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//GeneralAction
 		public RuleCall getGeneralActionsGeneralActionParserRuleCall_3_0_0() { return cGeneralActionsGeneralActionParserRuleCall_3_0_0; }
 		
+		//clicks+='click'
+		public Assignment getClicksAssignment_3_1() { return cClicksAssignment_3_1; }
+		
 		//'click'
-		public Keyword getClickKeyword_3_1() { return cClickKeyword_3_1; }
+		public Keyword getClicksClickKeyword_3_1_0() { return cClicksClickKeyword_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -1358,7 +1362,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LinkButtonSelection:
-	//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'click')*
+	//	typeElement=("LINK" | "BUTTON") typeSelection=TypeSelection '{' (generalActions+=GeneralAction | clicks+='click')*
 	//	'}';
 	public LinkButtonSelectionElements getLinkButtonSelectionAccess() {
 		return pLinkButtonSelection;

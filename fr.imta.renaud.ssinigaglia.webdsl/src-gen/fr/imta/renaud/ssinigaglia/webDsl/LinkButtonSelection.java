@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection#getTypeSelection <em>Type Selection</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection#getClicks <em>Clicks</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getLinkButtonSelection()
@@ -65,5 +66,21 @@ public interface LinkButtonSelection extends Selection
    * @generated
    */
   EList<GeneralAction> getGeneralActions();
+
+  /**
+   * Returns the value of the '<em><b>Clicks</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Clicks</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Clicks</em>' attribute list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getLinkButtonSelection_Clicks()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getClicks();
 
 } // LinkButtonSelection
