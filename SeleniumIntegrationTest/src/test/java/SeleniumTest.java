@@ -195,6 +195,64 @@ public class SeleniumTest {
         Assert.assertNotNull(finalElem);
     }
 
+    /**
+     * (result=FALSE)
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+     * insert "2007" in the search field
+     * click on the button "Appliquer les filtres"
+     * count how many results (class=”views-row”) are shown
+     * choose the option "Le mois dernier" in the combobox
+     * click on the button "Appliquer les filtres"
+     * verify that the number of results is the same of the previous one
+     */
+    @Test
+    public void test_height_count_should_return_false() {
+//        open_browser chrome
+//        go "http..."
+        driver.get("http://www.imt-atlantique.fr/fr/rechercher");
+//        SEARCH_FIELD FIRST {
+//            set VALUE:"2007"
+//        }
+        WebElement searchField = findSearchField();
+        searchField.sendKeys("2007");
+
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+        WebElement btn = findButton("Appliquer les filtres");
+        clickButton(btn);
+
+//        PAGE {
+//            store (count DIV CLASS:"views-row") in nbResult
+//        }
+
+        int nbResult = countBy(By.xpath("//div[@class='views-row']"));
+
+//        COMBO_BOX FIRST {
+//            select "Le mois dernier"
+//        }
+
+        Select combobox = findCombobox();
+        combobox.selectByVisibleText("Le mois dernier");
+
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+
+        WebElement btn2 = findButton("Appliquer les filtres");
+        clickButton(btn2);
+
+//        PAGE {
+//            store (count DIV CLASS:"views-row") in newNbResult
+//            verify VAR:nbResult equals VAR:newNbResult
+//        }
+
+        int newNbResult = countBy(By.xpath("//div[@class='views-row']"));
+        System.out.println(nbResult + " ?? " + newNbResult);
+        Assert.assertNotEquals(nbResult, newNbResult);
+    }
+
     private Select findCombobox() {
         List<WebElement> comboboxes = driver.findElements(By.tagName("select"));
         for (WebElement combobox : comboboxes) {
@@ -205,6 +263,10 @@ public class SeleniumTest {
         throw new RuntimeException("No combobox found");
     }
 
+    private int countBy(By by) {
+        return driver.findElements(by).size();
+    }
+
     private WebElement findElementByTagAndAttributes(String tag, String attribute, String value) {
         for (WebElement element : findAllElements(By.tagName(tag))) {
             if (element.getAttribute(attribute).equals(value)) {
@@ -212,6 +274,10 @@ public class SeleniumTest {
             }
         }
         return null;
+    }
+
+    private void clickButton(WebElement element) {
+        scrollTo(element).click();
     }
 
     private WebElement findSearchField() {
