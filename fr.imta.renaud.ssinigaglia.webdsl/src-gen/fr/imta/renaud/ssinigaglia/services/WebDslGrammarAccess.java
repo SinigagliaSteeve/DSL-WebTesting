@@ -420,21 +420,19 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cGeneralActionsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cGeneralActionsGeneralActionParserRuleCall_3_0_0 = (RuleCall)cGeneralActionsAssignment_3_0.eContents().get(0);
-		private final Keyword cCheckKeyword_3_1 = (Keyword)cAlternatives_3.eContents().get(1);
-		private final Keyword cUncheckKeyword_3_2 = (Keyword)cAlternatives_3.eContents().get(2);
+		private final Assignment cActionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final Alternatives cActionAlternatives_3_0 = (Alternatives)cActionAssignment_3.eContents().get(0);
+		private final Keyword cActionCheckKeyword_3_0_0 = (Keyword)cActionAlternatives_3_0.eContents().get(0);
+		private final Keyword cActionUncheckKeyword_3_0_1 = (Keyword)cActionAlternatives_3_0.eContents().get(1);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//CheckboxSelection:
-		//	typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
-		//	| 'check'
-		//	| 'uncheck')*
+		//	typeElement="CHECKBOX" typeSelection=TypeSelection '{'
+		//	action=('check' | 'uncheck')
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'check' | 'uncheck')* '}'
+		//typeElement="CHECKBOX" typeSelection=TypeSelection '{' action=('check' | 'uncheck') '}'
 		public Group getGroup() { return cGroup; }
 		
 		//typeElement="CHECKBOX"
@@ -452,20 +450,17 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(generalActions+=GeneralAction | 'check' | 'uncheck')*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		//action=('check' | 'uncheck')
+		public Assignment getActionAssignment_3() { return cActionAssignment_3; }
 		
-		//generalActions+=GeneralAction
-		public Assignment getGeneralActionsAssignment_3_0() { return cGeneralActionsAssignment_3_0; }
-		
-		//GeneralAction
-		public RuleCall getGeneralActionsGeneralActionParserRuleCall_3_0_0() { return cGeneralActionsGeneralActionParserRuleCall_3_0_0; }
+		//('check' | 'uncheck')
+		public Alternatives getActionAlternatives_3_0() { return cActionAlternatives_3_0; }
 		
 		//'check'
-		public Keyword getCheckKeyword_3_1() { return cCheckKeyword_3_1; }
+		public Keyword getActionCheckKeyword_3_0_0() { return cActionCheckKeyword_3_0_0; }
 		
 		//'uncheck'
-		public Keyword getUncheckKeyword_3_2() { return cUncheckKeyword_3_2; }
+		public Keyword getActionUncheckKeyword_3_0_1() { return cActionUncheckKeyword_3_0_1; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -1404,9 +1399,8 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//CheckboxSelection:
-	//	typeElement="CHECKBOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
-	//	| 'check'
-	//	| 'uncheck')*
+	//	typeElement="CHECKBOX" typeSelection=TypeSelection '{'
+	//	action=('check' | 'uncheck')
 	//	'}';
 	public CheckboxSelectionElements getCheckboxSelectionAccess() {
 		return pCheckboxSelection;

@@ -172,7 +172,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     GeneralAction returns CheckboxSelection
 	 *
 	 * Constraint:
-	 *     (typeElement='CHECKBOX' typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     (typeElement='CHECKBOX' typeSelection=TypeSelection (action='check' | action='uncheck'))
 	 */
 	protected void sequence_CheckboxSelection(ISerializationContext context, CheckboxSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

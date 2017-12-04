@@ -429,13 +429,13 @@ public interface WebDslPackage extends EPackage
   int CHECKBOX_SELECTION__TYPE_SELECTION = SELECTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>General Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Action</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHECKBOX_SELECTION__GENERAL_ACTIONS = SELECTION_FEATURE_COUNT + 1;
+  int CHECKBOX_SELECTION__ACTION = SELECTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Checkbox Selection</em>' class.
@@ -1238,15 +1238,15 @@ public interface WebDslPackage extends EPackage
   EReference getCheckboxSelection_TypeSelection();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getGeneralActions <em>General Actions</em>}'.
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>General Actions</em>'.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getGeneralActions()
+   * @return the meta object for the attribute '<em>Action</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getAction()
    * @see #getCheckboxSelection()
    * @generated
    */
-  EReference getCheckboxSelection_GeneralActions();
+  EAttribute getCheckboxSelection_Action();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection <em>Combobox Selection</em>}'.
@@ -1930,12 +1930,12 @@ public interface WebDslPackage extends EPackage
     EReference CHECKBOX_SELECTION__TYPE_SELECTION = eINSTANCE.getCheckboxSelection_TypeSelection();
 
     /**
-     * The meta object literal for the '<em><b>General Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Action</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CHECKBOX_SELECTION__GENERAL_ACTIONS = eINSTANCE.getCheckboxSelection_GeneralActions();
+    EAttribute CHECKBOX_SELECTION__ACTION = eINSTANCE.getCheckboxSelection_Action();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl <em>Combobox Selection</em>}' class.

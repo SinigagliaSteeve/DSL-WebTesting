@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getTypeSelection <em>Type Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getCheckboxSelection()
@@ -51,19 +50,29 @@ public interface CheckboxSelection extends Selection
   void setTypeSelection(TypeSelection value);
 
   /**
-   * Returns the value of the '<em><b>General Actions</b></em>' containment reference list.
-   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.GeneralAction}.
+   * Returns the value of the '<em><b>Action</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>General Actions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Action</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>General Actions</em>' containment reference list.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getCheckboxSelection_GeneralActions()
-   * @model containment="true"
+   * @return the value of the '<em>Action</em>' attribute.
+   * @see #setAction(String)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getCheckboxSelection_Action()
+   * @model
    * @generated
    */
-  EList<GeneralAction> getGeneralActions();
+  String getAction();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection#getAction <em>Action</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Action</em>' attribute.
+   * @see #getAction()
+   * @generated
+   */
+  void setAction(String value);
 
 } // CheckboxSelection

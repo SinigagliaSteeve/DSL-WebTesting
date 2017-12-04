@@ -202,6 +202,28 @@ class WebDslGenerator extends AbstractGenerator {
 		        WebElement label = driver.findElement(By.xpath("//label[text()='" + lbl + "']"));
 		        return label.findElement(By.xpath("preceding-sibling::*[1]"));
 		    }
+		    
+		    private WebElement checkCheckbox(WebElement element) {
+		            if (element.isSelected()) return element;
+		            clickElem(element);
+		            return element;
+		    }
+		    
+		    private WebElement uncheckCheckbox(WebElement element) {
+		            if (element.isSelected()) {
+		                clickElem(element);
+		            }
+		            return element;
+		    }
+		    
+		    private void checkAllCheckboxes() {
+		            for (WebElement element : findCheckboxes()) {
+		                this.scrollTo(element);
+		                if (element.isDisplayed() && !element.isSelected()) {
+		                    element.click();
+		                }
+		            }
+		    }
 		
 		    private WebElement findVisibleOne(By by) {
 		        List<WebElement> elements = driver.findElements(by);
@@ -295,7 +317,7 @@ class WebDslGenerator extends AbstractGenerator {
 			//«attType = getTypeAttribute(selection.attribute)»
 			//«attValue = if (selection.value !== null) selection.value else selection.^var.name»
 		«ELSE»
-			//Faire quelque chose si c'est PARENT/FIRST/...
+			//Faire quelque chose si c'est PARENT/FIRST/ALL
 		«ENDIF»
 		
 		«IF htmlElem == "search_field"»
@@ -314,6 +336,16 @@ class WebDslGenerator extends AbstractGenerator {
 	'''
 	
 	dispatch def createAction(CheckboxSelection action, int i) '''
+		«val htmlElem = getTypeHtmlElement(action.typeElement)»
+		«val elem = htmlElem+i»
+		«IF action.typeSelection !== null»
+			«val attValue = if (action.typeSelection.value !== null) action.typeSelection.value else action.typeSelection.^var.name»
+			WebElement «elem» = findCheckbox("«attValue»");
+			«action.action»Checkbox(«elem»);
+		«ELSE»
+			«action.action»AllCheckboxes();
+		«ENDIF»
+		
 	'''
 	
 	dispatch def createAction(ComboboxSelection action, int i) '''
@@ -351,13 +383,6 @@ class WebDslGenerator extends AbstractGenerator {
 	
 	dispatch def createAssert(AssertEquals assert)'''
 		
-	'''
-	
-	dispatch def createAction(GeneralAction action, int i)'''
-		«var GeneralSelection parent = action.eContainer as GeneralSelection»
-			«val htmlElem = getTypeHtmlElement(parent.typeElement)»
-			«htmlElem»«i».sendKeys("Donald Trump");
-			
 	'''
 	
 	def createSetAction(SetAction action, String elem) '''
