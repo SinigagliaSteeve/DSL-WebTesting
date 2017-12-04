@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
@@ -128,6 +129,39 @@ public class SeleniumTest {
 
         WebElement element = findElementContainsText("Aucune formation trouvée répondant à vos critères");
         Assert.assertNotNull(element);
+    }
+
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+     * insert "2007" in the search field
+     * choose the option "Le mois dernier" in the combobox
+     * click on the button "Appliquer les filtres"
+     * verify that the page contains the text "Aucun résultat ne correspond à votre recherche"
+     */
+    @Test
+    public void test_six_combobox() {
+        driver.get("http://www.imt-atlantique.fr/fr/rechercher");
+        WebElement searchField = findVisibleOne(By.name("search_api_fulltext"));
+        searchField.sendKeys("2007");
+
+        Select select = findCombobox();
+        select.selectByVisibleText("Le mois dernier");
+        scrollTo(findButton("Appliquer les filtres")).click();
+
+        WebElement element = findElementContainsText("Aucun résultat ne correspond à votre recherche");
+        Assert.assertNotNull(element);
+    }
+
+    private Select findCombobox() {
+        List<WebElement> comboboxes = driver.findElements(By.tagName("select"));
+        for (WebElement combobox : comboboxes) {
+            if (combobox.isDisplayed() && combobox.isEnabled()) {
+                return new Select(combobox);
+            }
+        }
+        throw new RuntimeException("No combobox found");
+//        return new Select(driver.findElement(By.tagName("select")));
     }
 
     private WebElement findButton(String label) {
