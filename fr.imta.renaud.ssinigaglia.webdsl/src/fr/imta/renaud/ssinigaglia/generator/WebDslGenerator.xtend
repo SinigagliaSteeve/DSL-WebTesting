@@ -48,22 +48,39 @@ class WebDslGenerator extends AbstractGenerator {
 	}
 	
 	def generateProgram(Program m) '''
-	
+		import org.junit.*;
+		import org.junit.runner.RunWith;
+		import org.junit.runners.BlockJUnit4ClassRunner;
+		import org.openqa.selenium.By;
+		import org.openqa.selenium.JavascriptExecutor;
+		import org.openqa.selenium.WebDriver;
+		import org.openqa.selenium.WebElement;
+		import org.openqa.selenium.chrome.ChromeDriverService;
+		import org.openqa.selenium.remote.DesiredCapabilities;
+		import org.openqa.selenium.remote.RemoteWebDriver;
+		import org.openqa.selenium.support.ui.Select;
+		
+		import java.io.File;
+		import java.io.IOException;
+		import java.util.ArrayList;
+		import java.util.List;
+		
+		@RunWith(BlockJUnit4ClassRunner.class)
 		public class SeleniumTest {
 			
 			private static ChromeDriverService service;
-			    private WebDriver driver;
+			private WebDriver driver;
 			
-			    @BeforeClass
-			    public static void createAndStartService() throws IOException {
-			        String exePath = "C:\\Users\\Steeve\\Work\\EMN\\FIL_2018\\DSL\\chromedriver.exe";
+			@BeforeClass
+			public static void createAndStartService() throws IOException {
+				String exePath = "C:\\Users\\Steeve\\Work\\EMN\\FIL_2018\\DSL\\chromedriver.exe";
 			
-			        service = new ChromeDriverService.Builder()
+			    service = new ChromeDriverService.Builder()
 			                .usingDriverExecutable(new File(exePath))
 			                .usingAnyFreePort()
 			                .build();
-			        service.start();
-			    }
+			    service.start();
+			}
 			
 			    @AfterClass
 			    public static void createAndStopService() {
@@ -81,25 +98,139 @@ class WebDslGenerator extends AbstractGenerator {
 			        driver.quit();
 			    }
 			    
-			private void scrollTo(int y) {
-			        y = y - 100;
-			        StringBuilder stringBuilder = new StringBuilder("window.scrollTo(0,");
-			        stringBuilder.append(y)
-			                .append(")");
-			
-			        JavascriptExecutor jse = (JavascriptExecutor) driver;
-			        jse.executeScript(stringBuilder.toString());
-			    }
-			
-			private WebElement findVisibleOne(By by) {
-			    List<WebElement> elements = driver.findElements(by);
-			    for (WebElement element : elements) {
-			        if (element.isDisplayed()) {
-			            return element;
-			        }
-			    }
-			    return null;
-			 }
+		    /**
+		     * Uncheck all checkboxes in the page.
+		     */
+		    private void uncheckAllCheckboxes() {
+		        for (WebElement webElement : findCheckboxes()) {
+		            this.scrollTo(webElement);
+		            if (webElement.isDisplayed() && webElement.isSelected())
+		                webElement.click();
+		        }
+		    }
+		
+		
+		    /**
+		     * Find the first combobox in the page.
+		     *
+		     * @return Select object (combobox).
+		     */
+		    private Select findCombobox() {
+		        List<WebElement> comboboxes = driver.findElements(By.tagName("select"));
+		        for (WebElement combobox : comboboxes) {
+		            if (combobox.isDisplayed() && combobox.isEnabled()) {
+		                return new Select(combobox);
+		            }
+		        }
+		        throw new RuntimeException("No combobox found");
+		    }
+		
+		//    private int countBy(By by) {
+		//        return driver.findElements(by).size();
+		//    }
+		
+		    private WebElement findElementByTagAndAttribute(String tag, String attribute, String value) {
+		        for (WebElement element : findAllElements(By.tagName(tag))) {
+		            if (element.getAttribute(attribute).equals(value)) {
+		                return element;
+		            }
+		        }
+		        return null;
+		    }
+		
+		    private List<WebElement> findElementsByTagAndAttribute(String tag, String attribute, String value) {
+		        if (attribute == null || attribute.equals("")) {
+		            throw new RuntimeException("attribute can't be null");
+		        }
+		        List<WebElement> elements = new ArrayList<>();
+		        for (WebElement element : findAllElements(By.tagName(tag))) {
+		            if (element.getAttribute(attribute).equals(value)) {
+		                elements.add(element);
+		            }
+		        }
+		        return elements;
+		    }
+		
+		    private WebElement findElementByTagAndText(String tag, String value) {
+		        final String xpath = "//" + tag + "[text()='" + value + "']";
+		        for (WebElement element : driver.findElements(By.xpath(xpath))) {
+		            if (element.isEnabled() && element.isDisplayed()) {
+		                return element;
+		            }
+		        }
+		        return null;
+		    }
+		
+		    private List<WebElement> findElementsByTagAndText(String tag, String value) {
+		        final String xpath = "//" + tag + "[text()='" + value + "']";
+		        List<WebElement> elements = new ArrayList<>();
+		        for (WebElement element : driver.findElements(By.xpath(xpath))) {
+		            if (element.isEnabled() && element.isDisplayed()) {
+		                elements.add(element);
+		            }
+		        }
+		        return elements;
+		    }
+		
+		    private void clickElem(WebElement element) {
+		        scrollTo(element).click();
+		    }
+		
+		    private WebElement findSearchField() {
+		        return findVisibleOne(By.name("search_api_fulltext"));
+		    }
+		
+		    private WebElement findParent(WebElement element) {
+		        return element.findElement(By.xpath(".."));
+		    }
+		
+		    private WebElement findButton(String label) {
+		        return driver.findElement(By.xpath("//input[@type='submit'][@value='" + label + "']"));
+		    }
+		
+		    private WebElement findElementContainsText(String text) {
+		        return driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+		    }
+		
+		    private List<WebElement> findCheckboxes() {
+		        List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+		        return elements;
+		    }
+		
+		    private WebElement findCheckbox(String lbl) {
+		        WebElement label = driver.findElement(By.xpath("//label[text()='" + lbl + "']"));
+		        return label.findElement(By.xpath("preceding-sibling::*[1]"));
+		    }
+		
+		    private WebElement findVisibleOne(By by) {
+		        List<WebElement> elements = driver.findElements(by);
+		        for (WebElement element : elements) {
+		            if (element.isDisplayed()) {
+		                return element;
+		            }
+		        }
+		        return null;
+		    }
+		
+		    private List<WebElement> findAllElements(By by) {
+		        return driver.findElements(by);
+		    }
+		
+		
+		    private void scrollTo(int y) {
+		        y = y - 100;
+		        StringBuilder stringBuilder = new StringBuilder("window.scrollTo(0,");
+		        stringBuilder.append(y)
+		                .append(")");
+		
+		        JavascriptExecutor jse = (JavascriptExecutor) driver;
+		        jse.executeScript(stringBuilder.toString());
+		    }
+		
+		    private WebElement scrollTo(WebElement element) {
+		        this.scrollTo(element.getLocation().y);
+		        return element;
+		    }
 			
 			«FOR proc : m.procedures»
 				
@@ -180,14 +311,21 @@ class WebDslGenerator extends AbstractGenerator {
 	
 	dispatch def createAssert(AssertContains assert)'''
 		«val attValue = assert.value»
-		«IF assert.attribute !== null»
-			«val htmlElem = getTypeHtmlElement(assert.htmlElement.getName())»
-			«val attType = getTypeAttribute(assert.attribute)»
-			«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
-			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']")));
+		«val htmlElem = getTypeHtmlElement(assert.htmlElement.getName())»
+		
+«««		«IF assert.attribute !== null»
+«««			«val attType = getTypeAttribute(assert.attribute)»
+«««			«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
+«««			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']")));
+«««		«ELSE»
+		«IF assert.attribute !== null && assert.attribute.getName !== "LABEL"»
+		«val attType = getTypeAttribute(assert.attribute)»
+		WebElement elementFinal = findElementByTagAndAttribute('«htmlElem»','«attType»', '«attValue»');
 		«ELSE»
-			Assert.assertNotNull(findVisibleOne(By.xpath("//*[contains(text(), '«attValue»')]"));
+		WebElement elementFinal = findElementByTagAndText('«htmlElem»','«attValue»');
 		«ENDIF»
+		Assert.assertNotNull(elementFinal);
+		
 	'''
 	
 	dispatch def createAssert(AssertEquals assert)'''
