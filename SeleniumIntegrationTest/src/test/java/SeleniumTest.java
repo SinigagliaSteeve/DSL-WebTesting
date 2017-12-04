@@ -6,7 +6,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -101,15 +100,52 @@ public class SeleniumTest {
         WebElement button = findVisibleOne(By.xpath("//input[@type='submit'][@value='Appliquer les filtres']"));
         scrollTo(button.getLocation().y);
         button.click();
-        WebElement lbl = findVisibleOne(By.xpath("//*[contains(text(),'Aucun résultat')]"));
+        WebElement lbl = findElementContainsText("Aucun résultat");
         Assert.assertNotNull(lbl);
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
+     * uncheck all checkboxes
+     * check the checkboxes “Anglais” and “A domicile”
+     * click on the button "Appliquer les critères"
+     * verify that the page contains the text "Aucune formation trouvée répondant à vos critères"
+     */
     @Test
-    public void test_google_input() {
-        driver.get("http://www.google.fr");
-        driver.findElement(By.name("q")).sendKeys("Free Selenium Training");
-        driver.findElement(By.name("btnK")).click();
+    public void test_five_checkbox() throws InterruptedException {
+        driver.get("http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation");
+        //uncheck all checkbox if needed.
+        for (WebElement webElement : findCheckboxes()) {
+            this.scrollTo(webElement);
+            if (webElement.isDisplayed() && webElement.isSelected())
+                webElement.click();
+        }
+
+        scrollTo(findCheckbox("Anglais")).click();
+        scrollTo(findCheckbox("A domicile")).click();
+        scrollTo(findButton("Appliquer les critères")).click();
+
+        WebElement element = findElementContainsText("Aucune formation trouvée répondant à vos critères");
+        Assert.assertNotNull(element);
+    }
+
+    private WebElement findButton(String label) {
+        return driver.findElement(By.xpath("//input[@type='submit'][@value='" + label + "']"));
+    }
+
+    private WebElement findElementContainsText(String text) {
+        return driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]"));
+    }
+
+    private List<WebElement> findCheckboxes() {
+        List<WebElement> elements = driver.findElements(By.xpath("//input[@type='checkbox']"));
+        return elements;
+    }
+
+    private WebElement findCheckbox(String lbl) {
+        WebElement label = driver.findElement(By.xpath("//label[text()='" + lbl + "']"));
+        return label.findElement(By.xpath("preceding-sibling::*[1]"));
     }
 
     private WebElement findVisibleOne(By by) {
@@ -133,8 +169,9 @@ public class SeleniumTest {
         jse.executeScript(stringBuilder.toString());
     }
 
-    private void scrollTo(WebElement element) {
+    private WebElement scrollTo(WebElement element) {
         this.scrollTo(element.getLocation().y);
+        return element;
     }
 }
 
