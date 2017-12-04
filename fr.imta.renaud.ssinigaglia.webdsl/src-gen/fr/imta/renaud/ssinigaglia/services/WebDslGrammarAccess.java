@@ -851,22 +851,23 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cHtmlElementHtmlElementEnumRuleCall_1_0_0_0 = (RuleCall)cHtmlElementAssignment_1_0_0.eContents().get(0);
 		private final Assignment cAttributeAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final RuleCall cAttributeAttributeEnumRuleCall_1_0_1_0 = (RuleCall)cAttributeAssignment_1_0_1.eContents().get(0);
-		private final Keyword cTEXTKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Assignment cTextAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
+		private final Keyword cTextTEXTKeyword_1_1_0 = (Keyword)cTextAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//AssertContains:
-		//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING;
+		//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING
+		//'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING
 		public Group getGroup() { return cGroup; }
 		
 		//'contains'
 		public Keyword getContainsKeyword_0() { return cContainsKeyword_0; }
 		
-		//htmlElement=HtmlElement attribute=Attribute | 'TEXT'
+		//htmlElement=HtmlElement attribute=Attribute | text='TEXT'
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
 		//htmlElement=HtmlElement attribute=Attribute
@@ -884,8 +885,11 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributeAttributeEnumRuleCall_1_0_1_0() { return cAttributeAttributeEnumRuleCall_1_0_1_0; }
 		
+		//text='TEXT'
+		public Assignment getTextAssignment_1_1() { return cTextAssignment_1_1; }
+		
 		//'TEXT'
-		public Keyword getTEXTKeyword_1_1() { return cTEXTKeyword_1_1; }
+		public Keyword getTextTEXTKeyword_1_1_0() { return cTextTEXTKeyword_1_1_0; }
 		
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
@@ -1515,7 +1519,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AssertContains:
-	//	'contains' (htmlElement=HtmlElement attribute=Attribute | 'TEXT') ':' value=STRING;
+	//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING;
 	public AssertContainsElements getAssertContainsAccess() {
 		return pAssertContains;
 	}

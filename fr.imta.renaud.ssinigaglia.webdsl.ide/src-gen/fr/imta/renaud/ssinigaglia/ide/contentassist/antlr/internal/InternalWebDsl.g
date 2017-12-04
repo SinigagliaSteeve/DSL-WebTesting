@@ -992,9 +992,9 @@ rule__AssertContains__Alternatives_1
 	)
 	|
 	(
-		{ before(grammarAccess.getAssertContainsAccess().getTEXTKeyword_1_1()); }
-		'TEXT'
-		{ after(grammarAccess.getAssertContainsAccess().getTEXTKeyword_1_1()); }
+		{ before(grammarAccess.getAssertContainsAccess().getTextAssignment_1_1()); }
+		(rule__AssertContains__TextAssignment_1_1)
+		{ after(grammarAccess.getAssertContainsAccess().getTextAssignment_1_1()); }
 	)
 ;
 finally {
@@ -4007,6 +4007,25 @@ rule__AssertContains__AttributeAssignment_1_0_1
 		{ before(grammarAccess.getAssertContainsAccess().getAttributeAttributeEnumRuleCall_1_0_1_0()); }
 		ruleAttribute
 		{ after(grammarAccess.getAssertContainsAccess().getAttributeAttributeEnumRuleCall_1_0_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__AssertContains__TextAssignment_1_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAssertContainsAccess().getTextTEXTKeyword_1_1_0()); }
+		(
+			{ before(grammarAccess.getAssertContainsAccess().getTextTEXTKeyword_1_1_0()); }
+			'TEXT'
+			{ after(grammarAccess.getAssertContainsAccess().getTextTEXTKeyword_1_1_0()); }
+		)
+		{ after(grammarAccess.getAssertContainsAccess().getTextTEXTKeyword_1_1_0()); }
 	)
 ;
 finally {

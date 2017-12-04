@@ -113,7 +113,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     AssertContains returns AssertContains
 	 *
 	 * Constraint:
-	 *     ((htmlElement=HtmlElement attribute=Attribute)? value=STRING)
+	 *     (((htmlElement=HtmlElement attribute=Attribute) | text='TEXT') value=STRING)
 	 */
 	protected void sequence_AssertContains(ISerializationContext context, AssertContains semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -799,13 +799,22 @@ public interface WebDslPackage extends EPackage
   int ASSERT_CONTAINS__ATTRIBUTE = ASSERT_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT_CONTAINS__TEXT = ASSERT_FEATURE_COUNT + 2;
+
+  /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERT_CONTAINS__VALUE = ASSERT_FEATURE_COUNT + 2;
+  int ASSERT_CONTAINS__VALUE = ASSERT_FEATURE_COUNT + 3;
 
   /**
    * The number of structural features of the '<em>Assert Contains</em>' class.
@@ -814,7 +823,7 @@ public interface WebDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSERT_CONTAINS_FEATURE_COUNT = ASSERT_FEATURE_COUNT + 3;
+  int ASSERT_CONTAINS_FEATURE_COUNT = ASSERT_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertEqualsImpl <em>Assert Equals</em>}' class.
@@ -1527,6 +1536,17 @@ public interface WebDslPackage extends EPackage
   EAttribute getAssertContains_Attribute();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getText <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Text</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getText()
+   * @see #getAssertContains()
+   * @generated
+   */
+  EAttribute getAssertContains_Text();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2152,6 +2172,14 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EAttribute ASSERT_CONTAINS__ATTRIBUTE = eINSTANCE.getAssertContains_Attribute();
+
+    /**
+     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ASSERT_CONTAINS__TEXT = eINSTANCE.getAssertContains_Text();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.

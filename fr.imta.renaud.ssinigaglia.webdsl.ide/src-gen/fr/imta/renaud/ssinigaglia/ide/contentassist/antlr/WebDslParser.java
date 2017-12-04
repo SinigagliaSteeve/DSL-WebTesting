@@ -110,6 +110,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeSelectionAccess().getVarAssignment_0_2_1(), "rule__TypeSelection__VarAssignment_0_2_1");
 					put(grammarAccess.getAssertContainsAccess().getHtmlElementAssignment_1_0_0(), "rule__AssertContains__HtmlElementAssignment_1_0_0");
 					put(grammarAccess.getAssertContainsAccess().getAttributeAssignment_1_0_1(), "rule__AssertContains__AttributeAssignment_1_0_1");
+					put(grammarAccess.getAssertContainsAccess().getTextAssignment_1_1(), "rule__AssertContains__TextAssignment_1_1");
 					put(grammarAccess.getAssertContainsAccess().getValueAssignment_3(), "rule__AssertContains__ValueAssignment_3");
 					put(grammarAccess.getAssertEqualsAccess().getC1Assignment_0(), "rule__AssertEquals__C1Assignment_0");
 					put(grammarAccess.getAssertEqualsAccess().getC2Assignment_2(), "rule__AssertEquals__C2Assignment_2");

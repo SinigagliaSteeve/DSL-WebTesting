@@ -98,6 +98,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="AssertContains" eSuperTypes="#//Assert">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="htmlElement" eType="#//HtmlElement"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AssertEquals" eSuperTypes="#//Assert">

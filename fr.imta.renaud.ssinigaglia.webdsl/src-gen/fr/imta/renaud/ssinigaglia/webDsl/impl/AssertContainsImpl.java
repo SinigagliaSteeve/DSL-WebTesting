@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getHtmlElement <em>Html Element</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getText <em>Text</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -70,6 +71,26 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
    * @ordered
    */
   protected Attribute attribute = ATTRIBUTE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getText()
+   * @generated
+   * @ordered
+   */
+  protected static final String TEXT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getText()
+   * @generated
+   * @ordered
+   */
+  protected String text = TEXT_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -163,6 +184,29 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getText()
+  {
+    return text;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setText(String newText)
+  {
+    String oldText = text;
+    text = newText;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT_CONTAINS__TEXT, oldText, text));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public String getValue()
   {
     return value;
@@ -195,6 +239,8 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return getHtmlElement();
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         return getAttribute();
+      case WebDslPackage.ASSERT_CONTAINS__TEXT:
+        return getText();
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         return getValue();
     }
@@ -216,6 +262,9 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return;
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         setAttribute((Attribute)newValue);
+        return;
+      case WebDslPackage.ASSERT_CONTAINS__TEXT:
+        setText((String)newValue);
         return;
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         setValue((String)newValue);
@@ -240,6 +289,9 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         setAttribute(ATTRIBUTE_EDEFAULT);
         return;
+      case WebDslPackage.ASSERT_CONTAINS__TEXT:
+        setText(TEXT_EDEFAULT);
+        return;
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -261,6 +313,8 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return htmlElement != HTML_ELEMENT_EDEFAULT;
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         return attribute != ATTRIBUTE_EDEFAULT;
+      case WebDslPackage.ASSERT_CONTAINS__TEXT:
+        return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
@@ -282,6 +336,8 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
     result.append(htmlElement);
     result.append(", attribute: ");
     result.append(attribute);
+    result.append(", text: ");
+    result.append(text);
     result.append(", value: ");
     result.append(value);
     result.append(')');

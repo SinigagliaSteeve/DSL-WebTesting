@@ -849,9 +849,19 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getAssertContains_Value()
+  public EAttribute getAssertContains_Text()
   {
     return (EAttribute)assertContainsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAssertContains_Value()
+  {
+    return (EAttribute)assertContainsEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1059,6 +1069,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     assertContainsEClass = createEClass(ASSERT_CONTAINS);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__HTML_ELEMENT);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__ATTRIBUTE);
+    createEAttribute(assertContainsEClass, ASSERT_CONTAINS__TEXT);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__VALUE);
 
     assertEqualsEClass = createEClass(ASSERT_EQUALS);
@@ -1195,6 +1206,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEClass(assertContainsEClass, AssertContains.class, "AssertContains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssertContains_HtmlElement(), this.getHtmlElement(), "htmlElement", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssertContains_Attribute(), this.getAttribute(), "attribute", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssertContains_Text(), ecorePackage.getEString(), "text", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssertContains_Value(), ecorePackage.getEString(), "value", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEqualsEClass, AssertEquals.class, "AssertEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -1490,10 +1490,20 @@ ruleAssertContains returns [EObject current=null]
 				)
 			)
 			    |
-			otherlv_3='TEXT'
-			{
-				newLeafNode(otherlv_3, grammarAccess.getAssertContainsAccess().getTEXTKeyword_1_1());
-			}
+			(
+				(
+					lv_text_3_0='TEXT'
+					{
+						newLeafNode(lv_text_3_0, grammarAccess.getAssertContainsAccess().getTextTEXTKeyword_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAssertContainsRule());
+						}
+						setWithLastConsumed($current, "text", lv_text_3_0, "TEXT");
+					}
+				)
+			)
 		)
 		otherlv_4=':'
 		{

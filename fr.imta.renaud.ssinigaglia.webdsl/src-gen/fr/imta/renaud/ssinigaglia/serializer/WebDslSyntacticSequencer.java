@@ -71,7 +71,7 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	/**
 	 * Ambiguous syntax:
-	 *     ('check' | 'uncheck')*
+	 *     ('uncheck' | 'check')*
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     generalActions+=GeneralAction (ambiguity) '}' (rule end)

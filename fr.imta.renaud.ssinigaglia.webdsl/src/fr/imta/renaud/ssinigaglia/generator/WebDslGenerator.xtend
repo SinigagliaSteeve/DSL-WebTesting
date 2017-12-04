@@ -337,7 +337,7 @@ class WebDslGenerator extends AbstractGenerator {
 «««			«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
 «««			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']")));
 «««		«ELSE»
-		«IF htmlElem === null»
+		«IF assert.text!==null»
 			WebElement elementFinal = findElementContainsText("«attValue»");
 		«ELSEIF assert.attribute !== null && assert.attribute.getName !== "LABEL"»
 			«val attType = getTypeAttribute(assert.attribute)»

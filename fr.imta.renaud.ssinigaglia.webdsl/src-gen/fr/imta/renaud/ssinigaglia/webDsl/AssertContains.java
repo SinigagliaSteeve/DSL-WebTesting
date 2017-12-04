@@ -15,6 +15,7 @@ package fr.imta.renaud.ssinigaglia.webDsl;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getHtmlElement <em>Html Element</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getText <em>Text</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -81,6 +82,32 @@ public interface AssertContains extends Assert
    * @generated
    */
   void setAttribute(Attribute value);
+
+  /**
+   * Returns the value of the '<em><b>Text</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Text</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Text</em>' attribute.
+   * @see #setText(String)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAssertContains_Text()
+   * @model
+   * @generated
+   */
+  String getText();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getText <em>Text</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Text</em>' attribute.
+   * @see #getText()
+   * @generated
+   */
+  void setText(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

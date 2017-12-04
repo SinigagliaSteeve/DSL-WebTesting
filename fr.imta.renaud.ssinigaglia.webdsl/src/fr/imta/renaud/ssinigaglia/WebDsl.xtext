@@ -126,7 +126,7 @@ Assert:
 	)
 ;
 
-AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | 'TEXT') ':' value=STRING;
+AssertContains : 'contains' ((htmlElement=HtmlElement attribute=Attribute) | text='TEXT') ':' value=STRING;
 AssertEquals : c1=Comparable 'equals' c2=Comparable;
 
 Comparable:
