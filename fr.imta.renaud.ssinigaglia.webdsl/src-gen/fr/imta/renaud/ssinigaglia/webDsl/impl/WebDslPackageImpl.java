@@ -309,7 +309,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getProgram_Core()
+  public EReference getProgram_Cores()
   {
     return (EReference)programEClass.getEStructuralFeatures().get(1);
   }
@@ -339,9 +339,19 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getCore_Browser()
+  {
+    return (EAttribute)coreEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getCore_Actions()
   {
-    return (EReference)coreEClass.getEStructuralFeatures().get(1);
+    return (EReference)coreEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -399,36 +409,6 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAction_GoAction()
-  {
-    return (EReference)actionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAction_Selection()
-  {
-    return (EReference)actionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAction_CallProcedure()
-  {
-    return (EReference)actionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getCallProcedure()
   {
     return callProcedureEClass;
@@ -469,7 +449,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGoAction_Name()
+  public EAttribute getGoAction_Url()
   {
     return (EAttribute)goActionEClass.getEStructuralFeatures().get(0);
   }
@@ -489,49 +469,9 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSelection_LinkButtonSelection()
+  public EAttribute getSelection_TypeElement()
   {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_GeneralSelection()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_CheckboxSelection()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(2);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_ComboboxSelection()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSelection_PageSelection()
-  {
-    return (EReference)selectionEClass.getEStructuralFeatures().get(4);
+    return (EAttribute)selectionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -562,6 +502,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EReference getLinkButtonSelection_GeneralActions()
   {
     return (EReference)linkButtonSelectionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLinkButtonSelection_Clicks()
+  {
+    return (EAttribute)linkButtonSelectionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -669,7 +619,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPageSelection_StoreAction()
+  public EReference getPageSelection_StoreActions()
   {
     return (EReference)pageSelectionEClass.getEStructuralFeatures().get(0);
   }
@@ -679,7 +629,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPageSelection_Assertion()
+  public EReference getPageSelection_Assertions()
   {
     return (EReference)pageSelectionEClass.getEStructuralFeatures().get(1);
   }
@@ -692,36 +642,6 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EClass getGeneralAction()
   {
     return generalActionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGeneralAction_SetAction()
-  {
-    return (EReference)generalActionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGeneralAction_StoreAction()
-  {
-    return (EReference)generalActionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getGeneralAction_Selection()
-  {
-    return (EReference)generalActionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -899,26 +819,6 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAssert_AssertContain()
-  {
-    return (EReference)assertEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAssert_AssertEquals()
-  {
-    return (EReference)assertEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getAssertContains()
   {
     return assertContainsEClass;
@@ -942,6 +842,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EAttribute getAssertContains_Attribute()
   {
     return (EAttribute)assertContainsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAssertContains_Value()
+  {
+    return (EAttribute)assertContainsEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1076,10 +986,11 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     // Create classes and their features
     programEClass = createEClass(PROGRAM);
     createEReference(programEClass, PROGRAM__PROCEDURES);
-    createEReference(programEClass, PROGRAM__CORE);
+    createEReference(programEClass, PROGRAM__CORES);
 
     coreEClass = createEClass(CORE);
     createEAttribute(coreEClass, CORE__NAME);
+    createEAttribute(coreEClass, CORE__BROWSER);
     createEReference(coreEClass, CORE__ACTIONS);
 
     procedureEClass = createEClass(PROCEDURE);
@@ -1088,27 +999,21 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEReference(procedureEClass, PROCEDURE__ACTIONS);
 
     actionEClass = createEClass(ACTION);
-    createEReference(actionEClass, ACTION__GO_ACTION);
-    createEReference(actionEClass, ACTION__SELECTION);
-    createEReference(actionEClass, ACTION__CALL_PROCEDURE);
 
     callProcedureEClass = createEClass(CALL_PROCEDURE);
     createEReference(callProcedureEClass, CALL_PROCEDURE__REF);
     createEAttribute(callProcedureEClass, CALL_PROCEDURE__ARG);
 
     goActionEClass = createEClass(GO_ACTION);
-    createEAttribute(goActionEClass, GO_ACTION__NAME);
+    createEAttribute(goActionEClass, GO_ACTION__URL);
 
     selectionEClass = createEClass(SELECTION);
-    createEReference(selectionEClass, SELECTION__LINK_BUTTON_SELECTION);
-    createEReference(selectionEClass, SELECTION__GENERAL_SELECTION);
-    createEReference(selectionEClass, SELECTION__CHECKBOX_SELECTION);
-    createEReference(selectionEClass, SELECTION__COMBOBOX_SELECTION);
-    createEReference(selectionEClass, SELECTION__PAGE_SELECTION);
+    createEAttribute(selectionEClass, SELECTION__TYPE_ELEMENT);
 
     linkButtonSelectionEClass = createEClass(LINK_BUTTON_SELECTION);
     createEReference(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__TYPE_SELECTION);
     createEReference(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__GENERAL_ACTIONS);
+    createEAttribute(linkButtonSelectionEClass, LINK_BUTTON_SELECTION__CLICKS);
 
     generalSelectionEClass = createEClass(GENERAL_SELECTION);
     createEReference(generalSelectionEClass, GENERAL_SELECTION__TYPE_SELECTION);
@@ -1123,13 +1028,10 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEReference(comboboxSelectionEClass, COMBOBOX_SELECTION__GENERAL_ACTIONS);
 
     pageSelectionEClass = createEClass(PAGE_SELECTION);
-    createEReference(pageSelectionEClass, PAGE_SELECTION__STORE_ACTION);
-    createEReference(pageSelectionEClass, PAGE_SELECTION__ASSERTION);
+    createEReference(pageSelectionEClass, PAGE_SELECTION__STORE_ACTIONS);
+    createEReference(pageSelectionEClass, PAGE_SELECTION__ASSERTIONS);
 
     generalActionEClass = createEClass(GENERAL_ACTION);
-    createEReference(generalActionEClass, GENERAL_ACTION__SET_ACTION);
-    createEReference(generalActionEClass, GENERAL_ACTION__STORE_ACTION);
-    createEReference(generalActionEClass, GENERAL_ACTION__SELECTION);
 
     storeActionEClass = createEClass(STORE_ACTION);
     createEAttribute(storeActionEClass, STORE_ACTION__VAL);
@@ -1153,12 +1055,11 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEReference(typeSelectionEClass, TYPE_SELECTION__VAR);
 
     assertEClass = createEClass(ASSERT);
-    createEReference(assertEClass, ASSERT__ASSERT_CONTAIN);
-    createEReference(assertEClass, ASSERT__ASSERT_EQUALS);
 
     assertContainsEClass = createEClass(ASSERT_CONTAINS);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__HTML_ELEMENT);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__ATTRIBUTE);
+    createEAttribute(assertContainsEClass, ASSERT_CONTAINS__VALUE);
 
     assertEqualsEClass = createEClass(ASSERT_EQUALS);
     createEReference(assertEqualsEClass, ASSERT_EQUALS__C1);
@@ -1204,14 +1105,28 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    callProcedureEClass.getESuperTypes().add(this.getAction());
+    goActionEClass.getESuperTypes().add(this.getAction());
+    selectionEClass.getESuperTypes().add(this.getAction());
+    selectionEClass.getESuperTypes().add(this.getGeneralAction());
+    linkButtonSelectionEClass.getESuperTypes().add(this.getSelection());
+    generalSelectionEClass.getESuperTypes().add(this.getSelection());
+    checkboxSelectionEClass.getESuperTypes().add(this.getSelection());
+    comboboxSelectionEClass.getESuperTypes().add(this.getSelection());
+    pageSelectionEClass.getESuperTypes().add(this.getSelection());
+    storeActionEClass.getESuperTypes().add(this.getGeneralAction());
+    setActionEClass.getESuperTypes().add(this.getGeneralAction());
+    assertContainsEClass.getESuperTypes().add(this.getAssert());
+    assertEqualsEClass.getESuperTypes().add(this.getAssert());
 
     // Initialize classes and features; add operations and parameters
     initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProgram_Procedures(), this.getProcedure(), null, "procedures", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProgram_Core(), this.getCore(), null, "core", null, 0, 1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProgram_Cores(), this.getCore(), null, "cores", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(coreEClass, Core.class, "Core", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCore_Name(), this.getBrowser(), "name", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCore_Name(), ecorePackage.getEString(), "name", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCore_Browser(), this.getBrowser(), "browser", null, 0, 1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCore_Actions(), this.getAction(), null, "actions", null, 0, -1, Core.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(procedureEClass, Procedure.class, "Procedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1220,27 +1135,21 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEReference(getProcedure_Actions(), this.getAction(), null, "actions", null, 0, -1, Procedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAction_GoAction(), this.getGoAction(), null, "goAction", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAction_Selection(), this.getSelection(), null, "selection", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAction_CallProcedure(), this.getCallProcedure(), null, "callProcedure", null, 0, 1, Action.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(callProcedureEClass, CallProcedure.class, "CallProcedure", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCallProcedure_Ref(), this.getProcedure(), null, "ref", null, 0, 1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCallProcedure_Arg(), ecorePackage.getEString(), "arg", null, 0, 1, CallProcedure.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(goActionEClass, GoAction.class, "GoAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGoAction_Name(), ecorePackage.getEString(), "name", null, 0, 1, GoAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGoAction_Url(), ecorePackage.getEString(), "url", null, 0, 1, GoAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSelection_LinkButtonSelection(), this.getLinkButtonSelection(), null, "linkButtonSelection", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelection_GeneralSelection(), this.getGeneralSelection(), null, "generalSelection", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelection_CheckboxSelection(), this.getCheckboxSelection(), null, "checkboxSelection", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelection_ComboboxSelection(), this.getComboboxSelection(), null, "comboboxSelection", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSelection_PageSelection(), this.getPageSelection(), null, "pageSelection", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSelection_TypeElement(), ecorePackage.getEString(), "typeElement", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(linkButtonSelectionEClass, LinkButtonSelection.class, "LinkButtonSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLinkButtonSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getLinkButtonSelection_GeneralActions(), this.getGeneralAction(), null, "generalActions", null, 0, -1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLinkButtonSelection_Clicks(), ecorePackage.getEString(), "clicks", null, 0, -1, LinkButtonSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalSelectionEClass, GeneralSelection.class, "GeneralSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGeneralSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, GeneralSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1255,13 +1164,10 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEReference(getComboboxSelection_GeneralActions(), this.getGeneralAction(), null, "generalActions", null, 0, -1, ComboboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pageSelectionEClass, PageSelection.class, "PageSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPageSelection_StoreAction(), this.getStoreAction(), null, "storeAction", null, 0, 1, PageSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPageSelection_Assertion(), this.getAssert(), null, "assertion", null, 0, 1, PageSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPageSelection_StoreActions(), this.getStoreAction(), null, "storeActions", null, 0, -1, PageSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPageSelection_Assertions(), this.getAssert(), null, "assertions", null, 0, -1, PageSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(generalActionEClass, GeneralAction.class, "GeneralAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getGeneralAction_SetAction(), this.getSetAction(), null, "setAction", null, 0, 1, GeneralAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGeneralAction_StoreAction(), this.getStoreAction(), null, "storeAction", null, 0, 1, GeneralAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getGeneralAction_Selection(), this.getSelection(), null, "selection", null, 0, 1, GeneralAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(storeActionEClass, StoreAction.class, "StoreAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStoreAction_Val(), this.getAttribute(), "val", null, 0, 1, StoreAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1285,12 +1191,11 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEReference(getTypeSelection_Var(), this.getVar(), null, "var", null, 0, 1, TypeSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEClass, Assert.class, "Assert", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAssert_AssertContain(), this.getAssertContains(), null, "assertContain", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssert_AssertEquals(), this.getAssertEquals(), null, "assertEquals", null, 0, 1, Assert.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertContainsEClass, AssertContains.class, "AssertContains", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAssertContains_HtmlElement(), this.getHtmlElement(), "htmlElement", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssertContains_Attribute(), this.getAttribute(), "attribute", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAssertContains_Value(), ecorePackage.getEString(), "value", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEqualsEClass, AssertEquals.class, "AssertEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssertEquals_C1(), this.getComparable(), null, "c1", null, 0, 1, AssertEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1326,6 +1231,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     addEEnumLiteral(attributeEEnum, Attribute.VALUE);
     addEEnumLiteral(attributeEEnum, Attribute.HREF);
     addEEnumLiteral(attributeEEnum, Attribute.TITLE);
+    addEEnumLiteral(attributeEEnum, Attribute.NAME);
 
     // Create resource
     createResource(eNS_URI);

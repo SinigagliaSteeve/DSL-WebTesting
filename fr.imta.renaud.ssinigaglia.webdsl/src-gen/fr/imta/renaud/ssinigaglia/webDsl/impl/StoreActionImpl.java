@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -33,7 +32,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class StoreActionImpl extends MinimalEObjectImpl.Container implements StoreAction
+public class StoreActionImpl extends GeneralActionImpl implements StoreAction
 {
   /**
    * The default value of the '{@link #getVal() <em>Val</em>}' attribute.

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class AssertEqualsImpl extends MinimalEObjectImpl.Container implements AssertEquals
+public class AssertEqualsImpl extends AssertImpl implements AssertEquals
 {
   /**
    * The cached value of the '{@link #getC1() <em>C1</em>}' containment reference.

@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,13 +15,14 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getHtmlElement <em>Html Element</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAssertContains()
  * @model
  * @generated
  */
-public interface AssertContains extends EObject
+public interface AssertContains extends Assert
 {
   /**
    * Returns the value of the '<em><b>Html Element</b></em>' attribute.
@@ -81,5 +81,31 @@ public interface AssertContains extends EObject
    * @generated
    */
   void setAttribute(Attribute value);
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAssertContains_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
 
 } // AssertContains

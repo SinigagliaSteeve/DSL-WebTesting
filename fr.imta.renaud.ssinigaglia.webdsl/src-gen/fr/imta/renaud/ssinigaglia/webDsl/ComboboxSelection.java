@@ -5,8 +5,6 @@ package fr.imta.renaud.ssinigaglia.webDsl;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Combobox Selection</b></em>'.
@@ -24,7 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ComboboxSelection extends EObject
+public interface ComboboxSelection extends Selection
 {
   /**
    * Returns the value of the '<em><b>Type Selection</b></em>' containment reference.

@@ -13,7 +13,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,11 +24,12 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getHtmlElement <em>Html Element</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssertContainsImpl extends MinimalEObjectImpl.Container implements AssertContains
+public class AssertContainsImpl extends AssertImpl implements AssertContains
 {
   /**
    * The default value of the '{@link #getHtmlElement() <em>Html Element</em>}' attribute.
@@ -70,6 +70,26 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected Attribute attribute = ATTRIBUTE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -143,6 +163,29 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT_CONTAINS__VALUE, oldValue, value));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -152,6 +195,8 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
         return getHtmlElement();
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         return getAttribute();
+      case WebDslPackage.ASSERT_CONTAINS__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -171,6 +216,9 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
         return;
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         setAttribute((Attribute)newValue);
+        return;
+      case WebDslPackage.ASSERT_CONTAINS__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -192,6 +240,9 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         setAttribute(ATTRIBUTE_EDEFAULT);
         return;
+      case WebDslPackage.ASSERT_CONTAINS__VALUE:
+        setValue(VALUE_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -210,6 +261,8 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
         return htmlElement != HTML_ELEMENT_EDEFAULT;
       case WebDslPackage.ASSERT_CONTAINS__ATTRIBUTE:
         return attribute != ATTRIBUTE_EDEFAULT;
+      case WebDslPackage.ASSERT_CONTAINS__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -229,6 +282,8 @@ public class AssertContainsImpl extends MinimalEObjectImpl.Container implements 
     result.append(htmlElement);
     result.append(", attribute: ");
     result.append(attribute);
+    result.append(", value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

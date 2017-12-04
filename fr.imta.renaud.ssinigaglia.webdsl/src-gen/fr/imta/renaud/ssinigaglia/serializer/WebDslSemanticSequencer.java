@@ -5,7 +5,6 @@ package fr.imta.renaud.ssinigaglia.serializer;
 
 import com.google.inject.Inject;
 import fr.imta.renaud.ssinigaglia.services.WebDslGrammarAccess;
-import fr.imta.renaud.ssinigaglia.webDsl.Assert;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
 import fr.imta.renaud.ssinigaglia.webDsl.CallProcedure;
@@ -13,14 +12,12 @@ import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Core;
 import fr.imta.renaud.ssinigaglia.webDsl.CountAction;
-import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.GoAction;
 import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Procedure;
 import fr.imta.renaud.ssinigaglia.webDsl.Program;
-import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.SetAction;
 import fr.imta.renaud.ssinigaglia.webDsl.StoreAction;
 import fr.imta.renaud.ssinigaglia.webDsl.TypeSelection;
@@ -51,12 +48,6 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == WebDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case WebDslPackage.ACTION:
-				sequence_Action(context, (fr.imta.renaud.ssinigaglia.webDsl.Action) semanticObject); 
-				return; 
-			case WebDslPackage.ASSERT:
-				sequence_Assert(context, (Assert) semanticObject); 
-				return; 
 			case WebDslPackage.ASSERT_CONTAINS:
 				sequence_AssertContains(context, (AssertContains) semanticObject); 
 				return; 
@@ -81,9 +72,6 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case WebDslPackage.COUNT_ACTION:
 				sequence_CountAction(context, (CountAction) semanticObject); 
 				return; 
-			case WebDslPackage.GENERAL_ACTION:
-				sequence_GeneralAction(context, (GeneralAction) semanticObject); 
-				return; 
 			case WebDslPackage.GENERAL_SELECTION:
 				sequence_GeneralSelection(context, (GeneralSelection) semanticObject); 
 				return; 
@@ -101,9 +89,6 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case WebDslPackage.PROGRAM:
 				sequence_Program(context, (Program) semanticObject); 
-				return; 
-			case WebDslPackage.SELECTION:
-				sequence_Selection(context, (Selection) semanticObject); 
 				return; 
 			case WebDslPackage.SET_ACTION:
 				sequence_SetAction(context, (SetAction) semanticObject); 
@@ -124,39 +109,20 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Action returns Action
+	 *     Assert returns AssertContains
+	 *     AssertContains returns AssertContains
 	 *
 	 * Constraint:
-	 *     (goAction=GoAction | selection=Selection | callProcedure=CallProcedure)
+	 *     ((htmlElement=HtmlElement attribute=Attribute)? value=STRING)
 	 */
-	protected void sequence_Action(ISerializationContext context, fr.imta.renaud.ssinigaglia.webDsl.Action semanticObject) {
+	protected void sequence_AssertContains(ISerializationContext context, AssertContains semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     AssertContains returns AssertContains
-	 *
-	 * Constraint:
-	 *     (htmlElement=HtmlElement attribute=Attribute)
-	 */
-	protected void sequence_AssertContains(ISerializationContext context, AssertContains semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.ASSERT_CONTAINS__HTML_ELEMENT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.ASSERT_CONTAINS__HTML_ELEMENT));
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.ASSERT_CONTAINS__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.ASSERT_CONTAINS__ATTRIBUTE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAssertContainsAccess().getHtmlElementHtmlElementEnumRuleCall_1_0_0_0(), semanticObject.getHtmlElement());
-		feeder.accept(grammarAccess.getAssertContainsAccess().getAttributeAttributeEnumRuleCall_1_0_1_0(), semanticObject.getAttribute());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Assert returns AssertEquals
 	 *     AssertEquals returns AssertEquals
 	 *
 	 * Constraint:
@@ -178,18 +144,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Assert returns Assert
-	 *
-	 * Constraint:
-	 *     (assertContain=AssertContains | assertEquals=AssertEquals)
-	 */
-	protected void sequence_Assert(ISerializationContext context, Assert semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Action returns CallProcedure
 	 *     CallProcedure returns CallProcedure
 	 *
 	 * Constraint:
@@ -211,10 +166,13 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Action returns CheckboxSelection
+	 *     Selection returns CheckboxSelection
 	 *     CheckboxSelection returns CheckboxSelection
+	 *     GeneralAction returns CheckboxSelection
 	 *
 	 * Constraint:
-	 *     (typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     (typeElement='CHECKBOX' typeSelection=TypeSelection generalActions+=GeneralAction*)
 	 */
 	protected void sequence_CheckboxSelection(ISerializationContext context, CheckboxSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -223,10 +181,13 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Action returns ComboboxSelection
+	 *     Selection returns ComboboxSelection
 	 *     ComboboxSelection returns ComboboxSelection
+	 *     GeneralAction returns ComboboxSelection
 	 *
 	 * Constraint:
-	 *     (typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     (typeElement='COMBO_BOX' typeSelection=TypeSelection generalActions+=GeneralAction*)
 	 */
 	protected void sequence_ComboboxSelection(ISerializationContext context, ComboboxSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -250,7 +211,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Core returns Core
 	 *
 	 * Constraint:
-	 *     (name=Browser actions+=Action*)
+	 *     (name=ID browser=Browser actions+=Action*)
 	 */
 	protected void sequence_Core(ISerializationContext context, Core semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -280,22 +241,13 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     GeneralAction returns GeneralAction
-	 *
-	 * Constraint:
-	 *     (setAction=SetAction | storeAction=StoreAction | selection=Selection)
-	 */
-	protected void sequence_GeneralAction(ISerializationContext context, GeneralAction semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     Action returns GeneralSelection
+	 *     Selection returns GeneralSelection
 	 *     GeneralSelection returns GeneralSelection
+	 *     GeneralAction returns GeneralSelection
 	 *
 	 * Constraint:
-	 *     (typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     ((typeElement='SEARCH_FIELD' | typeElement='DIV') typeSelection=TypeSelection generalActions+=GeneralAction*)
 	 */
 	protected void sequence_GeneralSelection(ISerializationContext context, GeneralSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -304,28 +256,36 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Action returns GoAction
 	 *     GoAction returns GoAction
 	 *
 	 * Constraint:
-	 *     name=STRING
+	 *     url=STRING
 	 */
 	protected void sequence_GoAction(ISerializationContext context, GoAction semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.GO_ACTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.GO_ACTION__NAME));
+			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.GO_ACTION__URL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.GO_ACTION__URL));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGoActionAccess().getNameSTRINGTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getGoActionAccess().getUrlSTRINGTerminalRuleCall_1_0(), semanticObject.getUrl());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
+	 *     Action returns LinkButtonSelection
+	 *     Selection returns LinkButtonSelection
 	 *     LinkButtonSelection returns LinkButtonSelection
+	 *     GeneralAction returns LinkButtonSelection
 	 *
 	 * Constraint:
-	 *     (typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     (
+	 *         (typeElement='LINK' | typeElement='BUTTON' | typeElement='IMAGE') 
+	 *         typeSelection=TypeSelection 
+	 *         (generalActions+=GeneralAction | clicks+='click')*
+	 *     )
 	 */
 	protected void sequence_LinkButtonSelection(ISerializationContext context, LinkButtonSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -334,10 +294,13 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Action returns PageSelection
+	 *     Selection returns PageSelection
 	 *     PageSelection returns PageSelection
+	 *     GeneralAction returns PageSelection
 	 *
 	 * Constraint:
-	 *     (storeAction=StoreAction | assertion=Assert)+
+	 *     (typeElement='PAGE' (storeActions+=StoreAction | assertions+=Assert)*)
 	 */
 	protected void sequence_PageSelection(ISerializationContext context, PageSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -361,7 +324,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Program returns Program
 	 *
 	 * Constraint:
-	 *     (procedures+=Procedure* core=Core)
+	 *     ((procedures+=Procedure+ cores+=Core+) | cores+=Core+)?
 	 */
 	protected void sequence_Program(ISerializationContext context, Program semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -370,24 +333,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Selection returns Selection
-	 *
-	 * Constraint:
-	 *     (
-	 *         linkButtonSelection=LinkButtonSelection | 
-	 *         generalSelection=GeneralSelection | 
-	 *         checkboxSelection=CheckboxSelection | 
-	 *         comboboxSelection=ComboboxSelection | 
-	 *         pageSelection=PageSelection
-	 *     )
-	 */
-	protected void sequence_Selection(ISerializationContext context, Selection semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
+	 *     GeneralAction returns SetAction
 	 *     SetAction returns SetAction
 	 *
 	 * Constraint:
@@ -409,6 +355,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     GeneralAction returns StoreAction
 	 *     StoreAction returns StoreAction
 	 *
 	 * Constraint:

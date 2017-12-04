@@ -4,55 +4,21 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.Assert;
-import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
-import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Assert</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertImpl#getAssertContain <em>Assert Contain</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertImpl#getAssertEquals <em>Assert Equals</em>}</li>
- * </ul>
  *
  * @generated
  */
 public class AssertImpl extends MinimalEObjectImpl.Container implements Assert
 {
-  /**
-   * The cached value of the '{@link #getAssertContain() <em>Assert Contain</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssertContain()
-   * @generated
-   * @ordered
-   */
-  protected AssertContains assertContain;
-
-  /**
-   * The cached value of the '{@link #getAssertEquals() <em>Assert Equals</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAssertEquals()
-   * @generated
-   * @ordered
-   */
-  protected AssertEquals assertEquals;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -72,196 +38,6 @@ public class AssertImpl extends MinimalEObjectImpl.Container implements Assert
   protected EClass eStaticClass()
   {
     return WebDslPackage.Literals.ASSERT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AssertContains getAssertContain()
-  {
-    return assertContain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAssertContain(AssertContains newAssertContain, NotificationChain msgs)
-  {
-    AssertContains oldAssertContain = assertContain;
-    assertContain = newAssertContain;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT__ASSERT_CONTAIN, oldAssertContain, newAssertContain);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAssertContain(AssertContains newAssertContain)
-  {
-    if (newAssertContain != assertContain)
-    {
-      NotificationChain msgs = null;
-      if (assertContain != null)
-        msgs = ((InternalEObject)assertContain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ASSERT__ASSERT_CONTAIN, null, msgs);
-      if (newAssertContain != null)
-        msgs = ((InternalEObject)newAssertContain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ASSERT__ASSERT_CONTAIN, null, msgs);
-      msgs = basicSetAssertContain(newAssertContain, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT__ASSERT_CONTAIN, newAssertContain, newAssertContain));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AssertEquals getAssertEquals()
-  {
-    return assertEquals;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetAssertEquals(AssertEquals newAssertEquals, NotificationChain msgs)
-  {
-    AssertEquals oldAssertEquals = assertEquals;
-    assertEquals = newAssertEquals;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT__ASSERT_EQUALS, oldAssertEquals, newAssertEquals);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAssertEquals(AssertEquals newAssertEquals)
-  {
-    if (newAssertEquals != assertEquals)
-    {
-      NotificationChain msgs = null;
-      if (assertEquals != null)
-        msgs = ((InternalEObject)assertEquals).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ASSERT__ASSERT_EQUALS, null, msgs);
-      if (newAssertEquals != null)
-        msgs = ((InternalEObject)newAssertEquals).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.ASSERT__ASSERT_EQUALS, null, msgs);
-      msgs = basicSetAssertEquals(newAssertEquals, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT__ASSERT_EQUALS, newAssertEquals, newAssertEquals));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.ASSERT__ASSERT_CONTAIN:
-        return basicSetAssertContain(null, msgs);
-      case WebDslPackage.ASSERT__ASSERT_EQUALS:
-        return basicSetAssertEquals(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.ASSERT__ASSERT_CONTAIN:
-        return getAssertContain();
-      case WebDslPackage.ASSERT__ASSERT_EQUALS:
-        return getAssertEquals();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.ASSERT__ASSERT_CONTAIN:
-        setAssertContain((AssertContains)newValue);
-        return;
-      case WebDslPackage.ASSERT__ASSERT_EQUALS:
-        setAssertEquals((AssertEquals)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.ASSERT__ASSERT_CONTAIN:
-        setAssertContain((AssertContains)null);
-        return;
-      case WebDslPackage.ASSERT__ASSERT_EQUALS:
-        setAssertEquals((AssertEquals)null);
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.ASSERT__ASSERT_CONTAIN:
-        return assertContain != null;
-      case WebDslPackage.ASSERT__ASSERT_EQUALS:
-        return assertEquals != null;
-    }
-    return super.eIsSet(featureID);
   }
 
 } //AssertImpl

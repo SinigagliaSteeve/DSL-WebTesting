@@ -3,7 +3,6 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,147 +13,39 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getLinkButtonSelection <em>Link Button Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getGeneralSelection <em>General Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getCheckboxSelection <em>Checkbox Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getComboboxSelection <em>Combobox Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getPageSelection <em>Page Selection</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getTypeElement <em>Type Element</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection()
  * @model
  * @generated
  */
-public interface Selection extends EObject
+public interface Selection extends Action, GeneralAction
 {
   /**
-   * Returns the value of the '<em><b>Link Button Selection</b></em>' containment reference.
+   * Returns the value of the '<em><b>Type Element</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Link Button Selection</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Type Element</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Link Button Selection</em>' containment reference.
-   * @see #setLinkButtonSelection(LinkButtonSelection)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_LinkButtonSelection()
-   * @model containment="true"
+   * @return the value of the '<em>Type Element</em>' attribute.
+   * @see #setTypeElement(String)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_TypeElement()
+   * @model
    * @generated
    */
-  LinkButtonSelection getLinkButtonSelection();
+  String getTypeElement();
 
   /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getLinkButtonSelection <em>Link Button Selection</em>}' containment reference.
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getTypeElement <em>Type Element</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Link Button Selection</em>' containment reference.
-   * @see #getLinkButtonSelection()
+   * @param value the new value of the '<em>Type Element</em>' attribute.
+   * @see #getTypeElement()
    * @generated
    */
-  void setLinkButtonSelection(LinkButtonSelection value);
-
-  /**
-   * Returns the value of the '<em><b>General Selection</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>General Selection</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>General Selection</em>' containment reference.
-   * @see #setGeneralSelection(GeneralSelection)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_GeneralSelection()
-   * @model containment="true"
-   * @generated
-   */
-  GeneralSelection getGeneralSelection();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getGeneralSelection <em>General Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>General Selection</em>' containment reference.
-   * @see #getGeneralSelection()
-   * @generated
-   */
-  void setGeneralSelection(GeneralSelection value);
-
-  /**
-   * Returns the value of the '<em><b>Checkbox Selection</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Checkbox Selection</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Checkbox Selection</em>' containment reference.
-   * @see #setCheckboxSelection(CheckboxSelection)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_CheckboxSelection()
-   * @model containment="true"
-   * @generated
-   */
-  CheckboxSelection getCheckboxSelection();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getCheckboxSelection <em>Checkbox Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Checkbox Selection</em>' containment reference.
-   * @see #getCheckboxSelection()
-   * @generated
-   */
-  void setCheckboxSelection(CheckboxSelection value);
-
-  /**
-   * Returns the value of the '<em><b>Combobox Selection</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Combobox Selection</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Combobox Selection</em>' containment reference.
-   * @see #setComboboxSelection(ComboboxSelection)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_ComboboxSelection()
-   * @model containment="true"
-   * @generated
-   */
-  ComboboxSelection getComboboxSelection();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getComboboxSelection <em>Combobox Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Combobox Selection</em>' containment reference.
-   * @see #getComboboxSelection()
-   * @generated
-   */
-  void setComboboxSelection(ComboboxSelection value);
-
-  /**
-   * Returns the value of the '<em><b>Page Selection</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Page Selection</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Page Selection</em>' containment reference.
-   * @see #setPageSelection(PageSelection)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSelection_PageSelection()
-   * @model containment="true"
-   * @generated
-   */
-  PageSelection getPageSelection();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Selection#getPageSelection <em>Page Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Page Selection</em>' containment reference.
-   * @see #getPageSelection()
-   * @generated
-   */
-  void setPageSelection(PageSelection value);
+  void setTypeElement(String value);
 
 } // Selection

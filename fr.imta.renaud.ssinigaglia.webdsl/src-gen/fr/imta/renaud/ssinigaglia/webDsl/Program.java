@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getProcedures <em>Procedures</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getCore <em>Core</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getCores <em>Cores</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getProgram()
@@ -43,29 +43,19 @@ public interface Program extends EObject
   EList<Procedure> getProcedures();
 
   /**
-   * Returns the value of the '<em><b>Core</b></em>' containment reference.
+   * Returns the value of the '<em><b>Cores</b></em>' containment reference list.
+   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.Core}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Core</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Cores</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Core</em>' containment reference.
-   * @see #setCore(Core)
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getProgram_Core()
+   * @return the value of the '<em>Cores</em>' containment reference list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getProgram_Cores()
    * @model containment="true"
    * @generated
    */
-  Core getCore();
-
-  /**
-   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Program#getCore <em>Core</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Core</em>' containment reference.
-   * @see #getCore()
-   * @generated
-   */
-  void setCore(Core value);
+  EList<Core> getCores();
 
 } // Program

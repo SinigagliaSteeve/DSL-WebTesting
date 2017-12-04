@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -38,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class GeneralSelectionImpl extends MinimalEObjectImpl.Container implements GeneralSelection
+public class GeneralSelectionImpl extends SelectionImpl implements GeneralSelection
 {
   /**
    * The cached value of the '{@link #getTypeSelection() <em>Type Selection</em>}' containment reference.

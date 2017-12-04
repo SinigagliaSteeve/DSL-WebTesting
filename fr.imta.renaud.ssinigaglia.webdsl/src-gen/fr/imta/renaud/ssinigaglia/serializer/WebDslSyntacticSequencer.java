@@ -24,9 +24,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected WebDslGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a;
 	protected AbstractElementAlias match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a;
-	protected AbstractElementAlias match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0;
-	protected AbstractElementAlias match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0;
-	protected AbstractElementAlias match_LinkButtonSelection_ClickKeyword_3_1_a;
 	protected AbstractElementAlias match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1;
 	
 	@Inject
@@ -34,9 +31,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		grammarAccess = (WebDslGrammarAccess) access;
 		match_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a = new AlternativeAlias(true, true, new TokenAlias(false, false, grammarAccess.getCheckboxSelectionAccess().getCheckKeyword_3_1()), new TokenAlias(false, false, grammarAccess.getCheckboxSelectionAccess().getUncheckKeyword_3_2()));
 		match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1()));
-		match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getAKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getDIVKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getGeneralSelectionAccess().getSEARCH_FIELDKeyword_0_0()));
-		match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getLinkButtonSelectionAccess().getBUTTONKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getLinkButtonSelectionAccess().getLINKKeyword_0_0()));
-		match_LinkButtonSelection_ClickKeyword_3_1_a = new TokenAlias(true, true, grammarAccess.getLinkButtonSelectionAccess().getClickKeyword_3_1());
 		match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getALLKeyword_4()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getFIRSTKeyword_2()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getLASTKeyword_3()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getPARENTKeyword_1()));
 	}
 	
@@ -69,12 +63,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_CheckboxSelection___CheckKeyword_3_1_or_UncheckKeyword_3_2__a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a.equals(syntax))
 				emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0.equals(syntax))
-				emit_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0.equals(syntax))
-				emit_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_LinkButtonSelection_ClickKeyword_3_1_a.equals(syntax))
-				emit_LinkButtonSelection_ClickKeyword_3_1_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1.equals(syntax))
 				emit_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
@@ -106,42 +94,6 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     typeSelection=TypeSelection '{' (ambiguity) generalActions+=GeneralAction
 	 */
 	protected void emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'SEARCH_FIELD' | 'DIV' | 'A'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) typeSelection=TypeSelection
-	 */
-	protected void emit_GeneralSelection_AKeyword_0_2_or_DIVKeyword_0_1_or_SEARCH_FIELDKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'LINK' | 'BUTTON'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) typeSelection=TypeSelection
-	 */
-	protected void emit_LinkButtonSelection_BUTTONKeyword_0_1_or_LINKKeyword_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'click'*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     generalActions+=GeneralAction (ambiguity) '}' (rule end)
-	 *     generalActions+=GeneralAction (ambiguity) generalActions+=GeneralAction
-	 *     typeSelection=TypeSelection '{' (ambiguity) '}' (rule end)
-	 *     typeSelection=TypeSelection '{' (ambiguity) generalActions+=GeneralAction
-	 */
-	protected void emit_LinkButtonSelection_ClickKeyword_3_1_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

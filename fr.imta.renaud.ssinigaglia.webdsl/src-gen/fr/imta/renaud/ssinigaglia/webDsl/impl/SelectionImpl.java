@@ -3,22 +3,14 @@
  */
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
-import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.GeneralSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.LinkButtonSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.PageSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.Selection;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,66 +20,32 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getLinkButtonSelection <em>Link Button Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getGeneralSelection <em>General Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getCheckboxSelection <em>Checkbox Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getComboboxSelection <em>Combobox Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getPageSelection <em>Page Selection</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.SelectionImpl#getTypeElement <em>Type Element</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class SelectionImpl extends MinimalEObjectImpl.Container implements Selection
+public class SelectionImpl extends ActionImpl implements Selection
 {
   /**
-   * The cached value of the '{@link #getLinkButtonSelection() <em>Link Button Selection</em>}' containment reference.
+   * The default value of the '{@link #getTypeElement() <em>Type Element</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLinkButtonSelection()
+   * @see #getTypeElement()
    * @generated
    * @ordered
    */
-  protected LinkButtonSelection linkButtonSelection;
+  protected static final String TYPE_ELEMENT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getGeneralSelection() <em>General Selection</em>}' containment reference.
+   * The cached value of the '{@link #getTypeElement() <em>Type Element</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGeneralSelection()
+   * @see #getTypeElement()
    * @generated
    * @ordered
    */
-  protected GeneralSelection generalSelection;
-
-  /**
-   * The cached value of the '{@link #getCheckboxSelection() <em>Checkbox Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCheckboxSelection()
-   * @generated
-   * @ordered
-   */
-  protected CheckboxSelection checkboxSelection;
-
-  /**
-   * The cached value of the '{@link #getComboboxSelection() <em>Combobox Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getComboboxSelection()
-   * @generated
-   * @ordered
-   */
-  protected ComboboxSelection comboboxSelection;
-
-  /**
-   * The cached value of the '{@link #getPageSelection() <em>Page Selection</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPageSelection()
-   * @generated
-   * @ordered
-   */
-  protected PageSelection pageSelection;
+  protected String typeElement = TYPE_ELEMENT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,9 +73,9 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
    * <!-- end-user-doc -->
    * @generated
    */
-  public LinkButtonSelection getLinkButtonSelection()
+  public String getTypeElement()
   {
-    return linkButtonSelection;
+    return typeElement;
   }
 
   /**
@@ -125,253 +83,12 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLinkButtonSelection(LinkButtonSelection newLinkButtonSelection, NotificationChain msgs)
+  public void setTypeElement(String newTypeElement)
   {
-    LinkButtonSelection oldLinkButtonSelection = linkButtonSelection;
-    linkButtonSelection = newLinkButtonSelection;
+    String oldTypeElement = typeElement;
+    typeElement = newTypeElement;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__LINK_BUTTON_SELECTION, oldLinkButtonSelection, newLinkButtonSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLinkButtonSelection(LinkButtonSelection newLinkButtonSelection)
-  {
-    if (newLinkButtonSelection != linkButtonSelection)
-    {
-      NotificationChain msgs = null;
-      if (linkButtonSelection != null)
-        msgs = ((InternalEObject)linkButtonSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__LINK_BUTTON_SELECTION, null, msgs);
-      if (newLinkButtonSelection != null)
-        msgs = ((InternalEObject)newLinkButtonSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__LINK_BUTTON_SELECTION, null, msgs);
-      msgs = basicSetLinkButtonSelection(newLinkButtonSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__LINK_BUTTON_SELECTION, newLinkButtonSelection, newLinkButtonSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public GeneralSelection getGeneralSelection()
-  {
-    return generalSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetGeneralSelection(GeneralSelection newGeneralSelection, NotificationChain msgs)
-  {
-    GeneralSelection oldGeneralSelection = generalSelection;
-    generalSelection = newGeneralSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__GENERAL_SELECTION, oldGeneralSelection, newGeneralSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setGeneralSelection(GeneralSelection newGeneralSelection)
-  {
-    if (newGeneralSelection != generalSelection)
-    {
-      NotificationChain msgs = null;
-      if (generalSelection != null)
-        msgs = ((InternalEObject)generalSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__GENERAL_SELECTION, null, msgs);
-      if (newGeneralSelection != null)
-        msgs = ((InternalEObject)newGeneralSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__GENERAL_SELECTION, null, msgs);
-      msgs = basicSetGeneralSelection(newGeneralSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__GENERAL_SELECTION, newGeneralSelection, newGeneralSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CheckboxSelection getCheckboxSelection()
-  {
-    return checkboxSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCheckboxSelection(CheckboxSelection newCheckboxSelection, NotificationChain msgs)
-  {
-    CheckboxSelection oldCheckboxSelection = checkboxSelection;
-    checkboxSelection = newCheckboxSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__CHECKBOX_SELECTION, oldCheckboxSelection, newCheckboxSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCheckboxSelection(CheckboxSelection newCheckboxSelection)
-  {
-    if (newCheckboxSelection != checkboxSelection)
-    {
-      NotificationChain msgs = null;
-      if (checkboxSelection != null)
-        msgs = ((InternalEObject)checkboxSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__CHECKBOX_SELECTION, null, msgs);
-      if (newCheckboxSelection != null)
-        msgs = ((InternalEObject)newCheckboxSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__CHECKBOX_SELECTION, null, msgs);
-      msgs = basicSetCheckboxSelection(newCheckboxSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__CHECKBOX_SELECTION, newCheckboxSelection, newCheckboxSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ComboboxSelection getComboboxSelection()
-  {
-    return comboboxSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetComboboxSelection(ComboboxSelection newComboboxSelection, NotificationChain msgs)
-  {
-    ComboboxSelection oldComboboxSelection = comboboxSelection;
-    comboboxSelection = newComboboxSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__COMBOBOX_SELECTION, oldComboboxSelection, newComboboxSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setComboboxSelection(ComboboxSelection newComboboxSelection)
-  {
-    if (newComboboxSelection != comboboxSelection)
-    {
-      NotificationChain msgs = null;
-      if (comboboxSelection != null)
-        msgs = ((InternalEObject)comboboxSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__COMBOBOX_SELECTION, null, msgs);
-      if (newComboboxSelection != null)
-        msgs = ((InternalEObject)newComboboxSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__COMBOBOX_SELECTION, null, msgs);
-      msgs = basicSetComboboxSelection(newComboboxSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__COMBOBOX_SELECTION, newComboboxSelection, newComboboxSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PageSelection getPageSelection()
-  {
-    return pageSelection;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPageSelection(PageSelection newPageSelection, NotificationChain msgs)
-  {
-    PageSelection oldPageSelection = pageSelection;
-    pageSelection = newPageSelection;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__PAGE_SELECTION, oldPageSelection, newPageSelection);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPageSelection(PageSelection newPageSelection)
-  {
-    if (newPageSelection != pageSelection)
-    {
-      NotificationChain msgs = null;
-      if (pageSelection != null)
-        msgs = ((InternalEObject)pageSelection).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__PAGE_SELECTION, null, msgs);
-      if (newPageSelection != null)
-        msgs = ((InternalEObject)newPageSelection).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.SELECTION__PAGE_SELECTION, null, msgs);
-      msgs = basicSetPageSelection(newPageSelection, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__PAGE_SELECTION, newPageSelection, newPageSelection));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case WebDslPackage.SELECTION__LINK_BUTTON_SELECTION:
-        return basicSetLinkButtonSelection(null, msgs);
-      case WebDslPackage.SELECTION__GENERAL_SELECTION:
-        return basicSetGeneralSelection(null, msgs);
-      case WebDslPackage.SELECTION__CHECKBOX_SELECTION:
-        return basicSetCheckboxSelection(null, msgs);
-      case WebDslPackage.SELECTION__COMBOBOX_SELECTION:
-        return basicSetComboboxSelection(null, msgs);
-      case WebDslPackage.SELECTION__PAGE_SELECTION:
-        return basicSetPageSelection(null, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.SELECTION__TYPE_ELEMENT, oldTypeElement, typeElement));
   }
 
   /**
@@ -384,16 +101,8 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
   {
     switch (featureID)
     {
-      case WebDslPackage.SELECTION__LINK_BUTTON_SELECTION:
-        return getLinkButtonSelection();
-      case WebDslPackage.SELECTION__GENERAL_SELECTION:
-        return getGeneralSelection();
-      case WebDslPackage.SELECTION__CHECKBOX_SELECTION:
-        return getCheckboxSelection();
-      case WebDslPackage.SELECTION__COMBOBOX_SELECTION:
-        return getComboboxSelection();
-      case WebDslPackage.SELECTION__PAGE_SELECTION:
-        return getPageSelection();
+      case WebDslPackage.SELECTION__TYPE_ELEMENT:
+        return getTypeElement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -408,20 +117,8 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
   {
     switch (featureID)
     {
-      case WebDslPackage.SELECTION__LINK_BUTTON_SELECTION:
-        setLinkButtonSelection((LinkButtonSelection)newValue);
-        return;
-      case WebDslPackage.SELECTION__GENERAL_SELECTION:
-        setGeneralSelection((GeneralSelection)newValue);
-        return;
-      case WebDslPackage.SELECTION__CHECKBOX_SELECTION:
-        setCheckboxSelection((CheckboxSelection)newValue);
-        return;
-      case WebDslPackage.SELECTION__COMBOBOX_SELECTION:
-        setComboboxSelection((ComboboxSelection)newValue);
-        return;
-      case WebDslPackage.SELECTION__PAGE_SELECTION:
-        setPageSelection((PageSelection)newValue);
+      case WebDslPackage.SELECTION__TYPE_ELEMENT:
+        setTypeElement((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -437,20 +134,8 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
   {
     switch (featureID)
     {
-      case WebDslPackage.SELECTION__LINK_BUTTON_SELECTION:
-        setLinkButtonSelection((LinkButtonSelection)null);
-        return;
-      case WebDslPackage.SELECTION__GENERAL_SELECTION:
-        setGeneralSelection((GeneralSelection)null);
-        return;
-      case WebDslPackage.SELECTION__CHECKBOX_SELECTION:
-        setCheckboxSelection((CheckboxSelection)null);
-        return;
-      case WebDslPackage.SELECTION__COMBOBOX_SELECTION:
-        setComboboxSelection((ComboboxSelection)null);
-        return;
-      case WebDslPackage.SELECTION__PAGE_SELECTION:
-        setPageSelection((PageSelection)null);
+      case WebDslPackage.SELECTION__TYPE_ELEMENT:
+        setTypeElement(TYPE_ELEMENT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -466,18 +151,27 @@ public class SelectionImpl extends MinimalEObjectImpl.Container implements Selec
   {
     switch (featureID)
     {
-      case WebDslPackage.SELECTION__LINK_BUTTON_SELECTION:
-        return linkButtonSelection != null;
-      case WebDslPackage.SELECTION__GENERAL_SELECTION:
-        return generalSelection != null;
-      case WebDslPackage.SELECTION__CHECKBOX_SELECTION:
-        return checkboxSelection != null;
-      case WebDslPackage.SELECTION__COMBOBOX_SELECTION:
-        return comboboxSelection != null;
-      case WebDslPackage.SELECTION__PAGE_SELECTION:
-        return pageSelection != null;
+      case WebDslPackage.SELECTION__TYPE_ELEMENT:
+        return TYPE_ELEMENT_EDEFAULT == null ? typeElement != null : !TYPE_ELEMENT_EDEFAULT.equals(typeElement);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (typeElement: ");
+    result.append(typeElement);
+    result.append(')');
+    return result.toString();
   }
 
 } //SelectionImpl

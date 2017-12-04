@@ -10,7 +10,6 @@ import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -18,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -33,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProgramImpl#getProcedures <em>Procedures</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProgramImpl#getCore <em>Core</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ProgramImpl#getCores <em>Cores</em>}</li>
  * </ul>
  *
  * @generated
@@ -51,14 +49,14 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
   protected EList<Procedure> procedures;
 
   /**
-   * The cached value of the '{@link #getCore() <em>Core</em>}' containment reference.
+   * The cached value of the '{@link #getCores() <em>Cores</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCore()
+   * @see #getCores()
    * @generated
    * @ordered
    */
-  protected Core core;
+  protected EList<Core> cores;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,47 +98,13 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
    * <!-- end-user-doc -->
    * @generated
    */
-  public Core getCore()
+  public EList<Core> getCores()
   {
-    return core;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetCore(Core newCore, NotificationChain msgs)
-  {
-    Core oldCore = core;
-    core = newCore;
-    if (eNotificationRequired())
+    if (cores == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WebDslPackage.PROGRAM__CORE, oldCore, newCore);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      cores = new EObjectContainmentEList<Core>(Core.class, this, WebDslPackage.PROGRAM__CORES);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setCore(Core newCore)
-  {
-    if (newCore != core)
-    {
-      NotificationChain msgs = null;
-      if (core != null)
-        msgs = ((InternalEObject)core).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PROGRAM__CORE, null, msgs);
-      if (newCore != null)
-        msgs = ((InternalEObject)newCore).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WebDslPackage.PROGRAM__CORE, null, msgs);
-      msgs = basicSetCore(newCore, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.PROGRAM__CORE, newCore, newCore));
+    return cores;
   }
 
   /**
@@ -155,8 +119,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case WebDslPackage.PROGRAM__PROCEDURES:
         return ((InternalEList<?>)getProcedures()).basicRemove(otherEnd, msgs);
-      case WebDslPackage.PROGRAM__CORE:
-        return basicSetCore(null, msgs);
+      case WebDslPackage.PROGRAM__CORES:
+        return ((InternalEList<?>)getCores()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -173,8 +137,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case WebDslPackage.PROGRAM__PROCEDURES:
         return getProcedures();
-      case WebDslPackage.PROGRAM__CORE:
-        return getCore();
+      case WebDslPackage.PROGRAM__CORES:
+        return getCores();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -194,8 +158,9 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
         getProcedures().clear();
         getProcedures().addAll((Collection<? extends Procedure>)newValue);
         return;
-      case WebDslPackage.PROGRAM__CORE:
-        setCore((Core)newValue);
+      case WebDslPackage.PROGRAM__CORES:
+        getCores().clear();
+        getCores().addAll((Collection<? extends Core>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,8 +179,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
       case WebDslPackage.PROGRAM__PROCEDURES:
         getProcedures().clear();
         return;
-      case WebDslPackage.PROGRAM__CORE:
-        setCore((Core)null);
+      case WebDslPackage.PROGRAM__CORES:
+        getCores().clear();
         return;
     }
     super.eUnset(featureID);
@@ -233,8 +198,8 @@ public class ProgramImpl extends MinimalEObjectImpl.Container implements Program
     {
       case WebDslPackage.PROGRAM__PROCEDURES:
         return procedures != null && !procedures.isEmpty();
-      case WebDslPackage.PROGRAM__CORE:
-        return core != null;
+      case WebDslPackage.PROGRAM__CORES:
+        return cores != null && !cores.isEmpty();
     }
     return super.eIsSet(featureID);
   }

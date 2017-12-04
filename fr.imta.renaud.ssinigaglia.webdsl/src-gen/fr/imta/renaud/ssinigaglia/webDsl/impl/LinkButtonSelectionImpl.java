@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -34,11 +34,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.LinkButtonSelectionImpl#getTypeSelection <em>Type Selection</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.LinkButtonSelectionImpl#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.LinkButtonSelectionImpl#getClicks <em>Clicks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implements LinkButtonSelection
+public class LinkButtonSelectionImpl extends SelectionImpl implements LinkButtonSelection
 {
   /**
    * The cached value of the '{@link #getTypeSelection() <em>Type Selection</em>}' containment reference.
@@ -59,6 +60,16 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
    * @ordered
    */
   protected EList<GeneralAction> generalActions;
+
+  /**
+   * The cached value of the '{@link #getClicks() <em>Clicks</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getClicks()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> clicks;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,6 +159,20 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getClicks()
+  {
+    if (clicks == null)
+    {
+      clicks = new EDataTypeEList<String>(String.class, this, WebDslPackage.LINK_BUTTON_SELECTION__CLICKS);
+    }
+    return clicks;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -175,6 +200,8 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
         return getTypeSelection();
       case WebDslPackage.LINK_BUTTON_SELECTION__GENERAL_ACTIONS:
         return getGeneralActions();
+      case WebDslPackage.LINK_BUTTON_SELECTION__CLICKS:
+        return getClicks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -197,6 +224,10 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
         getGeneralActions().clear();
         getGeneralActions().addAll((Collection<? extends GeneralAction>)newValue);
         return;
+      case WebDslPackage.LINK_BUTTON_SELECTION__CLICKS:
+        getClicks().clear();
+        getClicks().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -217,6 +248,9 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
       case WebDslPackage.LINK_BUTTON_SELECTION__GENERAL_ACTIONS:
         getGeneralActions().clear();
         return;
+      case WebDslPackage.LINK_BUTTON_SELECTION__CLICKS:
+        getClicks().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -235,8 +269,27 @@ public class LinkButtonSelectionImpl extends MinimalEObjectImpl.Container implem
         return typeSelection != null;
       case WebDslPackage.LINK_BUTTON_SELECTION__GENERAL_ACTIONS:
         return generalActions != null && !generalActions.isEmpty();
+      case WebDslPackage.LINK_BUTTON_SELECTION__CLICKS:
+        return clicks != null && !clicks.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (clicks: ");
+    result.append(clicks);
+    result.append(')');
+    return result.toString();
   }
 
 } //LinkButtonSelectionImpl

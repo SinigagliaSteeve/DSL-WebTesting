@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Core#getName <em>Name</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Core#getBrowser <em>Browser</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.Core#getActions <em>Actions</em>}</li>
  * </ul>
  *
@@ -28,7 +29,6 @@ public interface Core extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * The literals are from the enumeration {@link fr.imta.renaud.ssinigaglia.webDsl.Browser}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Name</em>' attribute isn't clear,
@@ -36,24 +36,51 @@ public interface Core extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.Browser
-   * @see #setName(Browser)
+   * @see #setName(String)
    * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getCore_Name()
    * @model
    * @generated
    */
-  Browser getName();
+  String getName();
 
   /**
    * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Core#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.Browser
    * @see #getName()
    * @generated
    */
-  void setName(Browser value);
+  void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Browser</b></em>' attribute.
+   * The literals are from the enumeration {@link fr.imta.renaud.ssinigaglia.webDsl.Browser}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Browser</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Browser</em>' attribute.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Browser
+   * @see #setBrowser(Browser)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getCore_Browser()
+   * @model
+   * @generated
+   */
+  Browser getBrowser();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.Core#getBrowser <em>Browser</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Browser</em>' attribute.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.Browser
+   * @see #getBrowser()
+   * @generated
+   */
+  void setBrowser(Browser value);
 
   /**
    * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
