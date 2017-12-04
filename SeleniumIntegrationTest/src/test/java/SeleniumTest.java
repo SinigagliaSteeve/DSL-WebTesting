@@ -142,7 +142,7 @@ public class SeleniumTest {
     @Test
     public void test_six_combobox() {
         driver.get("http://www.imt-atlantique.fr/fr/rechercher");
-        WebElement searchField = findVisibleOne(By.name("search_api_fulltext"));
+        WebElement searchField = findSearchField();
         searchField.sendKeys("2007");
 
         Select select = findCombobox();
@@ -153,6 +153,48 @@ public class SeleniumTest {
         Assert.assertNotNull(element);
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr"
+     * read the text of one title (class="actu_home_ctner_inner_cell1_titre") in the page and the url it points
+     * go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+     * paste the title in the search field * click on the button "Appliquer les filtres"
+     * verify that the page contains a link to the previous url
+     */
+    @Test
+    public void test_seven_parent_copy_paste() {
+        driver.get("http://www.imt-atlantique.fr/fr");
+
+//        DIV CLASS=”actu_home_ctner_inner_cell1_titre” {
+        WebElement divTitle = driver.findElement(By.className("actu_home_ctner_inner_cell1_titre"));
+//            store TITLE in ”title”
+        String title = divTitle.getText();
+//            A PARENT {
+        WebElement aParent = findParent(divTitle);
+//                store href in “url”
+        String url = aParent.getAttribute("href");
+//            }
+//        }
+//        go "http://www.imt-atlantique.fr/fr/rechercher"
+        driver.get("http://www.imt-atlantique.fr/fr/rechercher");
+//        SEARCH_FIELD FIRST {
+        WebElement searchField = findSearchField();
+//            set VAR:”title”
+        searchField.sendKeys(title);
+//        }
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+        WebElement btn = findButton("Appliquer les filtres");
+        scrollTo(btn).click();
+//        PAGE {
+//            verify contains HREF equals VAR:“url”
+//        }
+
+        WebElement finalElem = findElementByTagAndAttributes("a", "href", url);
+        Assert.assertNotNull(finalElem);
+    }
+
     private Select findCombobox() {
         List<WebElement> comboboxes = driver.findElements(By.tagName("select"));
         for (WebElement combobox : comboboxes) {
@@ -161,7 +203,23 @@ public class SeleniumTest {
             }
         }
         throw new RuntimeException("No combobox found");
-//        return new Select(driver.findElement(By.tagName("select")));
+    }
+
+    private WebElement findElementByTagAndAttributes(String tag, String attribute, String value) {
+        for (WebElement element : findAllElements(By.tagName(tag))) {
+            if (element.getAttribute(attribute).equals(value)) {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    private WebElement findSearchField() {
+        return findVisibleOne(By.name("search_api_fulltext"));
+    }
+
+    private WebElement findParent(WebElement element) {
+        return element.findElement(By.xpath(".."));
     }
 
     private WebElement findButton(String label) {
@@ -190,6 +248,10 @@ public class SeleniumTest {
             }
         }
         return null;
+    }
+
+    private List<WebElement> findAllElements(By by) {
+        return driver.findElements(by);
     }
 
 
