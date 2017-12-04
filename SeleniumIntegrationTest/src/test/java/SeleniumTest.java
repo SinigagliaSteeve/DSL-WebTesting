@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -51,57 +52,108 @@ public class SeleniumTest {
         driver.quit();
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr"
+     * verify that the page contains a link "Toutes les actualités"
+     */
     @Test
     public void test_one_page_contains_link() {
+//        go "http://www.imt-atlantique.fr/fr"
         driver.get("http://www.imt-atlantique.fr/fr");
-        WebElement theLink = findVisibleOne(By.xpath("//a[text()='Toutes les actualités']"));
-        Assert.assertNotNull(theLink);
+//        PAGE {
+//            verify contains (LINK LABEL:"Toutes les actualités")
+//        }
+//        WebElement elementFinal = findElementByTagAndText("a", "Toutes les actualités");
+        WebElement elementFinal = findElementByTagAndText("a", "Toutes les actualités");
+        Assert.assertNotNull(elementFinal);
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr"
+     * click on the link "Toutes les actualités"
+     * verify that the page contains a link "Accueil"
+     */
     @Test
     public void test_two_click() {
+//        go "http://www.imt-atlantique.fr/fr"
         driver.get("http://www.imt-atlantique.fr/fr");
 
-        WebElement theLink = findVisibleOne(By.xpath("//a[text()='Toutes les actualités']"));
-        Assert.assertNotNull(theLink);
+//        LINK LABEL:"Toutes les actualités" {
+//            click
+//        }
+        WebElement theLink = findElementByTagAndText("a", "Toutes les actualités");
+        clickElem(theLink);
+//        PAGE {
+//            verify contains LINK LABEL:"Accueil"
+//        }
 
-        this.scrollTo(theLink.getLocation().y);
-        theLink.click();
-
-        WebElement accueil = findVisibleOne(By.xpath("//a[text()='Accueil']"));
-        Assert.assertNotNull(accueil);
+        WebElement elementFinal = findElementByTagAndText("a", "Accueil");
+        Assert.assertNotNull(elementFinal);
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr"
+     * click on the link "Toutes les actualités"
+     * click on the image with alt property “Accueil”
+     * verify that the page contains a link "Toutes les actualités"
+     */
     @Test
     public void test_three_image_click() {
+//        go "http://www.imt-atlantique.fr/fr"
         driver.get("http://www.imt-atlantique.fr/fr");
-        WebElement theLink = findVisibleOne(By.xpath("//a[text()='Toutes les actualités']"));
-        scrollTo(theLink);
-        theLink.click();
+//        LINK LABEL:"Toutes les actualités" {
+//            click
+//        }
+        WebElement link = findElementByTagAndText("a", "Toutes les actualités");
+        clickElem(link);
 
-        WebElement image = findVisibleOne(By.xpath("//img[@alt='Accueil']"));
-        Assert.assertNotNull(image);
+//        IMAGE ALT:"Accueil" {
+//            click
+//        }
+        WebElement image = findElementByTagAndAttribute("img", "alt", "Accueil");
+        clickElem(image);
 
-        scrollTo(image);
-        image.click();
+//        PAGE {
+//            verify contains LINK LABEL:"Toutes les actualités"
+//        }
 
-        theLink = findVisibleOne(By.xpath("//a[text()='Toutes les actualités']"));
-        Assert.assertNotNull(theLink);
+        WebElement elemFinal = findElementByTagAndText("a", "Toutes les actualités");
+        Assert.assertNotNull(elemFinal);
 
     }
 
+    /**
+     * open a browser window
+     * go to the url "http://www.imt-atlantique.fr/fr/rechercher"
+     * insert "Donald Trump" in the search field
+     * click on the button "Appliquer les filtres"
+     * verify that the page contains the text "Aucun résultat ne correspond à votre recherche"
+     */
     @Test
-    public void test_four_search_field_and_button() throws InterruptedException {
+    public void test_four_search_field_and_button() {
+//        go "http://www.imt-atlantique.fr/fr/rechercher"
         driver.get("http://www.imt-atlantique.fr/fr/rechercher");
-        WebElement searchField = findVisibleOne(By.name("search_api_fulltext"));
-        Assert.assertNotNull(searchField);
 
+//        SEARCH_FIELD FIRST {
+//            set "Donald Trump"
+//        }
+        WebElement searchField = findSearchField();
         searchField.sendKeys("Donald Trump");
 
-        WebElement button = findVisibleOne(By.xpath("//input[@type='submit'][@value='Appliquer les filtres']"));
-        scrollTo(button.getLocation().y);
-        button.click();
-        WebElement lbl = findElementContainsText("Aucun résultat");
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+
+        WebElement btn = findButton("Appliquer les filtres"); //option 1
+        clickElem(btn);
+//        LINK ALL {
+//            verify contains LABEL:"Aucun résultat ne correspond à votre recherche"
+//        }
+
+        WebElement lbl = findElementContainsText("Aucun résultat ne correspond à votre recherche");
         Assert.assertNotNull(lbl);
     }
 
@@ -115,17 +167,35 @@ public class SeleniumTest {
      */
     @Test
     public void test_five_checkbox() throws InterruptedException {
+//        go "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
         driver.get("http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation");
-        //uncheck all checkbox if needed.
-        for (WebElement webElement : findCheckboxes()) {
-            this.scrollTo(webElement);
-            if (webElement.isDisplayed() && webElement.isSelected())
-                webElement.click();
-        }
 
-        scrollTo(findCheckbox("Anglais")).click();
-        scrollTo(findCheckbox("A domicile")).click();
-        scrollTo(findButton("Appliquer les critères")).click();
+//        CHECKBOX ALL {
+//            uncheck
+//        }
+        this.uncheckAllCheckboxes();
+
+//        CHECKBOX LABEL:"Anglais" {
+//            check
+//        }
+        WebElement checkboxAnglais = findCheckbox("Anglais");
+        clickElem(checkboxAnglais);
+
+//        CHECKBOX LABEL:"A domicile" {
+//            check
+//        }
+        WebElement checkboxADomicile = findCheckbox("A domicile");
+        clickElem(checkboxADomicile);
+
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+        WebElement btn = findButton("Appliquer les critères");
+        clickElem(btn);
+
+//        PAGE {
+//            verify contains TEXT:"Aucune formation trouvée répondant à vos critères"
+//        }
 
         WebElement element = findElementContainsText("Aucune formation trouvée répondant à vos critères");
         Assert.assertNotNull(element);
@@ -141,14 +211,29 @@ public class SeleniumTest {
      */
     @Test
     public void test_six_combobox() {
+//        go "http://www.imt-atlantique.fr/fr/rechercher"
         driver.get("http://www.imt-atlantique.fr/fr/rechercher");
+
+//        SEARCH_FIELD FIRST {
+//            set "2007"
+//        }
         WebElement searchField = findSearchField();
         searchField.sendKeys("2007");
 
+//        COMBO_BOX FIRST {
+//            select "Le mois dernier"
+//        }
         Select select = findCombobox();
         select.selectByVisibleText("Le mois dernier");
-        scrollTo(findButton("Appliquer les filtres")).click();
 
+//        BUTTON LABEL:"Appliquer les filtres" {
+//            click
+//        }
+        WebElement btn = findButton("Appliquer les filtres");
+        clickElem(btn);
+//        PAGE {
+//            verify contains TEXT:"Aucun résultat ne correspond à votre recherche"
+//        }
         WebElement element = findElementContainsText("Aucun résultat ne correspond à votre recherche");
         Assert.assertNotNull(element);
     }
@@ -166,7 +251,7 @@ public class SeleniumTest {
         driver.get("http://www.imt-atlantique.fr/fr");
 
 //        DIV CLASS=”actu_home_ctner_inner_cell1_titre” {
-        WebElement divTitle = driver.findElement(By.className("actu_home_ctner_inner_cell1_titre"));
+        WebElement divTitle = findElementByTagAndAttribute("div", "class", "actu_home_ctner_inner_cell1_titre");
 //            store TITLE in ”title”
         String title = divTitle.getText();
 //            A PARENT {
@@ -186,12 +271,12 @@ public class SeleniumTest {
 //            click
 //        }
         WebElement btn = findButton("Appliquer les filtres");
-        scrollTo(btn).click();
+        clickElem(btn);
 //        PAGE {
 //            verify contains HREF equals VAR:“url”
 //        }
 
-        WebElement finalElem = findElementByTagAndAttributes("a", "href", url);
+        WebElement finalElem = findElementByTagAndAttribute("a", "href", url);
         Assert.assertNotNull(finalElem);
     }
 
@@ -221,13 +306,14 @@ public class SeleniumTest {
 //            click
 //        }
         WebElement btn = findButton("Appliquer les filtres");
-        clickButton(btn);
+        clickElem(btn);
 
 //        PAGE {
 //            store (count DIV CLASS:"views-row") in nbResult
 //        }
 
-        int nbResult = countBy(By.xpath("//div[@class='views-row']"));
+        List<WebElement> elementsToCountNbResult = findElementsByTagAndAttribute("div", "class", "views-row");
+        int nbResult = elementsToCountNbResult.size();
 
 //        COMBO_BOX FIRST {
 //            select "Le mois dernier"
@@ -241,18 +327,88 @@ public class SeleniumTest {
 //        }
 
         WebElement btn2 = findButton("Appliquer les filtres");
-        clickButton(btn2);
+        clickElem(btn2);
 
 //        PAGE {
 //            store (count DIV CLASS:"views-row") in newNbResult
 //            verify VAR:nbResult equals VAR:newNbResult
 //        }
+        List<WebElement> elementsToCountNewNbResult = findElementsByTagAndAttribute("div", "class", "views-row");
+        int newNbResult = elementsToCountNewNbResult.size();
 
-        int newNbResult = countBy(By.xpath("//div[@class='views-row']"));
-        System.out.println(nbResult + " ?? " + newNbResult);
         Assert.assertNotEquals(nbResult, newNbResult);
     }
 
+//    /**
+//     * open a browser window
+//     * go to the url "http://www.imt-atlantique.fr/fr"
+//     * go to the page "COMMUNIQUÉS DE PRESSE" by clicking its link
+//     * verify that the page contains an image "Imprimer"
+//     * click on the image
+//     * repeat all the procedure for the pages DOSSIERS DE PRESSE, VISUELS POUR LA PRESSE, LA
+//     * PRESSE EN PARLE, TRIBUNES DE PRESSE, LES PALMARÈS
+//     */
+//    @Test
+//    public void test_nine_procedures() {
+//
+////}
+////
+////        PROC:test_link("COMMUNIQUES DE PRESSE")
+//        test_link("COMMUNIQUÉS DE PRESSE");
+//
+////        PROC:test_link("VISUELS POUR LA PRESSE")
+//        test_link("VISUELS POUR LA PRESSE");
+//
+////        PROC:test_link("LA PRESSE EN PARLE")
+//        test_link("LA PRESSE EN PARLE");
+//
+////        PROC:test_link("TRIBUNES DE PRESSE")
+//        test_link("TRIBUNES DE PRESSE");
+//
+////        PROC:test_link("LES PALMARÈS")
+//        test_link("LES PALMARÈS");
+//
+//    }
+//
+//    private void test_link(String nom) {
+//        //        PROCEDURE test_link(nom){
+////                go "http"
+//        driver.get("http://www.imt-atlantique.fr/fr");
+////                LINK LABEL:nom{
+////            click
+////        }
+//        WebElement webElement = findVisibleOne(By.xpath("//a[text()='" + nom + "']"));
+//
+//        clickElem(webElement);
+//
+//
+////        PAGE {
+////            verify contains LINK TITLE:"Imprimer"
+////        }
+////        LINK TITLE:"Imprimer" {
+////            click
+////        }
+//        driver.get("http://www.imt-atlantique.fr/fr");
+//
+//    }
+
+    /**
+     * Uncheck all checkboxes in the page.
+     */
+    private void uncheckAllCheckboxes() {
+        for (WebElement webElement : findCheckboxes()) {
+            this.scrollTo(webElement);
+            if (webElement.isDisplayed() && webElement.isSelected())
+                webElement.click();
+        }
+    }
+
+
+    /**
+     * Find the first combobox in the page.
+     *
+     * @return Select object (combobox).
+     */
     private Select findCombobox() {
         List<WebElement> comboboxes = driver.findElements(By.tagName("select"));
         for (WebElement combobox : comboboxes) {
@@ -263,11 +419,11 @@ public class SeleniumTest {
         throw new RuntimeException("No combobox found");
     }
 
-    private int countBy(By by) {
-        return driver.findElements(by).size();
-    }
+//    private int countBy(By by) {
+//        return driver.findElements(by).size();
+//    }
 
-    private WebElement findElementByTagAndAttributes(String tag, String attribute, String value) {
+    private WebElement findElementByTagAndAttribute(String tag, String attribute, String value) {
         for (WebElement element : findAllElements(By.tagName(tag))) {
             if (element.getAttribute(attribute).equals(value)) {
                 return element;
@@ -276,7 +432,41 @@ public class SeleniumTest {
         return null;
     }
 
-    private void clickButton(WebElement element) {
+    private List<WebElement> findElementsByTagAndAttribute(String tag, String attribute, String value) {
+        if (attribute == null || attribute.equals("")) {
+            throw new RuntimeException("attribute can't be null");
+        }
+        List<WebElement> elements = new ArrayList<>();
+        for (WebElement element : findAllElements(By.tagName(tag))) {
+            if (element.getAttribute(attribute).equals(value)) {
+                elements.add(element);
+            }
+        }
+        return elements;
+    }
+
+    private WebElement findElementByTagAndText(String tag, String value) {
+        final String xpath = "//" + tag + "[text()='" + value + "']";
+        for (WebElement element : driver.findElements(By.xpath(xpath))) {
+            if (element.isEnabled() && element.isDisplayed()) {
+                return element;
+            }
+        }
+        return null;
+    }
+
+    private List<WebElement> findElementsByTagAndText(String tag, String value) {
+        final String xpath = "//" + tag + "[text()='" + value + "']";
+        List<WebElement> elements = new ArrayList<>();
+        for (WebElement element : driver.findElements(By.xpath(xpath))) {
+            if (element.isEnabled() && element.isDisplayed()) {
+                elements.add(element);
+            }
+        }
+        return elements;
+    }
+
+    private void clickElem(WebElement element) {
         scrollTo(element).click();
     }
 
