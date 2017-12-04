@@ -25,6 +25,7 @@ import fr.imta.renaud.ssinigaglia.webDsl.Attribute
 import java.util.HashMap
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains
 import fr.imta.renaud.ssinigaglia.webDsl.AssertEquals
+import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction
 
 /**
  * Generates code from your model files on save.
@@ -268,18 +269,26 @@ class WebDslGenerator extends AbstractGenerator {
 		«ELSE»
 			//Faire quelque chose si c'est PARENT/FIRST/...
 		«ENDIF»
-		«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
-		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']"));
-		this.scrollTo(«htmlElem»«i».getLocation().y);
+		
+		«IF htmlElem == "button"»
+			WebElement «htmlElem»«i» = findButton("«attValue»");
+		«ELSE»
+			«IF attType === ""»
+			WebElement «htmlElem»«i» = findElementByTagAndText("«htmlElem»", "«attValue»");
+			«ELSE»
+			WebElement «htmlElem»«i» = findElementByTagAndAttribute("«htmlElem»", "«attType»", "«attValue»");
+			«ENDIF»
+		«ENDIF»
 		«for (generalAction : action.generalActions) generalAction.createAction(i)»
 		«FOR click : action.clicks»
-			«htmlElem»«i».click();
+			clickElem(«htmlElem»«i»);
 		«ENDFOR»
 	'''
 	
 	dispatch def createAction(GeneralSelection action, int i) '''
 		«val selection = action.typeSelection»
 		«val htmlElem = getTypeHtmlElement(action.typeElement)»
+		«val elem = htmlElem+i»
 		«var attType = ""»
 		«var attValue = ""»
 		«IF selection.attribute !== null»
@@ -288,10 +297,20 @@ class WebDslGenerator extends AbstractGenerator {
 		«ELSE»
 			//Faire quelque chose si c'est PARENT/FIRST/...
 		«ENDIF»
-		«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
-		WebElement «htmlElem»«i» = findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']"));
-		this.scrollTo(«htmlElem»«i».getLocation().y);
-		«for (generalAction : action.generalActions) generalAction.createAction(i)»
+		
+		«IF htmlElem == "search_field"»
+			WebElement «elem» = findSearchField();
+		«ELSE»
+			«IF attType === ""»
+			WebElement «elem» = findElementByTagAndText("«htmlElem»", "«attValue»");
+			«ELSE»
+			WebElement «elem» = findElementByTagAndAttribute("«htmlElem»", "«attType»", "«attValue»");
+			«ENDIF»
+		«ENDIF»
+		
+		«FOR generalAction : action.generalActions»
+			«if (generalAction instanceof SetAction) createSetAction(generalAction as SetAction, elem)»
+		«ENDFOR»
 	'''
 	
 	dispatch def createAction(CheckboxSelection action, int i) '''
@@ -318,11 +337,13 @@ class WebDslGenerator extends AbstractGenerator {
 «««			«val xpathval = if(attType !== "text") "@"+attType else attType+"()" »
 «««			Assert.assertNotNull(findVisibleOne(By.xpath("//«htmlElem»[«xpathval»='«attValue»']")));
 «««		«ELSE»
-		«IF assert.attribute !== null && assert.attribute.getName !== "LABEL"»
-		«val attType = getTypeAttribute(assert.attribute)»
-		WebElement elementFinal = findElementByTagAndAttribute('«htmlElem»','«attType»', '«attValue»');
+		«IF htmlElem === null»
+			WebElement elementFinal = findElementContainsText("«attValue»");
+		«ELSEIF assert.attribute !== null && assert.attribute.getName !== "LABEL"»
+			«val attType = getTypeAttribute(assert.attribute)»
+			WebElement elementFinal = findElementByTagAndAttribute("«htmlElem»","«attType»", "«attValue»");
 		«ELSE»
-		WebElement elementFinal = findElementByTagAndText('«htmlElem»','«attValue»');
+			WebElement elementFinal = findElementByTagAndText("«htmlElem»","«attValue»");
 		«ENDIF»
 		Assert.assertNotNull(elementFinal);
 		
@@ -332,14 +353,19 @@ class WebDslGenerator extends AbstractGenerator {
 		
 	'''
 	
-	dispatch def createAction(SetAction action, int i) '''
-	«var GeneralSelection parent = action.eContainer as GeneralSelection»
-	«val htmlElem = getTypeHtmlElement(parent.typeElement)»
-	ICICIIDSDNSPBFQ
-	«htmlElem»«i».sendKeys("Donald Trump");
+	dispatch def createAction(GeneralAction action, int i)'''
+		«var GeneralSelection parent = action.eContainer as GeneralSelection»
+			«val htmlElem = getTypeHtmlElement(parent.typeElement)»
+			«htmlElem»«i».sendKeys("Donald Trump");
+			
+	'''
+	
+	def createSetAction(SetAction action, String elem) '''
+		«elem».sendKeys("«action.value»");
 	'''
 	
 	dispatch def createAction(StoreAction action, int i) '''
+	Store
 	'''
 	
 	dispatch def createAction(CallProcedure action, int i) '''
@@ -348,7 +374,7 @@ class WebDslGenerator extends AbstractGenerator {
 	def getTypeAttribute(Attribute att) {
 		switch att.getName {
 			case "ID" : return "id"
-			case "LABEL" : return "text"
+			case "LABEL" : return ""
 			case "CLASS" : return "class"
 			case "ALT" : return "alt"
 			case "VALUE" : return "value"
@@ -363,53 +389,13 @@ class WebDslGenerator extends AbstractGenerator {
 			case "DIV" : return "div"
 			case "LINK" : return "a"
 			case "BUTTON" : return "button"
-			case "SEARCH_FIELD" : return "input"
-			case "CHECKBOX" : return "input"
+			case "SEARCH_FIELD" : return "search_field"
+			case "CHECKBOX" : return "checkbox"
 			case "COMBO_BOX" : return "select"
 			case "PAGE" : return "body"
 			case "IMAGE" : return "img"
 		}
 	}
-	
-	
-	
-	//override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
-	//	fsa.generateFile('Main.java',
-	//		resource.contents.filter(Calendar).head.generateCalendar
-	//	)
-
-	//}
-	
-	//def generateCalendar(Calendar c) '''
-	//	public class Main {
-	//		public static void main(String[] args) {
-	//		Calendar calendar = new Calendar();
-//
-//			«FOR e : c.events»
-//				«e.generateEvent(c.events.indexOf(e))»
-//			«ENDFOR» 
-//
-//				System.out.println(calendar.toString());
-//			}
-//		}
-//	'''
-//	
-//	
-//	def generateEvent(Event e, int i) '''
-//		Event event«i» = new Event();
-//		event«i».setName("«e.name»");
-//		event«i».setDate(«e.on»);
-//		event«i».setStartTime("«e.from»");
-//		event«i».setEndTime("«e.to»");
-//		event«i».setLocation("«e.at»");
-//		
-//	
-//	'''
 	
 	
 }
