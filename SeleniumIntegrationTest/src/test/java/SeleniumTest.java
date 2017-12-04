@@ -179,15 +179,15 @@ public class SeleniumTest {
 //            check
 //        }
         WebElement checkboxAnglais = findCheckbox("Anglais");
-        clickElem(checkboxAnglais);
+        checkCheckbox(checkboxAnglais);
 
 //        CHECKBOX LABEL:"A domicile" {
 //            check
 //        }
         WebElement checkboxADomicile = findCheckbox("A domicile");
-        clickElem(checkboxADomicile);
+        checkCheckbox(checkboxADomicile);
 
-//        BUTTON LABEL:"Appliquer les filtres" {
+//        BUTTON LABEL:"Appliquer les critères" {
 //            click
 //        }
         WebElement btn = findButton("Appliquer les critères");
@@ -403,6 +403,15 @@ public class SeleniumTest {
         }
     }
 
+    private void checkAllCheckboxes() {
+        for (WebElement element : findCheckboxes()) {
+            this.scrollTo(element);
+            if (element.isDisplayed() && !element.isSelected()) {
+                element.click();
+            }
+        }
+    }
+
 
     /**
      * Find the first combobox in the page.
@@ -523,6 +532,19 @@ public class SeleniumTest {
 
     private WebElement scrollTo(WebElement element) {
         this.scrollTo(element.getLocation().y);
+        return element;
+    }
+
+    private WebElement checkCheckbox(WebElement element) {
+        if (element.isSelected()) return element;
+        clickElem(element);
+        return element;
+    }
+
+    private WebElement uncheckCheckbox(WebElement element) {
+        if (element.isSelected()) {
+            clickElem(element);
+        }
         return element;
     }
 }
