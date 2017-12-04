@@ -4,24 +4,16 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.CheckboxSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.TypeSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +24,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CheckboxSelectionImpl#getTypeSelection <em>Type Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CheckboxSelectionImpl#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.CheckboxSelectionImpl#getAction <em>Action</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +42,24 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
   protected TypeSelection typeSelection;
 
   /**
-   * The cached value of the '{@link #getGeneralActions() <em>General Actions</em>}' containment reference list.
+   * The default value of the '{@link #getAction() <em>Action</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGeneralActions()
+   * @see #getAction()
    * @generated
    * @ordered
    */
-  protected EList<GeneralAction> generalActions;
+  protected static final String ACTION_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAction() <em>Action</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAction()
+   * @generated
+   * @ordered
+   */
+  protected String action = ACTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -133,13 +135,22 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GeneralAction> getGeneralActions()
+  public String getAction()
   {
-    if (generalActions == null)
-    {
-      generalActions = new EObjectContainmentEList<GeneralAction>(GeneralAction.class, this, WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS);
-    }
-    return generalActions;
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAction(String newAction)
+  {
+    String oldAction = action;
+    action = newAction;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.CHECKBOX_SELECTION__ACTION, oldAction, action));
   }
 
   /**
@@ -154,8 +165,6 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
     {
       case WebDslPackage.CHECKBOX_SELECTION__TYPE_SELECTION:
         return basicSetTypeSelection(null, msgs);
-      case WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS:
-        return ((InternalEList<?>)getGeneralActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -172,8 +181,8 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
     {
       case WebDslPackage.CHECKBOX_SELECTION__TYPE_SELECTION:
         return getTypeSelection();
-      case WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS:
-        return getGeneralActions();
+      case WebDslPackage.CHECKBOX_SELECTION__ACTION:
+        return getAction();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -183,7 +192,6 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -192,9 +200,8 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
       case WebDslPackage.CHECKBOX_SELECTION__TYPE_SELECTION:
         setTypeSelection((TypeSelection)newValue);
         return;
-      case WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
-        getGeneralActions().addAll((Collection<? extends GeneralAction>)newValue);
+      case WebDslPackage.CHECKBOX_SELECTION__ACTION:
+        setAction((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,8 +220,8 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
       case WebDslPackage.CHECKBOX_SELECTION__TYPE_SELECTION:
         setTypeSelection((TypeSelection)null);
         return;
-      case WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
+      case WebDslPackage.CHECKBOX_SELECTION__ACTION:
+        setAction(ACTION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -232,10 +239,27 @@ public class CheckboxSelectionImpl extends SelectionImpl implements CheckboxSele
     {
       case WebDslPackage.CHECKBOX_SELECTION__TYPE_SELECTION:
         return typeSelection != null;
-      case WebDslPackage.CHECKBOX_SELECTION__GENERAL_ACTIONS:
-        return generalActions != null && !generalActions.isEmpty();
+      case WebDslPackage.CHECKBOX_SELECTION__ACTION:
+        return ACTION_EDEFAULT == null ? action != null : !ACTION_EDEFAULT.equals(action);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (action: ");
+    result.append(action);
+    result.append(')');
+    return result.toString();
   }
 
 } //CheckboxSelectionImpl

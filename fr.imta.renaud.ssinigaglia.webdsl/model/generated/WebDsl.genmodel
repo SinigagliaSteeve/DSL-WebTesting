@@ -68,7 +68,7 @@
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//CheckboxSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//CheckboxSelection/typeSelection"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//CheckboxSelection/generalActions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//CheckboxSelection/action"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//ComboboxSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//ComboboxSelection/typeSelection"/>

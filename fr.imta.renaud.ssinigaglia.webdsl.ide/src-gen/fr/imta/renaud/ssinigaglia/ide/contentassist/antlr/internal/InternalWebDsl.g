@@ -782,27 +782,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CheckboxSelection__Alternatives_3
+rule__CheckboxSelection__ActionAlternatives_3_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsAssignment_3_0()); }
-		(rule__CheckboxSelection__GeneralActionsAssignment_3_0)
-		{ after(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsAssignment_3_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getCheckboxSelectionAccess().getCheckKeyword_3_1()); }
+		{ before(grammarAccess.getCheckboxSelectionAccess().getActionCheckKeyword_3_0_0()); }
 		'check'
-		{ after(grammarAccess.getCheckboxSelectionAccess().getCheckKeyword_3_1()); }
+		{ after(grammarAccess.getCheckboxSelectionAccess().getActionCheckKeyword_3_0_0()); }
 	)
 	|
 	(
-		{ before(grammarAccess.getCheckboxSelectionAccess().getUncheckKeyword_3_2()); }
+		{ before(grammarAccess.getCheckboxSelectionAccess().getActionUncheckKeyword_3_0_1()); }
 		'uncheck'
-		{ after(grammarAccess.getCheckboxSelectionAccess().getUncheckKeyword_3_2()); }
+		{ after(grammarAccess.getCheckboxSelectionAccess().getActionUncheckKeyword_3_0_1()); }
 	)
 ;
 finally {
@@ -2165,9 +2159,9 @@ rule__CheckboxSelection__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCheckboxSelectionAccess().getAlternatives_3()); }
-	(rule__CheckboxSelection__Alternatives_3)*
-	{ after(grammarAccess.getCheckboxSelectionAccess().getAlternatives_3()); }
+	{ before(grammarAccess.getCheckboxSelectionAccess().getActionAssignment_3()); }
+	(rule__CheckboxSelection__ActionAssignment_3)
+	{ after(grammarAccess.getCheckboxSelectionAccess().getActionAssignment_3()); }
 )
 ;
 finally {
@@ -3701,15 +3695,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__CheckboxSelection__GeneralActionsAssignment_3_0
+rule__CheckboxSelection__ActionAssignment_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
-		ruleGeneralAction
-		{ after(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
+		{ before(grammarAccess.getCheckboxSelectionAccess().getActionAlternatives_3_0()); }
+		(rule__CheckboxSelection__ActionAlternatives_3_0)
+		{ after(grammarAccess.getCheckboxSelectionAccess().getActionAlternatives_3_0()); }
 	)
 ;
 finally {

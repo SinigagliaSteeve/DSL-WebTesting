@@ -65,9 +65,7 @@ GeneralSelection:
 
 CheckboxSelection:
 	typeElement="CHECKBOX" typeSelection=TypeSelection '{'
-		(generalActions+=GeneralAction 
-			|'check' 
-			|'uncheck')*
+		action=('check'|'uncheck')
 	'}'
 ;
 

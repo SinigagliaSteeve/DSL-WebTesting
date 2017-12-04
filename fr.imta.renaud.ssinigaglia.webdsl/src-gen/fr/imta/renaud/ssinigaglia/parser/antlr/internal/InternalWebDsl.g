@@ -779,37 +779,33 @@ ruleCheckboxSelection returns [EObject current=null]
 		(
 			(
 				(
+					lv_action_3_1='check'
 					{
-						newCompositeNode(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0());
+						newLeafNode(lv_action_3_1, grammarAccess.getCheckboxSelectionAccess().getActionCheckKeyword_3_0_0());
 					}
-					lv_generalActions_3_0=ruleGeneralAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCheckboxSelectionRule());
+							$current = createModelElement(grammarAccess.getCheckboxSelectionRule());
 						}
-						add(
-							$current,
-							"generalActions",
-							lv_generalActions_3_0,
-							"fr.imta.renaud.ssinigaglia.WebDsl.GeneralAction");
-						afterParserOrEnumRuleCall();
+						setWithLastConsumed($current, "action", lv_action_3_1, null);
+					}
+					    |
+					lv_action_3_2='uncheck'
+					{
+						newLeafNode(lv_action_3_2, grammarAccess.getCheckboxSelectionAccess().getActionUncheckKeyword_3_0_1());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getCheckboxSelectionRule());
+						}
+						setWithLastConsumed($current, "action", lv_action_3_2, null);
 					}
 				)
 			)
-			    |
-			otherlv_4='check'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getCheckboxSelectionAccess().getCheckKeyword_3_1());
-			}
-			    |
-			otherlv_5='uncheck'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getCheckboxSelectionAccess().getUncheckKeyword_3_2());
-			}
-		)*
-		otherlv_6='}'
+		)
+		otherlv_4='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getCheckboxSelectionAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getCheckboxSelectionAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

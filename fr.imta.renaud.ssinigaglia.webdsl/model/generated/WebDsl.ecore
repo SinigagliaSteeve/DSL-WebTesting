@@ -55,8 +55,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="CheckboxSelection" eSuperTypes="#//Selection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="generalActions" upperBound="-1"
-        eType="#//GeneralAction" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="action" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComboboxSelection" eSuperTypes="#//Selection">
     <eStructuralFeatures xsi:type="ecore:EReference" name="typeSelection" eType="#//TypeSelection"

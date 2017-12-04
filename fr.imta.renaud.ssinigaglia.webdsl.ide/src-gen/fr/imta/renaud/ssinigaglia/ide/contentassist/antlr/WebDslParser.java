@@ -36,7 +36,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkButtonSelectionAccess().getTypeElementAlternatives_0_0(), "rule__LinkButtonSelection__TypeElementAlternatives_0_0");
 					put(grammarAccess.getLinkButtonSelectionAccess().getAlternatives_3(), "rule__LinkButtonSelection__Alternatives_3");
 					put(grammarAccess.getGeneralSelectionAccess().getTypeElementAlternatives_0_0(), "rule__GeneralSelection__TypeElementAlternatives_0_0");
-					put(grammarAccess.getCheckboxSelectionAccess().getAlternatives_3(), "rule__CheckboxSelection__Alternatives_3");
+					put(grammarAccess.getCheckboxSelectionAccess().getActionAlternatives_3_0(), "rule__CheckboxSelection__ActionAlternatives_3_0");
 					put(grammarAccess.getComboboxSelectionAccess().getAlternatives_3(), "rule__ComboboxSelection__Alternatives_3");
 					put(grammarAccess.getPageSelectionAccess().getAlternatives_2(), "rule__PageSelection__Alternatives_2");
 					put(grammarAccess.getGeneralActionAccess().getAlternatives(), "rule__GeneralAction__Alternatives");
@@ -90,7 +90,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneralSelectionAccess().getGeneralActionsAssignment_3(), "rule__GeneralSelection__GeneralActionsAssignment_3");
 					put(grammarAccess.getCheckboxSelectionAccess().getTypeElementAssignment_0(), "rule__CheckboxSelection__TypeElementAssignment_0");
 					put(grammarAccess.getCheckboxSelectionAccess().getTypeSelectionAssignment_1(), "rule__CheckboxSelection__TypeSelectionAssignment_1");
-					put(grammarAccess.getCheckboxSelectionAccess().getGeneralActionsAssignment_3_0(), "rule__CheckboxSelection__GeneralActionsAssignment_3_0");
+					put(grammarAccess.getCheckboxSelectionAccess().getActionAssignment_3(), "rule__CheckboxSelection__ActionAssignment_3");
 					put(grammarAccess.getComboboxSelectionAccess().getTypeElementAssignment_0(), "rule__ComboboxSelection__TypeElementAssignment_0");
 					put(grammarAccess.getComboboxSelectionAccess().getTypeSelectionAssignment_1(), "rule__ComboboxSelection__TypeSelectionAssignment_1");
 					put(grammarAccess.getComboboxSelectionAccess().getGeneralActionsAssignment_3_0(), "rule__ComboboxSelection__GeneralActionsAssignment_3_0");

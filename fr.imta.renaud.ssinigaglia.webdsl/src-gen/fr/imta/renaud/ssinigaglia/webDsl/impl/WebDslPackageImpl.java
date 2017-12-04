@@ -569,9 +569,9 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getCheckboxSelection_GeneralActions()
+  public EAttribute getCheckboxSelection_Action()
   {
-    return (EReference)checkboxSelectionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)checkboxSelectionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1031,7 +1031,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     checkboxSelectionEClass = createEClass(CHECKBOX_SELECTION);
     createEReference(checkboxSelectionEClass, CHECKBOX_SELECTION__TYPE_SELECTION);
-    createEReference(checkboxSelectionEClass, CHECKBOX_SELECTION__GENERAL_ACTIONS);
+    createEAttribute(checkboxSelectionEClass, CHECKBOX_SELECTION__ACTION);
 
     comboboxSelectionEClass = createEClass(COMBOBOX_SELECTION);
     createEReference(comboboxSelectionEClass, COMBOBOX_SELECTION__TYPE_SELECTION);
@@ -1168,7 +1168,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     initEClass(checkboxSelectionEClass, CheckboxSelection.class, "CheckboxSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCheckboxSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, CheckboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCheckboxSelection_GeneralActions(), this.getGeneralAction(), null, "generalActions", null, 0, -1, CheckboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCheckboxSelection_Action(), ecorePackage.getEString(), "action", null, 0, 1, CheckboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(comboboxSelectionEClass, ComboboxSelection.class, "ComboboxSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComboboxSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, ComboboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
