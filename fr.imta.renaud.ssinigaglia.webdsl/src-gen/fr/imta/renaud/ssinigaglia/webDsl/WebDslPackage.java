@@ -475,13 +475,13 @@ public interface WebDslPackage extends EPackage
   int COMBOBOX_SELECTION__TYPE_SELECTION = SELECTION_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>General Actions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Values</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMBOBOX_SELECTION__GENERAL_ACTIONS = SELECTION_FEATURE_COUNT + 1;
+  int COMBOBOX_SELECTION__VALUES = SELECTION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Combobox Selection</em>' class.
@@ -1270,15 +1270,15 @@ public interface WebDslPackage extends EPackage
   EReference getComboboxSelection_TypeSelection();
 
   /**
-   * Returns the meta object for the containment reference list '{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getGeneralActions <em>General Actions</em>}'.
+   * Returns the meta object for the attribute list '{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>General Actions</em>'.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getGeneralActions()
+   * @return the meta object for the attribute list '<em>Values</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getValues()
    * @see #getComboboxSelection()
    * @generated
    */
-  EReference getComboboxSelection_GeneralActions();
+  EAttribute getComboboxSelection_Values();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.PageSelection <em>Page Selection</em>}'.
@@ -1956,12 +1956,12 @@ public interface WebDslPackage extends EPackage
     EReference COMBOBOX_SELECTION__TYPE_SELECTION = eINSTANCE.getComboboxSelection_TypeSelection();
 
     /**
-     * The meta object literal for the '<em><b>General Actions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Values</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference COMBOBOX_SELECTION__GENERAL_ACTIONS = eINSTANCE.getComboboxSelection_GeneralActions();
+    EAttribute COMBOBOX_SELECTION__VALUES = eINSTANCE.getComboboxSelection_Values();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.PageSelectionImpl <em>Page Selection</em>}' class.

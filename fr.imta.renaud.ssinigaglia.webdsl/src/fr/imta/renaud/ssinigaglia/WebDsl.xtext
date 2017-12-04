@@ -71,8 +71,7 @@ CheckboxSelection:
 
 ComboboxSelection:
 	typeElement="COMBO_BOX" typeSelection=TypeSelection '{'
-		(generalActions+=GeneralAction 
-			|'select' STRING)*
+			('select' values+=STRING)*
 	'}'
 ;
 

@@ -4,7 +4,6 @@
 package fr.imta.renaud.ssinigaglia.webDsl.impl;
 
 import fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection;
-import fr.imta.renaud.ssinigaglia.webDsl.GeneralAction;
 import fr.imta.renaud.ssinigaglia.webDsl.TypeSelection;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
@@ -20,8 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl#getTypeSelection <em>Type Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.ComboboxSelectionImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -50,14 +48,14 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
   protected TypeSelection typeSelection;
 
   /**
-   * The cached value of the '{@link #getGeneralActions() <em>General Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGeneralActions()
+   * @see #getValues()
    * @generated
    * @ordered
    */
-  protected EList<GeneralAction> generalActions;
+  protected EList<String> values;
 
   /**
    * <!-- begin-user-doc -->
@@ -133,13 +131,13 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<GeneralAction> getGeneralActions()
+  public EList<String> getValues()
   {
-    if (generalActions == null)
+    if (values == null)
     {
-      generalActions = new EObjectContainmentEList<GeneralAction>(GeneralAction.class, this, WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS);
+      values = new EDataTypeEList<String>(String.class, this, WebDslPackage.COMBOBOX_SELECTION__VALUES);
     }
-    return generalActions;
+    return values;
   }
 
   /**
@@ -154,8 +152,6 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
     {
       case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
         return basicSetTypeSelection(null, msgs);
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return ((InternalEList<?>)getGeneralActions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -172,8 +168,8 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
     {
       case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
         return getTypeSelection();
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return getGeneralActions();
+      case WebDslPackage.COMBOBOX_SELECTION__VALUES:
+        return getValues();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -192,9 +188,9 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
       case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
         setTypeSelection((TypeSelection)newValue);
         return;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
-        getGeneralActions().addAll((Collection<? extends GeneralAction>)newValue);
+      case WebDslPackage.COMBOBOX_SELECTION__VALUES:
+        getValues().clear();
+        getValues().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -213,8 +209,8 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
       case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
         setTypeSelection((TypeSelection)null);
         return;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        getGeneralActions().clear();
+      case WebDslPackage.COMBOBOX_SELECTION__VALUES:
+        getValues().clear();
         return;
     }
     super.eUnset(featureID);
@@ -232,10 +228,27 @@ public class ComboboxSelectionImpl extends SelectionImpl implements ComboboxSele
     {
       case WebDslPackage.COMBOBOX_SELECTION__TYPE_SELECTION:
         return typeSelection != null;
-      case WebDslPackage.COMBOBOX_SELECTION__GENERAL_ACTIONS:
-        return generalActions != null && !generalActions.isEmpty();
+      case WebDslPackage.COMBOBOX_SELECTION__VALUES:
+        return values != null && !values.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (values: ");
+    result.append(values);
+    result.append(')');
+    return result.toString();
   }
 
 } //ComboboxSelectionImpl

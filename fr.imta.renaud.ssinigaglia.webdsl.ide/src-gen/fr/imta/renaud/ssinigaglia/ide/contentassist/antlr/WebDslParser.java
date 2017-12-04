@@ -37,7 +37,6 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLinkButtonSelectionAccess().getAlternatives_3(), "rule__LinkButtonSelection__Alternatives_3");
 					put(grammarAccess.getGeneralSelectionAccess().getTypeElementAlternatives_0_0(), "rule__GeneralSelection__TypeElementAlternatives_0_0");
 					put(grammarAccess.getCheckboxSelectionAccess().getActionAlternatives_3_0(), "rule__CheckboxSelection__ActionAlternatives_3_0");
-					put(grammarAccess.getComboboxSelectionAccess().getAlternatives_3(), "rule__ComboboxSelection__Alternatives_3");
 					put(grammarAccess.getPageSelectionAccess().getAlternatives_2(), "rule__PageSelection__Alternatives_2");
 					put(grammarAccess.getGeneralActionAccess().getAlternatives(), "rule__GeneralAction__Alternatives");
 					put(grammarAccess.getStoreActionAccess().getAlternatives_2(), "rule__StoreAction__Alternatives_2");
@@ -58,7 +57,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGeneralSelectionAccess().getGroup(), "rule__GeneralSelection__Group__0");
 					put(grammarAccess.getCheckboxSelectionAccess().getGroup(), "rule__CheckboxSelection__Group__0");
 					put(grammarAccess.getComboboxSelectionAccess().getGroup(), "rule__ComboboxSelection__Group__0");
-					put(grammarAccess.getComboboxSelectionAccess().getGroup_3_1(), "rule__ComboboxSelection__Group_3_1__0");
+					put(grammarAccess.getComboboxSelectionAccess().getGroup_3(), "rule__ComboboxSelection__Group_3__0");
 					put(grammarAccess.getPageSelectionAccess().getGroup(), "rule__PageSelection__Group__0");
 					put(grammarAccess.getStoreActionAccess().getGroup(), "rule__StoreAction__Group__0");
 					put(grammarAccess.getCountActionAccess().getGroup(), "rule__CountAction__Group__0");
@@ -93,7 +92,7 @@ public class WebDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCheckboxSelectionAccess().getActionAssignment_3(), "rule__CheckboxSelection__ActionAssignment_3");
 					put(grammarAccess.getComboboxSelectionAccess().getTypeElementAssignment_0(), "rule__ComboboxSelection__TypeElementAssignment_0");
 					put(grammarAccess.getComboboxSelectionAccess().getTypeSelectionAssignment_1(), "rule__ComboboxSelection__TypeSelectionAssignment_1");
-					put(grammarAccess.getComboboxSelectionAccess().getGeneralActionsAssignment_3_0(), "rule__ComboboxSelection__GeneralActionsAssignment_3_0");
+					put(grammarAccess.getComboboxSelectionAccess().getValuesAssignment_3_1(), "rule__ComboboxSelection__ValuesAssignment_3_1");
 					put(grammarAccess.getPageSelectionAccess().getTypeElementAssignment_0(), "rule__PageSelection__TypeElementAssignment_0");
 					put(grammarAccess.getPageSelectionAccess().getStoreActionsAssignment_2_0(), "rule__PageSelection__StoreActionsAssignment_2_0");
 					put(grammarAccess.getPageSelectionAccess().getAssertionsAssignment_2_1(), "rule__PageSelection__AssertionsAssignment_2_1");

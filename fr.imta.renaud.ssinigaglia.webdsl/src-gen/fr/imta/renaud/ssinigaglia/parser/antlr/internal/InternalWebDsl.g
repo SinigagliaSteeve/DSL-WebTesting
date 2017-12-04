@@ -864,40 +864,32 @@ ruleComboboxSelection returns [EObject current=null]
 			newLeafNode(otherlv_2, grammarAccess.getComboboxSelectionAccess().getLeftCurlyBracketKeyword_2());
 		}
 		(
+			otherlv_3='select'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_0());
+			}
 			(
 				(
+					lv_values_4_0=RULE_STRING
 					{
-						newCompositeNode(grammarAccess.getComboboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0());
+						newLeafNode(lv_values_4_0, grammarAccess.getComboboxSelectionAccess().getValuesSTRINGTerminalRuleCall_3_1_0());
 					}
-					lv_generalActions_3_0=ruleGeneralAction
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getComboboxSelectionRule());
+							$current = createModelElement(grammarAccess.getComboboxSelectionRule());
 						}
-						add(
+						addWithLastConsumed(
 							$current,
-							"generalActions",
-							lv_generalActions_3_0,
-							"fr.imta.renaud.ssinigaglia.WebDsl.GeneralAction");
-						afterParserOrEnumRuleCall();
+							"values",
+							lv_values_4_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
 					}
 				)
 			)
-			    |
-			(
-				otherlv_4='select'
-				{
-					newLeafNode(otherlv_4, grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0());
-				}
-				this_STRING_5=RULE_STRING
-				{
-					newLeafNode(this_STRING_5, grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1());
-				}
-			)
 		)*
-		otherlv_6='}'
+		otherlv_5='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getComboboxSelectionAccess().getRightCurlyBracketKeyword_4());
+			newLeafNode(otherlv_5, grammarAccess.getComboboxSelectionAccess().getRightCurlyBracketKeyword_4());
 		}
 	)
 ;

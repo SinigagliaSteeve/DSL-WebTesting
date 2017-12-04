@@ -803,27 +803,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComboboxSelection__Alternatives_3
-	@init {
-		int stackSize = keepStackSize();
-	}
-:
-	(
-		{ before(grammarAccess.getComboboxSelectionAccess().getGeneralActionsAssignment_3_0()); }
-		(rule__ComboboxSelection__GeneralActionsAssignment_3_0)
-		{ after(grammarAccess.getComboboxSelectionAccess().getGeneralActionsAssignment_3_0()); }
-	)
-	|
-	(
-		{ before(grammarAccess.getComboboxSelectionAccess().getGroup_3_1()); }
-		(rule__ComboboxSelection__Group_3_1__0)
-		{ after(grammarAccess.getComboboxSelectionAccess().getGroup_3_1()); }
-	)
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__PageSelection__Alternatives_2
 	@init {
 		int stackSize = keepStackSize();
@@ -2294,9 +2273,9 @@ rule__ComboboxSelection__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getComboboxSelectionAccess().getAlternatives_3()); }
-	(rule__ComboboxSelection__Alternatives_3)*
-	{ after(grammarAccess.getComboboxSelectionAccess().getAlternatives_3()); }
+	{ before(grammarAccess.getComboboxSelectionAccess().getGroup_3()); }
+	(rule__ComboboxSelection__Group_3__0)*
+	{ after(grammarAccess.getComboboxSelectionAccess().getGroup_3()); }
 )
 ;
 finally {
@@ -2330,53 +2309,53 @@ finally {
 }
 
 
-rule__ComboboxSelection__Group_3_1__0
+rule__ComboboxSelection__Group_3__0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ComboboxSelection__Group_3_1__0__Impl
-	rule__ComboboxSelection__Group_3_1__1
+	rule__ComboboxSelection__Group_3__0__Impl
+	rule__ComboboxSelection__Group_3__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComboboxSelection__Group_3_1__0__Impl
+rule__ComboboxSelection__Group_3__0__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0()); }
+	{ before(grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_0()); }
 	'select'
-	{ after(grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0()); }
+	{ after(grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_0()); }
 )
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComboboxSelection__Group_3_1__1
+rule__ComboboxSelection__Group_3__1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
-	rule__ComboboxSelection__Group_3_1__1__Impl
+	rule__ComboboxSelection__Group_3__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComboboxSelection__Group_3_1__1__Impl
+rule__ComboboxSelection__Group_3__1__Impl
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 (
-	{ before(grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1()); }
-	RULE_STRING
-	{ after(grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1()); }
+	{ before(grammarAccess.getComboboxSelectionAccess().getValuesAssignment_3_1()); }
+	(rule__ComboboxSelection__ValuesAssignment_3_1)
+	{ after(grammarAccess.getComboboxSelectionAccess().getValuesAssignment_3_1()); }
 )
 ;
 finally {
@@ -3744,15 +3723,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__ComboboxSelection__GeneralActionsAssignment_3_0
+rule__ComboboxSelection__ValuesAssignment_3_1
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getComboboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
-		ruleGeneralAction
-		{ after(grammarAccess.getComboboxSelectionAccess().getGeneralActionsGeneralActionParserRuleCall_3_0_0()); }
+		{ before(grammarAccess.getComboboxSelectionAccess().getValuesSTRINGTerminalRuleCall_3_1_0()); }
+		RULE_STRING
+		{ after(grammarAccess.getComboboxSelectionAccess().getValuesSTRINGTerminalRuleCall_3_1_0()); }
 	)
 ;
 finally {

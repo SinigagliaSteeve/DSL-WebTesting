@@ -12,7 +12,6 @@ import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -22,13 +21,11 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected WebDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a;
 	protected AbstractElementAlias match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (WebDslGrammarAccess) access;
-		match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a = new GroupAlias(true, true, new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSelectKeyword_3_1_0()), new TokenAlias(false, false, grammarAccess.getComboboxSelectionAccess().getSTRINGTerminalRuleCall_3_1_1()));
 		match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getALLKeyword_4()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getFIRSTKeyword_2()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getLASTKeyword_3()), new TokenAlias(false, false, grammarAccess.getTypeSelectionAccess().getPARENTKeyword_1()));
 	}
 	
@@ -57,28 +54,12 @@ public class WebDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a.equals(syntax))
-				emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1.equals(syntax))
+			if (match_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1.equals(syntax))
 				emit_TypeSelection_ALLKeyword_4_or_FIRSTKeyword_2_or_LASTKeyword_3_or_PARENTKeyword_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ('select' STRING)*
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     generalActions+=GeneralAction (ambiguity) '}' (rule end)
-	 *     generalActions+=GeneralAction (ambiguity) generalActions+=GeneralAction
-	 *     typeSelection=TypeSelection '{' (ambiguity) '}' (rule end)
-	 *     typeSelection=TypeSelection '{' (ambiguity) generalActions+=GeneralAction
-	 */
-	protected void emit_ComboboxSelection___SelectKeyword_3_1_0_STRINGTerminalRuleCall_3_1_1__a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 	/**
 	 * Ambiguous syntax:
 	 *     'PARENT' | 'FIRST' | 'LAST' | 'ALL'

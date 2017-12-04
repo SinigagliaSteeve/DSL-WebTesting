@@ -187,7 +187,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     GeneralAction returns ComboboxSelection
 	 *
 	 * Constraint:
-	 *     (typeElement='COMBO_BOX' typeSelection=TypeSelection generalActions+=GeneralAction*)
+	 *     (typeElement='COMBO_BOX' typeSelection=TypeSelection values+=STRING*)
 	 */
 	protected void sequence_ComboboxSelection(ISerializationContext context, ComboboxSelection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

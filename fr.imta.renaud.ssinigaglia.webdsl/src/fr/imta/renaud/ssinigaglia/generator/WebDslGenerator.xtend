@@ -349,6 +349,12 @@ class WebDslGenerator extends AbstractGenerator {
 	'''
 	
 	dispatch def createAction(ComboboxSelection action, int i) '''
+		«val htmlElem = getTypeHtmlElement(action.typeElement)»
+		«val elem = htmlElem+i»
+		Select «elem» = findCombobox();
+		«FOR value : action.values»
+			«elem».selectByVisibleText("«value»");
+		«ENDFOR»
 	'''
 	
 	dispatch def createAction(PageSelection action, int i) '''

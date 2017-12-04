@@ -72,7 +72,7 @@
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//ComboboxSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//ComboboxSelection/typeSelection"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//ComboboxSelection/generalActions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//ComboboxSelection/values"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//PageSelection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//PageSelection/storeActions"/>

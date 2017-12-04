@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getTypeSelection <em>Type Selection</em>}</li>
- *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getGeneralActions <em>General Actions</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.ComboboxSelection#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getComboboxSelection()
@@ -51,19 +51,19 @@ public interface ComboboxSelection extends Selection
   void setTypeSelection(TypeSelection value);
 
   /**
-   * Returns the value of the '<em><b>General Actions</b></em>' containment reference list.
-   * The list contents are of type {@link fr.imta.renaud.ssinigaglia.webDsl.GeneralAction}.
+   * Returns the value of the '<em><b>Values</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>General Actions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Values</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>General Actions</em>' containment reference list.
-   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getComboboxSelection_GeneralActions()
-   * @model containment="true"
+   * @return the value of the '<em>Values</em>' attribute list.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getComboboxSelection_Values()
+   * @model unique="false"
    * @generated
    */
-  EList<GeneralAction> getGeneralActions();
+  EList<String> getValues();
 
 } // ComboboxSelection

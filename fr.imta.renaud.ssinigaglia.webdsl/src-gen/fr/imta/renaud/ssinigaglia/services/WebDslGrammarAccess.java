@@ -473,21 +473,18 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeSelectionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cTypeSelectionTypeSelectionParserRuleCall_1_0 = (RuleCall)cTypeSelectionAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
-		private final Assignment cGeneralActionsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
-		private final RuleCall cGeneralActionsGeneralActionParserRuleCall_3_0_0 = (RuleCall)cGeneralActionsAssignment_3_0.eContents().get(0);
-		private final Group cGroup_3_1 = (Group)cAlternatives_3.eContents().get(1);
-		private final Keyword cSelectKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
-		private final RuleCall cSTRINGTerminalRuleCall_3_1_1 = (RuleCall)cGroup_3_1.eContents().get(1);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cSelectKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cValuesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValuesSTRINGTerminalRuleCall_3_1_0 = (RuleCall)cValuesAssignment_3_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ComboboxSelection:
-		//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
-		//	| 'select' STRING)*
+		//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' ('select' values+=STRING)*
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction | 'select' STRING)* '}'
+		//typeElement="COMBO_BOX" typeSelection=TypeSelection '{' ('select' values+=STRING)* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//typeElement="COMBO_BOX"
@@ -505,23 +502,17 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
-		//(generalActions+=GeneralAction | 'select' STRING)*
-		public Alternatives getAlternatives_3() { return cAlternatives_3; }
-		
-		//generalActions+=GeneralAction
-		public Assignment getGeneralActionsAssignment_3_0() { return cGeneralActionsAssignment_3_0; }
-		
-		//GeneralAction
-		public RuleCall getGeneralActionsGeneralActionParserRuleCall_3_0_0() { return cGeneralActionsGeneralActionParserRuleCall_3_0_0; }
-		
-		//'select' STRING
-		public Group getGroup_3_1() { return cGroup_3_1; }
+		//('select' values+=STRING)*
+		public Group getGroup_3() { return cGroup_3; }
 		
 		//'select'
-		public Keyword getSelectKeyword_3_1_0() { return cSelectKeyword_3_1_0; }
+		public Keyword getSelectKeyword_3_0() { return cSelectKeyword_3_0; }
+		
+		//values+=STRING
+		public Assignment getValuesAssignment_3_1() { return cValuesAssignment_3_1; }
 		
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_3_1_1() { return cSTRINGTerminalRuleCall_3_1_1; }
+		public RuleCall getValuesSTRINGTerminalRuleCall_3_1_0() { return cValuesSTRINGTerminalRuleCall_3_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
@@ -1411,8 +1402,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ComboboxSelection:
-	//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' (generalActions+=GeneralAction
-	//	| 'select' STRING)*
+	//	typeElement="COMBO_BOX" typeSelection=TypeSelection '{' ('select' values+=STRING)*
 	//	'}';
 	public ComboboxSelectionElements getComboboxSelectionAccess() {
 		return pComboboxSelection;

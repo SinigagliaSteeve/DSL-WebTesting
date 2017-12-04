@@ -599,9 +599,9 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getComboboxSelection_GeneralActions()
+  public EAttribute getComboboxSelection_Values()
   {
-    return (EReference)comboboxSelectionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)comboboxSelectionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1035,7 +1035,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     comboboxSelectionEClass = createEClass(COMBOBOX_SELECTION);
     createEReference(comboboxSelectionEClass, COMBOBOX_SELECTION__TYPE_SELECTION);
-    createEReference(comboboxSelectionEClass, COMBOBOX_SELECTION__GENERAL_ACTIONS);
+    createEAttribute(comboboxSelectionEClass, COMBOBOX_SELECTION__VALUES);
 
     pageSelectionEClass = createEClass(PAGE_SELECTION);
     createEReference(pageSelectionEClass, PAGE_SELECTION__STORE_ACTIONS);
@@ -1172,7 +1172,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
 
     initEClass(comboboxSelectionEClass, ComboboxSelection.class, "ComboboxSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComboboxSelection_TypeSelection(), this.getTypeSelection(), null, "typeSelection", null, 0, 1, ComboboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getComboboxSelection_GeneralActions(), this.getGeneralAction(), null, "generalActions", null, 0, -1, ComboboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getComboboxSelection_Values(), ecorePackage.getEString(), "values", null, 0, -1, ComboboxSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pageSelectionEClass, PageSelection.class, "PageSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPageSelection_StoreActions(), this.getStoreAction(), null, "storeActions", null, 0, -1, PageSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
