@@ -769,6 +769,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getSetAction_Var()
+  {
+    return (EReference)setActionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getTypeSelection()
   {
     return typeSelectionEClass;
@@ -862,6 +872,16 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
   public EAttribute getAssertContains_Value()
   {
     return (EAttribute)assertContainsEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAssertContains_Var()
+  {
+    return (EReference)assertContainsEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1058,6 +1078,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     setActionEClass = createEClass(SET_ACTION);
     createEAttribute(setActionEClass, SET_ACTION__ATTRIBUTE);
     createEAttribute(setActionEClass, SET_ACTION__VALUE);
+    createEReference(setActionEClass, SET_ACTION__VAR);
 
     typeSelectionEClass = createEClass(TYPE_SELECTION);
     createEAttribute(typeSelectionEClass, TYPE_SELECTION__ATTRIBUTE);
@@ -1071,6 +1092,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__ATTRIBUTE);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__TEXT);
     createEAttribute(assertContainsEClass, ASSERT_CONTAINS__VALUE);
+    createEReference(assertContainsEClass, ASSERT_CONTAINS__VAR);
 
     assertEqualsEClass = createEClass(ASSERT_EQUALS);
     createEReference(assertEqualsEClass, ASSERT_EQUALS__C1);
@@ -1195,6 +1217,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEClass(setActionEClass, SetAction.class, "SetAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSetAction_Attribute(), this.getAttribute(), "attribute", null, 0, 1, SetAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSetAction_Value(), ecorePackage.getEString(), "value", null, 0, 1, SetAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSetAction_Var(), this.getVar(), null, "var", null, 0, 1, SetAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeSelectionEClass, TypeSelection.class, "TypeSelection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getTypeSelection_Attribute(), this.getAttribute(), "attribute", null, 0, 1, TypeSelection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1208,6 +1231,7 @@ public class WebDslPackageImpl extends EPackageImpl implements WebDslPackage
     initEAttribute(getAssertContains_Attribute(), this.getAttribute(), "attribute", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssertContains_Text(), ecorePackage.getEString(), "text", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssertContains_Value(), ecorePackage.getEString(), "value", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssertContains_Var(), this.getVar(), null, "var", null, 0, 1, AssertContains.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assertEqualsEClass, AssertEquals.class, "AssertEquals", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssertEquals_C1(), this.getComparable(), null, "c1", null, 0, 1, AssertEquals.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -697,13 +697,22 @@ public interface WebDslPackage extends EPackage
   int SET_ACTION__VALUE = GENERAL_ACTION_FEATURE_COUNT + 1;
 
   /**
+   * The feature id for the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SET_ACTION__VAR = GENERAL_ACTION_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Set Action</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SET_ACTION_FEATURE_COUNT = GENERAL_ACTION_FEATURE_COUNT + 2;
+  int SET_ACTION_FEATURE_COUNT = GENERAL_ACTION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.TypeSelectionImpl <em>Type Selection</em>}' class.
@@ -817,13 +826,22 @@ public interface WebDslPackage extends EPackage
   int ASSERT_CONTAINS__VALUE = ASSERT_FEATURE_COUNT + 3;
 
   /**
+   * The feature id for the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ASSERT_CONTAINS__VAR = ASSERT_FEATURE_COUNT + 4;
+
+  /**
    * The number of structural features of the '<em>Assert Contains</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ASSERT_CONTAINS_FEATURE_COUNT = ASSERT_FEATURE_COUNT + 4;
+  int ASSERT_CONTAINS_FEATURE_COUNT = ASSERT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertEqualsImpl <em>Assert Equals</em>}' class.
@@ -1451,6 +1469,17 @@ public interface WebDslPackage extends EPackage
   EAttribute getSetAction_Value();
 
   /**
+   * Returns the meta object for the reference '{@link fr.imta.renaud.ssinigaglia.webDsl.SetAction#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Var</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.SetAction#getVar()
+   * @see #getSetAction()
+   * @generated
+   */
+  EReference getSetAction_Var();
+
+  /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.TypeSelection <em>Type Selection</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1556,6 +1585,17 @@ public interface WebDslPackage extends EPackage
    * @generated
    */
   EAttribute getAssertContains_Value();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getVar <em>Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Var</em>'.
+   * @see fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getVar()
+   * @see #getAssertContains()
+   * @generated
+   */
+  EReference getAssertContains_Var();
 
   /**
    * Returns the meta object for class '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertEquals <em>Assert Equals</em>}'.
@@ -2104,6 +2144,14 @@ public interface WebDslPackage extends EPackage
     EAttribute SET_ACTION__VALUE = eINSTANCE.getSetAction_Value();
 
     /**
+     * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SET_ACTION__VAR = eINSTANCE.getSetAction_Var();
+
+    /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.TypeSelectionImpl <em>Type Selection</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2188,6 +2236,14 @@ public interface WebDslPackage extends EPackage
      * @generated
      */
     EAttribute ASSERT_CONTAINS__VALUE = eINSTANCE.getAssertContains_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Var</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ASSERT_CONTAINS__VAR = eINSTANCE.getAssertContains_Var();
 
     /**
      * The meta object literal for the '{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertEqualsImpl <em>Assert Equals</em>}' class.

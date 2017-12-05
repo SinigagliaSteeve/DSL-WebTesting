@@ -113,7 +113,7 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     AssertContains returns AssertContains
 	 *
 	 * Constraint:
-	 *     (((htmlElement=HtmlElement attribute=Attribute) | text='TEXT') value=STRING)
+	 *     (((htmlElement=HtmlElement attribute=Attribute) | text='TEXT') (value=STRING | var=[Var|ID]))
 	 */
 	protected void sequence_AssertContains(ISerializationContext context, AssertContains semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -337,19 +337,10 @@ public class WebDslSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     SetAction returns SetAction
 	 *
 	 * Constraint:
-	 *     (attribute=Attribute value=STRING)
+	 *     (attribute=Attribute (value=STRING | var=[Var|ID]))
 	 */
 	protected void sequence_SetAction(ISerializationContext context, SetAction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.SET_ACTION__ATTRIBUTE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.SET_ACTION__ATTRIBUTE));
-			if (transientValues.isValueTransient(semanticObject, WebDslPackage.Literals.SET_ACTION__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WebDslPackage.Literals.SET_ACTION__VALUE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getSetActionAccess().getAttributeAttributeEnumRuleCall_1_0(), semanticObject.getAttribute());
-		feeder.accept(grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

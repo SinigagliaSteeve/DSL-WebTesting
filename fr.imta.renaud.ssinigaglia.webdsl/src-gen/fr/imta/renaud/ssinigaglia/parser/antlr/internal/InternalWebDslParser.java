@@ -3132,13 +3132,14 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSetAction"
-    // InternalWebDsl.g:1223:1: ruleSetAction returns [EObject current=null] : (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( (lv_value_3_0= RULE_STRING ) ) ) ;
+    // InternalWebDsl.g:1223:1: ruleSetAction returns [EObject current=null] : (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) ) ) ;
     public final EObject ruleSetAction() throws RecognitionException {
         EObject current = null;
 
         Token otherlv_0=null;
         Token otherlv_2=null;
         Token lv_value_3_0=null;
+        Token otherlv_4=null;
         Enumerator lv_attribute_1_0 = null;
 
 
@@ -3146,11 +3147,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1229:2: ( (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( (lv_value_3_0= RULE_STRING ) ) ) )
-            // InternalWebDsl.g:1230:2: (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( (lv_value_3_0= RULE_STRING ) ) )
+            // InternalWebDsl.g:1229:2: ( (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) ) ) )
+            // InternalWebDsl.g:1230:2: (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) ) )
             {
-            // InternalWebDsl.g:1230:2: (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( (lv_value_3_0= RULE_STRING ) ) )
-            // InternalWebDsl.g:1231:3: otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( (lv_value_3_0= RULE_STRING ) )
+            // InternalWebDsl.g:1230:2: (otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) ) )
+            // InternalWebDsl.g:1231:3: otherlv_0= 'set' ( (lv_attribute_1_0= ruleAttribute ) ) otherlv_2= ':' ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) )
             {
             otherlv_0=(Token)match(input,36,FOLLOW_24); 
 
@@ -3187,33 +3188,86 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_2=(Token)match(input,37,FOLLOW_12); 
+            otherlv_2=(Token)match(input,37,FOLLOW_26); 
 
             			newLeafNode(otherlv_2, grammarAccess.getSetActionAccess().getColonKeyword_2());
             		
-            // InternalWebDsl.g:1258:3: ( (lv_value_3_0= RULE_STRING ) )
-            // InternalWebDsl.g:1259:4: (lv_value_3_0= RULE_STRING )
-            {
-            // InternalWebDsl.g:1259:4: (lv_value_3_0= RULE_STRING )
-            // InternalWebDsl.g:1260:5: lv_value_3_0= RULE_STRING
-            {
-            lv_value_3_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+            // InternalWebDsl.g:1258:3: ( ( (lv_value_3_0= RULE_STRING ) ) | ( (otherlv_4= RULE_ID ) ) )
+            int alt16=2;
+            int LA16_0 = input.LA(1);
 
-            					newLeafNode(lv_value_3_0, grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getSetActionRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"value",
-            						lv_value_3_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
-            				
-
+            if ( (LA16_0==RULE_STRING) ) {
+                alt16=1;
             }
+            else if ( (LA16_0==RULE_ID) ) {
+                alt16=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 16, 0, input);
 
+                throw nvae;
+            }
+            switch (alt16) {
+                case 1 :
+                    // InternalWebDsl.g:1259:4: ( (lv_value_3_0= RULE_STRING ) )
+                    {
+                    // InternalWebDsl.g:1259:4: ( (lv_value_3_0= RULE_STRING ) )
+                    // InternalWebDsl.g:1260:5: (lv_value_3_0= RULE_STRING )
+                    {
+                    // InternalWebDsl.g:1260:5: (lv_value_3_0= RULE_STRING )
+                    // InternalWebDsl.g:1261:6: lv_value_3_0= RULE_STRING
+                    {
+                    lv_value_3_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+                    						newLeafNode(lv_value_3_0, grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getSetActionRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"value",
+                    							lv_value_3_0,
+                    							"org.eclipse.xtext.common.Terminals.STRING");
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWebDsl.g:1278:4: ( (otherlv_4= RULE_ID ) )
+                    {
+                    // InternalWebDsl.g:1278:4: ( (otherlv_4= RULE_ID ) )
+                    // InternalWebDsl.g:1279:5: (otherlv_4= RULE_ID )
+                    {
+                    // InternalWebDsl.g:1279:5: (otherlv_4= RULE_ID )
+                    // InternalWebDsl.g:1280:6: otherlv_4= RULE_ID
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getSetActionRule());
+                    						}
+                    					
+                    otherlv_4=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+                    						newLeafNode(otherlv_4, grammarAccess.getSetActionAccess().getVarVarCrossReference_3_1_0());
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -3240,7 +3294,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleTypeSelection"
-    // InternalWebDsl.g:1280:1: entryRuleTypeSelection returns [EObject current=null] : iv_ruleTypeSelection= ruleTypeSelection EOF ;
+    // InternalWebDsl.g:1296:1: entryRuleTypeSelection returns [EObject current=null] : iv_ruleTypeSelection= ruleTypeSelection EOF ;
     public final EObject entryRuleTypeSelection() throws RecognitionException {
         EObject current = null;
 
@@ -3248,8 +3302,8 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalWebDsl.g:1280:54: (iv_ruleTypeSelection= ruleTypeSelection EOF )
-            // InternalWebDsl.g:1281:2: iv_ruleTypeSelection= ruleTypeSelection EOF
+            // InternalWebDsl.g:1296:54: (iv_ruleTypeSelection= ruleTypeSelection EOF )
+            // InternalWebDsl.g:1297:2: iv_ruleTypeSelection= ruleTypeSelection EOF
             {
              newCompositeNode(grammarAccess.getTypeSelectionRule()); 
             pushFollow(FOLLOW_1);
@@ -3276,7 +3330,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTypeSelection"
-    // InternalWebDsl.g:1287:1: ruleTypeSelection returns [EObject current=null] : ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' ) ;
+    // InternalWebDsl.g:1303:1: ruleTypeSelection returns [EObject current=null] : ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' ) ;
     public final EObject ruleTypeSelection() throws RecognitionException {
         EObject current = null;
 
@@ -3294,11 +3348,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1293:2: ( ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' ) )
-            // InternalWebDsl.g:1294:2: ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' )
+            // InternalWebDsl.g:1309:2: ( ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' ) )
+            // InternalWebDsl.g:1310:2: ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' )
             {
-            // InternalWebDsl.g:1294:2: ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' )
-            int alt17=5;
+            // InternalWebDsl.g:1310:2: ( ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) ) | otherlv_4= 'PARENT' | otherlv_5= 'FIRST' | otherlv_6= 'LAST' | otherlv_7= 'ALL' )
+            int alt18=5;
             switch ( input.LA(1) ) {
             case 53:
             case 54:
@@ -3309,48 +3363,48 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
             case 59:
             case 60:
                 {
-                alt17=1;
+                alt18=1;
                 }
                 break;
             case 38:
                 {
-                alt17=2;
+                alt18=2;
                 }
                 break;
             case 39:
                 {
-                alt17=3;
+                alt18=3;
                 }
                 break;
             case 40:
                 {
-                alt17=4;
+                alt18=4;
                 }
                 break;
             case 41:
                 {
-                alt17=5;
+                alt18=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
+                    new NoViableAltException("", 18, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // InternalWebDsl.g:1295:3: ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
+                    // InternalWebDsl.g:1311:3: ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
                     {
-                    // InternalWebDsl.g:1295:3: ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
-                    // InternalWebDsl.g:1296:4: ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
+                    // InternalWebDsl.g:1311:3: ( ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) ) )
+                    // InternalWebDsl.g:1312:4: ( (lv_attribute_0_0= ruleAttribute ) ) otherlv_1= ':' ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
                     {
-                    // InternalWebDsl.g:1296:4: ( (lv_attribute_0_0= ruleAttribute ) )
-                    // InternalWebDsl.g:1297:5: (lv_attribute_0_0= ruleAttribute )
+                    // InternalWebDsl.g:1312:4: ( (lv_attribute_0_0= ruleAttribute ) )
+                    // InternalWebDsl.g:1313:5: (lv_attribute_0_0= ruleAttribute )
                     {
-                    // InternalWebDsl.g:1297:5: (lv_attribute_0_0= ruleAttribute )
-                    // InternalWebDsl.g:1298:6: lv_attribute_0_0= ruleAttribute
+                    // InternalWebDsl.g:1313:5: (lv_attribute_0_0= ruleAttribute )
+                    // InternalWebDsl.g:1314:6: lv_attribute_0_0= ruleAttribute
                     {
 
                     						newCompositeNode(grammarAccess.getTypeSelectionAccess().getAttributeAttributeEnumRuleCall_0_0_0());
@@ -3381,31 +3435,31 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_1, grammarAccess.getTypeSelectionAccess().getColonKeyword_0_1());
                     			
-                    // InternalWebDsl.g:1319:4: ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
-                    int alt16=2;
-                    int LA16_0 = input.LA(1);
+                    // InternalWebDsl.g:1335:4: ( ( (lv_value_2_0= RULE_STRING ) ) | ( (otherlv_3= RULE_ID ) ) )
+                    int alt17=2;
+                    int LA17_0 = input.LA(1);
 
-                    if ( (LA16_0==RULE_STRING) ) {
-                        alt16=1;
+                    if ( (LA17_0==RULE_STRING) ) {
+                        alt17=1;
                     }
-                    else if ( (LA16_0==RULE_ID) ) {
-                        alt16=2;
+                    else if ( (LA17_0==RULE_ID) ) {
+                        alt17=2;
                     }
                     else {
                         NoViableAltException nvae =
-                            new NoViableAltException("", 16, 0, input);
+                            new NoViableAltException("", 17, 0, input);
 
                         throw nvae;
                     }
-                    switch (alt16) {
+                    switch (alt17) {
                         case 1 :
-                            // InternalWebDsl.g:1320:5: ( (lv_value_2_0= RULE_STRING ) )
+                            // InternalWebDsl.g:1336:5: ( (lv_value_2_0= RULE_STRING ) )
                             {
-                            // InternalWebDsl.g:1320:5: ( (lv_value_2_0= RULE_STRING ) )
-                            // InternalWebDsl.g:1321:6: (lv_value_2_0= RULE_STRING )
+                            // InternalWebDsl.g:1336:5: ( (lv_value_2_0= RULE_STRING ) )
+                            // InternalWebDsl.g:1337:6: (lv_value_2_0= RULE_STRING )
                             {
-                            // InternalWebDsl.g:1321:6: (lv_value_2_0= RULE_STRING )
-                            // InternalWebDsl.g:1322:7: lv_value_2_0= RULE_STRING
+                            // InternalWebDsl.g:1337:6: (lv_value_2_0= RULE_STRING )
+                            // InternalWebDsl.g:1338:7: lv_value_2_0= RULE_STRING
                             {
                             lv_value_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -3431,13 +3485,13 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalWebDsl.g:1339:5: ( (otherlv_3= RULE_ID ) )
+                            // InternalWebDsl.g:1355:5: ( (otherlv_3= RULE_ID ) )
                             {
-                            // InternalWebDsl.g:1339:5: ( (otherlv_3= RULE_ID ) )
-                            // InternalWebDsl.g:1340:6: (otherlv_3= RULE_ID )
+                            // InternalWebDsl.g:1355:5: ( (otherlv_3= RULE_ID ) )
+                            // InternalWebDsl.g:1356:6: (otherlv_3= RULE_ID )
                             {
-                            // InternalWebDsl.g:1340:6: (otherlv_3= RULE_ID )
-                            // InternalWebDsl.g:1341:7: otherlv_3= RULE_ID
+                            // InternalWebDsl.g:1356:6: (otherlv_3= RULE_ID )
+                            // InternalWebDsl.g:1357:7: otherlv_3= RULE_ID
                             {
 
                             							if (current==null) {
@@ -3467,7 +3521,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1355:3: otherlv_4= 'PARENT'
+                    // InternalWebDsl.g:1371:3: otherlv_4= 'PARENT'
                     {
                     otherlv_4=(Token)match(input,38,FOLLOW_2); 
 
@@ -3477,7 +3531,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalWebDsl.g:1360:3: otherlv_5= 'FIRST'
+                    // InternalWebDsl.g:1376:3: otherlv_5= 'FIRST'
                     {
                     otherlv_5=(Token)match(input,39,FOLLOW_2); 
 
@@ -3487,7 +3541,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalWebDsl.g:1365:3: otherlv_6= 'LAST'
+                    // InternalWebDsl.g:1381:3: otherlv_6= 'LAST'
                     {
                     otherlv_6=(Token)match(input,40,FOLLOW_2); 
 
@@ -3497,7 +3551,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalWebDsl.g:1370:3: otherlv_7= 'ALL'
+                    // InternalWebDsl.g:1386:3: otherlv_7= 'ALL'
                     {
                     otherlv_7=(Token)match(input,41,FOLLOW_2); 
 
@@ -3529,7 +3583,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssert"
-    // InternalWebDsl.g:1378:1: entryRuleAssert returns [EObject current=null] : iv_ruleAssert= ruleAssert EOF ;
+    // InternalWebDsl.g:1394:1: entryRuleAssert returns [EObject current=null] : iv_ruleAssert= ruleAssert EOF ;
     public final EObject entryRuleAssert() throws RecognitionException {
         EObject current = null;
 
@@ -3537,8 +3591,8 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalWebDsl.g:1378:47: (iv_ruleAssert= ruleAssert EOF )
-            // InternalWebDsl.g:1379:2: iv_ruleAssert= ruleAssert EOF
+            // InternalWebDsl.g:1394:47: (iv_ruleAssert= ruleAssert EOF )
+            // InternalWebDsl.g:1395:2: iv_ruleAssert= ruleAssert EOF
             {
              newCompositeNode(grammarAccess.getAssertRule()); 
             pushFollow(FOLLOW_1);
@@ -3565,7 +3619,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssert"
-    // InternalWebDsl.g:1385:1: ruleAssert returns [EObject current=null] : (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) ) ;
+    // InternalWebDsl.g:1401:1: ruleAssert returns [EObject current=null] : (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) ) ;
     public final EObject ruleAssert() throws RecognitionException {
         EObject current = null;
 
@@ -3579,35 +3633,35 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1391:2: ( (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) ) )
-            // InternalWebDsl.g:1392:2: (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) )
+            // InternalWebDsl.g:1407:2: ( (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) ) )
+            // InternalWebDsl.g:1408:2: (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) )
             {
-            // InternalWebDsl.g:1392:2: (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) )
-            // InternalWebDsl.g:1393:3: otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals )
+            // InternalWebDsl.g:1408:2: (otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals ) )
+            // InternalWebDsl.g:1409:3: otherlv_0= 'verify' (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals )
             {
             otherlv_0=(Token)match(input,42,FOLLOW_27); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAssertAccess().getVerifyKeyword_0());
             		
-            // InternalWebDsl.g:1397:3: (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals )
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalWebDsl.g:1413:3: (this_AssertContains_1= ruleAssertContains | this_AssertEquals_2= ruleAssertEquals )
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==43) ) {
-                alt18=1;
+            if ( (LA19_0==43) ) {
+                alt19=1;
             }
-            else if ( (LA18_0==RULE_STRING||LA18_0==16||LA18_0==46) ) {
-                alt18=2;
+            else if ( (LA19_0==RULE_STRING||LA19_0==16||LA19_0==46) ) {
+                alt19=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 18, 0, input);
+                    new NoViableAltException("", 19, 0, input);
 
                 throw nvae;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // InternalWebDsl.g:1398:4: this_AssertContains_1= ruleAssertContains
+                    // InternalWebDsl.g:1414:4: this_AssertContains_1= ruleAssertContains
                     {
 
                     				newCompositeNode(grammarAccess.getAssertAccess().getAssertContainsParserRuleCall_1_0());
@@ -3625,7 +3679,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1407:4: this_AssertEquals_2= ruleAssertEquals
+                    // InternalWebDsl.g:1423:4: this_AssertEquals_2= ruleAssertEquals
                     {
 
                     				newCompositeNode(grammarAccess.getAssertAccess().getAssertEqualsParserRuleCall_1_1());
@@ -3668,7 +3722,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssertContains"
-    // InternalWebDsl.g:1420:1: entryRuleAssertContains returns [EObject current=null] : iv_ruleAssertContains= ruleAssertContains EOF ;
+    // InternalWebDsl.g:1436:1: entryRuleAssertContains returns [EObject current=null] : iv_ruleAssertContains= ruleAssertContains EOF ;
     public final EObject entryRuleAssertContains() throws RecognitionException {
         EObject current = null;
 
@@ -3676,8 +3730,8 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalWebDsl.g:1420:55: (iv_ruleAssertContains= ruleAssertContains EOF )
-            // InternalWebDsl.g:1421:2: iv_ruleAssertContains= ruleAssertContains EOF
+            // InternalWebDsl.g:1436:55: (iv_ruleAssertContains= ruleAssertContains EOF )
+            // InternalWebDsl.g:1437:2: iv_ruleAssertContains= ruleAssertContains EOF
             {
              newCompositeNode(grammarAccess.getAssertContainsRule()); 
             pushFollow(FOLLOW_1);
@@ -3704,7 +3758,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssertContains"
-    // InternalWebDsl.g:1427:1: ruleAssertContains returns [EObject current=null] : (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( (lv_value_5_0= RULE_STRING ) ) ) ;
+    // InternalWebDsl.g:1443:1: ruleAssertContains returns [EObject current=null] : (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) ) ) ;
     public final EObject ruleAssertContains() throws RecognitionException {
         EObject current = null;
 
@@ -3712,6 +3766,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         Token lv_text_3_0=null;
         Token otherlv_4=null;
         Token lv_value_5_0=null;
+        Token otherlv_6=null;
         Enumerator lv_htmlElement_1_0 = null;
 
         Enumerator lv_attribute_2_0 = null;
@@ -3721,44 +3776,44 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1433:2: ( (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( (lv_value_5_0= RULE_STRING ) ) ) )
-            // InternalWebDsl.g:1434:2: (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( (lv_value_5_0= RULE_STRING ) ) )
+            // InternalWebDsl.g:1449:2: ( (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) ) ) )
+            // InternalWebDsl.g:1450:2: (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) ) )
             {
-            // InternalWebDsl.g:1434:2: (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( (lv_value_5_0= RULE_STRING ) ) )
-            // InternalWebDsl.g:1435:3: otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( (lv_value_5_0= RULE_STRING ) )
+            // InternalWebDsl.g:1450:2: (otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) ) )
+            // InternalWebDsl.g:1451:3: otherlv_0= 'contains' ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) ) otherlv_4= ':' ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) )
             {
             otherlv_0=(Token)match(input,43,FOLLOW_28); 
 
             			newLeafNode(otherlv_0, grammarAccess.getAssertContainsAccess().getContainsKeyword_0());
             		
-            // InternalWebDsl.g:1439:3: ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) )
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // InternalWebDsl.g:1455:3: ( ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) ) | ( (lv_text_3_0= 'TEXT' ) ) )
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( ((LA19_0>=21 && LA19_0<=23)||(LA19_0>=26 && LA19_0<=27)||LA19_0==30||LA19_0==52) ) {
-                alt19=1;
+            if ( ((LA20_0>=21 && LA20_0<=23)||(LA20_0>=26 && LA20_0<=27)||LA20_0==30||LA20_0==52) ) {
+                alt20=1;
             }
-            else if ( (LA19_0==44) ) {
-                alt19=2;
+            else if ( (LA20_0==44) ) {
+                alt20=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 19, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // InternalWebDsl.g:1440:4: ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) )
+                    // InternalWebDsl.g:1456:4: ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) )
                     {
-                    // InternalWebDsl.g:1440:4: ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) )
-                    // InternalWebDsl.g:1441:5: ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) )
+                    // InternalWebDsl.g:1456:4: ( ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) ) )
+                    // InternalWebDsl.g:1457:5: ( (lv_htmlElement_1_0= ruleHtmlElement ) ) ( (lv_attribute_2_0= ruleAttribute ) )
                     {
-                    // InternalWebDsl.g:1441:5: ( (lv_htmlElement_1_0= ruleHtmlElement ) )
-                    // InternalWebDsl.g:1442:6: (lv_htmlElement_1_0= ruleHtmlElement )
+                    // InternalWebDsl.g:1457:5: ( (lv_htmlElement_1_0= ruleHtmlElement ) )
+                    // InternalWebDsl.g:1458:6: (lv_htmlElement_1_0= ruleHtmlElement )
                     {
-                    // InternalWebDsl.g:1442:6: (lv_htmlElement_1_0= ruleHtmlElement )
-                    // InternalWebDsl.g:1443:7: lv_htmlElement_1_0= ruleHtmlElement
+                    // InternalWebDsl.g:1458:6: (lv_htmlElement_1_0= ruleHtmlElement )
+                    // InternalWebDsl.g:1459:7: lv_htmlElement_1_0= ruleHtmlElement
                     {
 
                     							newCompositeNode(grammarAccess.getAssertContainsAccess().getHtmlElementHtmlElementEnumRuleCall_1_0_0_0());
@@ -3785,11 +3840,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalWebDsl.g:1460:5: ( (lv_attribute_2_0= ruleAttribute ) )
-                    // InternalWebDsl.g:1461:6: (lv_attribute_2_0= ruleAttribute )
+                    // InternalWebDsl.g:1476:5: ( (lv_attribute_2_0= ruleAttribute ) )
+                    // InternalWebDsl.g:1477:6: (lv_attribute_2_0= ruleAttribute )
                     {
-                    // InternalWebDsl.g:1461:6: (lv_attribute_2_0= ruleAttribute )
-                    // InternalWebDsl.g:1462:7: lv_attribute_2_0= ruleAttribute
+                    // InternalWebDsl.g:1477:6: (lv_attribute_2_0= ruleAttribute )
+                    // InternalWebDsl.g:1478:7: lv_attribute_2_0= ruleAttribute
                     {
 
                     							newCompositeNode(grammarAccess.getAssertContainsAccess().getAttributeAttributeEnumRuleCall_1_0_1_0());
@@ -3823,13 +3878,13 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1481:4: ( (lv_text_3_0= 'TEXT' ) )
+                    // InternalWebDsl.g:1497:4: ( (lv_text_3_0= 'TEXT' ) )
                     {
-                    // InternalWebDsl.g:1481:4: ( (lv_text_3_0= 'TEXT' ) )
-                    // InternalWebDsl.g:1482:5: (lv_text_3_0= 'TEXT' )
+                    // InternalWebDsl.g:1497:4: ( (lv_text_3_0= 'TEXT' ) )
+                    // InternalWebDsl.g:1498:5: (lv_text_3_0= 'TEXT' )
                     {
-                    // InternalWebDsl.g:1482:5: (lv_text_3_0= 'TEXT' )
-                    // InternalWebDsl.g:1483:6: lv_text_3_0= 'TEXT'
+                    // InternalWebDsl.g:1498:5: (lv_text_3_0= 'TEXT' )
+                    // InternalWebDsl.g:1499:6: lv_text_3_0= 'TEXT'
                     {
                     lv_text_3_0=(Token)match(input,44,FOLLOW_25); 
 
@@ -3853,33 +3908,86 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_4=(Token)match(input,37,FOLLOW_12); 
+            otherlv_4=(Token)match(input,37,FOLLOW_26); 
 
             			newLeafNode(otherlv_4, grammarAccess.getAssertContainsAccess().getColonKeyword_2());
             		
-            // InternalWebDsl.g:1500:3: ( (lv_value_5_0= RULE_STRING ) )
-            // InternalWebDsl.g:1501:4: (lv_value_5_0= RULE_STRING )
-            {
-            // InternalWebDsl.g:1501:4: (lv_value_5_0= RULE_STRING )
-            // InternalWebDsl.g:1502:5: lv_value_5_0= RULE_STRING
-            {
-            lv_value_5_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+            // InternalWebDsl.g:1516:3: ( ( (lv_value_5_0= RULE_STRING ) ) | ( (otherlv_6= RULE_ID ) ) )
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            					newLeafNode(lv_value_5_0, grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0());
-            				
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getAssertContainsRule());
-            					}
-            					setWithLastConsumed(
-            						current,
-            						"value",
-            						lv_value_5_0,
-            						"org.eclipse.xtext.common.Terminals.STRING");
-            				
-
+            if ( (LA21_0==RULE_STRING) ) {
+                alt21=1;
             }
+            else if ( (LA21_0==RULE_ID) ) {
+                alt21=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 21, 0, input);
 
+                throw nvae;
+            }
+            switch (alt21) {
+                case 1 :
+                    // InternalWebDsl.g:1517:4: ( (lv_value_5_0= RULE_STRING ) )
+                    {
+                    // InternalWebDsl.g:1517:4: ( (lv_value_5_0= RULE_STRING ) )
+                    // InternalWebDsl.g:1518:5: (lv_value_5_0= RULE_STRING )
+                    {
+                    // InternalWebDsl.g:1518:5: (lv_value_5_0= RULE_STRING )
+                    // InternalWebDsl.g:1519:6: lv_value_5_0= RULE_STRING
+                    {
+                    lv_value_5_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
+
+                    						newLeafNode(lv_value_5_0, grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAssertContainsRule());
+                    						}
+                    						setWithLastConsumed(
+                    							current,
+                    							"value",
+                    							lv_value_5_0,
+                    							"org.eclipse.xtext.common.Terminals.STRING");
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWebDsl.g:1536:4: ( (otherlv_6= RULE_ID ) )
+                    {
+                    // InternalWebDsl.g:1536:4: ( (otherlv_6= RULE_ID ) )
+                    // InternalWebDsl.g:1537:5: (otherlv_6= RULE_ID )
+                    {
+                    // InternalWebDsl.g:1537:5: (otherlv_6= RULE_ID )
+                    // InternalWebDsl.g:1538:6: otherlv_6= RULE_ID
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getAssertContainsRule());
+                    						}
+                    					
+                    otherlv_6=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+                    						newLeafNode(otherlv_6, grammarAccess.getAssertContainsAccess().getVarVarCrossReference_3_1_0());
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -3906,7 +4014,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAssertEquals"
-    // InternalWebDsl.g:1522:1: entryRuleAssertEquals returns [EObject current=null] : iv_ruleAssertEquals= ruleAssertEquals EOF ;
+    // InternalWebDsl.g:1554:1: entryRuleAssertEquals returns [EObject current=null] : iv_ruleAssertEquals= ruleAssertEquals EOF ;
     public final EObject entryRuleAssertEquals() throws RecognitionException {
         EObject current = null;
 
@@ -3914,8 +4022,8 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalWebDsl.g:1522:53: (iv_ruleAssertEquals= ruleAssertEquals EOF )
-            // InternalWebDsl.g:1523:2: iv_ruleAssertEquals= ruleAssertEquals EOF
+            // InternalWebDsl.g:1554:53: (iv_ruleAssertEquals= ruleAssertEquals EOF )
+            // InternalWebDsl.g:1555:2: iv_ruleAssertEquals= ruleAssertEquals EOF
             {
              newCompositeNode(grammarAccess.getAssertEqualsRule()); 
             pushFollow(FOLLOW_1);
@@ -3942,7 +4050,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAssertEquals"
-    // InternalWebDsl.g:1529:1: ruleAssertEquals returns [EObject current=null] : ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) ) ;
+    // InternalWebDsl.g:1561:1: ruleAssertEquals returns [EObject current=null] : ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) ) ;
     public final EObject ruleAssertEquals() throws RecognitionException {
         EObject current = null;
 
@@ -3956,17 +4064,17 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1535:2: ( ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) ) )
-            // InternalWebDsl.g:1536:2: ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) )
+            // InternalWebDsl.g:1567:2: ( ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) ) )
+            // InternalWebDsl.g:1568:2: ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) )
             {
-            // InternalWebDsl.g:1536:2: ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) )
-            // InternalWebDsl.g:1537:3: ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) )
+            // InternalWebDsl.g:1568:2: ( ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) ) )
+            // InternalWebDsl.g:1569:3: ( (lv_c1_0_0= ruleComparable ) ) otherlv_1= 'equals' ( (lv_c2_2_0= ruleComparable ) )
             {
-            // InternalWebDsl.g:1537:3: ( (lv_c1_0_0= ruleComparable ) )
-            // InternalWebDsl.g:1538:4: (lv_c1_0_0= ruleComparable )
+            // InternalWebDsl.g:1569:3: ( (lv_c1_0_0= ruleComparable ) )
+            // InternalWebDsl.g:1570:4: (lv_c1_0_0= ruleComparable )
             {
-            // InternalWebDsl.g:1538:4: (lv_c1_0_0= ruleComparable )
-            // InternalWebDsl.g:1539:5: lv_c1_0_0= ruleComparable
+            // InternalWebDsl.g:1570:4: (lv_c1_0_0= ruleComparable )
+            // InternalWebDsl.g:1571:5: lv_c1_0_0= ruleComparable
             {
 
             					newCompositeNode(grammarAccess.getAssertEqualsAccess().getC1ComparableParserRuleCall_0_0());
@@ -3997,11 +4105,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getAssertEqualsAccess().getEqualsKeyword_1());
             		
-            // InternalWebDsl.g:1560:3: ( (lv_c2_2_0= ruleComparable ) )
-            // InternalWebDsl.g:1561:4: (lv_c2_2_0= ruleComparable )
+            // InternalWebDsl.g:1592:3: ( (lv_c2_2_0= ruleComparable ) )
+            // InternalWebDsl.g:1593:4: (lv_c2_2_0= ruleComparable )
             {
-            // InternalWebDsl.g:1561:4: (lv_c2_2_0= ruleComparable )
-            // InternalWebDsl.g:1562:5: lv_c2_2_0= ruleComparable
+            // InternalWebDsl.g:1593:4: (lv_c2_2_0= ruleComparable )
+            // InternalWebDsl.g:1594:5: lv_c2_2_0= ruleComparable
             {
 
             					newCompositeNode(grammarAccess.getAssertEqualsAccess().getC2ComparableParserRuleCall_2_0());
@@ -4051,7 +4159,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleComparable"
-    // InternalWebDsl.g:1583:1: entryRuleComparable returns [EObject current=null] : iv_ruleComparable= ruleComparable EOF ;
+    // InternalWebDsl.g:1615:1: entryRuleComparable returns [EObject current=null] : iv_ruleComparable= ruleComparable EOF ;
     public final EObject entryRuleComparable() throws RecognitionException {
         EObject current = null;
 
@@ -4059,8 +4167,8 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalWebDsl.g:1583:51: (iv_ruleComparable= ruleComparable EOF )
-            // InternalWebDsl.g:1584:2: iv_ruleComparable= ruleComparable EOF
+            // InternalWebDsl.g:1615:51: (iv_ruleComparable= ruleComparable EOF )
+            // InternalWebDsl.g:1616:2: iv_ruleComparable= ruleComparable EOF
             {
              newCompositeNode(grammarAccess.getComparableRule()); 
             pushFollow(FOLLOW_1);
@@ -4087,7 +4195,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleComparable"
-    // InternalWebDsl.g:1590:1: ruleComparable returns [EObject current=null] : ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING ) ;
+    // InternalWebDsl.g:1622:1: ruleComparable returns [EObject current=null] : ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING ) ;
     public final EObject ruleComparable() throws RecognitionException {
         EObject current = null;
 
@@ -4106,50 +4214,50 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1596:2: ( ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING ) )
-            // InternalWebDsl.g:1597:2: ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING )
+            // InternalWebDsl.g:1628:2: ( ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING ) )
+            // InternalWebDsl.g:1629:2: ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING )
             {
-            // InternalWebDsl.g:1597:2: ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING )
-            int alt20=3;
+            // InternalWebDsl.g:1629:2: ( (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) ) | (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' ) | this_STRING_6= RULE_STRING )
+            int alt22=3;
             switch ( input.LA(1) ) {
             case 46:
                 {
-                alt20=1;
+                alt22=1;
                 }
                 break;
             case 16:
                 {
-                alt20=2;
+                alt22=2;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt20=3;
+                alt22=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt20) {
+            switch (alt22) {
                 case 1 :
-                    // InternalWebDsl.g:1598:3: (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) )
+                    // InternalWebDsl.g:1630:3: (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) )
                     {
-                    // InternalWebDsl.g:1598:3: (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) )
-                    // InternalWebDsl.g:1599:4: otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) )
+                    // InternalWebDsl.g:1630:3: (otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) ) )
+                    // InternalWebDsl.g:1631:4: otherlv_0= 'VAR:' ( (lv_var_1_0= ruleVar ) )
                     {
                     otherlv_0=(Token)match(input,46,FOLLOW_5); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getComparableAccess().getVARKeyword_0_0());
                     			
-                    // InternalWebDsl.g:1603:4: ( (lv_var_1_0= ruleVar ) )
-                    // InternalWebDsl.g:1604:5: (lv_var_1_0= ruleVar )
+                    // InternalWebDsl.g:1635:4: ( (lv_var_1_0= ruleVar ) )
+                    // InternalWebDsl.g:1636:5: (lv_var_1_0= ruleVar )
                     {
-                    // InternalWebDsl.g:1604:5: (lv_var_1_0= ruleVar )
-                    // InternalWebDsl.g:1605:6: lv_var_1_0= ruleVar
+                    // InternalWebDsl.g:1636:5: (lv_var_1_0= ruleVar )
+                    // InternalWebDsl.g:1637:6: lv_var_1_0= ruleVar
                     {
 
                     						newCompositeNode(grammarAccess.getComparableAccess().getVarVarParserRuleCall_0_1_0());
@@ -4183,20 +4291,20 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1624:3: (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' )
+                    // InternalWebDsl.g:1656:3: (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' )
                     {
-                    // InternalWebDsl.g:1624:3: (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' )
-                    // InternalWebDsl.g:1625:4: otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')'
+                    // InternalWebDsl.g:1656:3: (otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')' )
+                    // InternalWebDsl.g:1657:4: otherlv_2= '(' ( (lv_htmlElement_3_0= ruleHtmlElement ) ) ( (lv_attribute_4_0= ruleAttribute ) ) otherlv_5= ')'
                     {
                     otherlv_2=(Token)match(input,16,FOLLOW_23); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getComparableAccess().getLeftParenthesisKeyword_1_0());
                     			
-                    // InternalWebDsl.g:1629:4: ( (lv_htmlElement_3_0= ruleHtmlElement ) )
-                    // InternalWebDsl.g:1630:5: (lv_htmlElement_3_0= ruleHtmlElement )
+                    // InternalWebDsl.g:1661:4: ( (lv_htmlElement_3_0= ruleHtmlElement ) )
+                    // InternalWebDsl.g:1662:5: (lv_htmlElement_3_0= ruleHtmlElement )
                     {
-                    // InternalWebDsl.g:1630:5: (lv_htmlElement_3_0= ruleHtmlElement )
-                    // InternalWebDsl.g:1631:6: lv_htmlElement_3_0= ruleHtmlElement
+                    // InternalWebDsl.g:1662:5: (lv_htmlElement_3_0= ruleHtmlElement )
+                    // InternalWebDsl.g:1663:6: lv_htmlElement_3_0= ruleHtmlElement
                     {
 
                     						newCompositeNode(grammarAccess.getComparableAccess().getHtmlElementHtmlElementEnumRuleCall_1_1_0());
@@ -4223,11 +4331,11 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalWebDsl.g:1648:4: ( (lv_attribute_4_0= ruleAttribute ) )
-                    // InternalWebDsl.g:1649:5: (lv_attribute_4_0= ruleAttribute )
+                    // InternalWebDsl.g:1680:4: ( (lv_attribute_4_0= ruleAttribute ) )
+                    // InternalWebDsl.g:1681:5: (lv_attribute_4_0= ruleAttribute )
                     {
-                    // InternalWebDsl.g:1649:5: (lv_attribute_4_0= ruleAttribute )
-                    // InternalWebDsl.g:1650:6: lv_attribute_4_0= ruleAttribute
+                    // InternalWebDsl.g:1681:5: (lv_attribute_4_0= ruleAttribute )
+                    // InternalWebDsl.g:1682:6: lv_attribute_4_0= ruleAttribute
                     {
 
                     						newCompositeNode(grammarAccess.getComparableAccess().getAttributeAttributeEnumRuleCall_1_2_0());
@@ -4265,7 +4373,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalWebDsl.g:1673:3: this_STRING_6= RULE_STRING
+                    // InternalWebDsl.g:1705:3: this_STRING_6= RULE_STRING
                     {
                     this_STRING_6=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -4297,7 +4405,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBrowser"
-    // InternalWebDsl.g:1681:1: ruleBrowser returns [Enumerator current=null] : ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) ) ;
+    // InternalWebDsl.g:1713:1: ruleBrowser returns [Enumerator current=null] : ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) ) ;
     public final Enumerator ruleBrowser() throws RecognitionException {
         Enumerator current = null;
 
@@ -4311,50 +4419,50 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1687:2: ( ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) ) )
-            // InternalWebDsl.g:1688:2: ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) )
+            // InternalWebDsl.g:1719:2: ( ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) ) )
+            // InternalWebDsl.g:1720:2: ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) )
             {
-            // InternalWebDsl.g:1688:2: ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) )
-            int alt21=5;
+            // InternalWebDsl.g:1720:2: ( (enumLiteral_0= 'chrome' ) | (enumLiteral_1= 'firefox' ) | (enumLiteral_2= 'safari' ) | (enumLiteral_3= 'edge' ) | (enumLiteral_4= 'ie' ) )
+            int alt23=5;
             switch ( input.LA(1) ) {
             case 47:
                 {
-                alt21=1;
+                alt23=1;
                 }
                 break;
             case 48:
                 {
-                alt21=2;
+                alt23=2;
                 }
                 break;
             case 49:
                 {
-                alt21=3;
+                alt23=3;
                 }
                 break;
             case 50:
                 {
-                alt21=4;
+                alt23=4;
                 }
                 break;
             case 51:
                 {
-                alt21=5;
+                alt23=5;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 21, 0, input);
+                    new NoViableAltException("", 23, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt21) {
+            switch (alt23) {
                 case 1 :
-                    // InternalWebDsl.g:1689:3: (enumLiteral_0= 'chrome' )
+                    // InternalWebDsl.g:1721:3: (enumLiteral_0= 'chrome' )
                     {
-                    // InternalWebDsl.g:1689:3: (enumLiteral_0= 'chrome' )
-                    // InternalWebDsl.g:1690:4: enumLiteral_0= 'chrome'
+                    // InternalWebDsl.g:1721:3: (enumLiteral_0= 'chrome' )
+                    // InternalWebDsl.g:1722:4: enumLiteral_0= 'chrome'
                     {
                     enumLiteral_0=(Token)match(input,47,FOLLOW_2); 
 
@@ -4368,10 +4476,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1697:3: (enumLiteral_1= 'firefox' )
+                    // InternalWebDsl.g:1729:3: (enumLiteral_1= 'firefox' )
                     {
-                    // InternalWebDsl.g:1697:3: (enumLiteral_1= 'firefox' )
-                    // InternalWebDsl.g:1698:4: enumLiteral_1= 'firefox'
+                    // InternalWebDsl.g:1729:3: (enumLiteral_1= 'firefox' )
+                    // InternalWebDsl.g:1730:4: enumLiteral_1= 'firefox'
                     {
                     enumLiteral_1=(Token)match(input,48,FOLLOW_2); 
 
@@ -4385,10 +4493,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalWebDsl.g:1705:3: (enumLiteral_2= 'safari' )
+                    // InternalWebDsl.g:1737:3: (enumLiteral_2= 'safari' )
                     {
-                    // InternalWebDsl.g:1705:3: (enumLiteral_2= 'safari' )
-                    // InternalWebDsl.g:1706:4: enumLiteral_2= 'safari'
+                    // InternalWebDsl.g:1737:3: (enumLiteral_2= 'safari' )
+                    // InternalWebDsl.g:1738:4: enumLiteral_2= 'safari'
                     {
                     enumLiteral_2=(Token)match(input,49,FOLLOW_2); 
 
@@ -4402,10 +4510,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalWebDsl.g:1713:3: (enumLiteral_3= 'edge' )
+                    // InternalWebDsl.g:1745:3: (enumLiteral_3= 'edge' )
                     {
-                    // InternalWebDsl.g:1713:3: (enumLiteral_3= 'edge' )
-                    // InternalWebDsl.g:1714:4: enumLiteral_3= 'edge'
+                    // InternalWebDsl.g:1745:3: (enumLiteral_3= 'edge' )
+                    // InternalWebDsl.g:1746:4: enumLiteral_3= 'edge'
                     {
                     enumLiteral_3=(Token)match(input,50,FOLLOW_2); 
 
@@ -4419,10 +4527,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalWebDsl.g:1721:3: (enumLiteral_4= 'ie' )
+                    // InternalWebDsl.g:1753:3: (enumLiteral_4= 'ie' )
                     {
-                    // InternalWebDsl.g:1721:3: (enumLiteral_4= 'ie' )
-                    // InternalWebDsl.g:1722:4: enumLiteral_4= 'ie'
+                    // InternalWebDsl.g:1753:3: (enumLiteral_4= 'ie' )
+                    // InternalWebDsl.g:1754:4: enumLiteral_4= 'ie'
                     {
                     enumLiteral_4=(Token)match(input,51,FOLLOW_2); 
 
@@ -4458,7 +4566,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleHtmlElement"
-    // InternalWebDsl.g:1732:1: ruleHtmlElement returns [Enumerator current=null] : ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) ) ;
+    // InternalWebDsl.g:1764:1: ruleHtmlElement returns [Enumerator current=null] : ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) ) ;
     public final Enumerator ruleHtmlElement() throws RecognitionException {
         Enumerator current = null;
 
@@ -4474,60 +4582,60 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1738:2: ( ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) ) )
-            // InternalWebDsl.g:1739:2: ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) )
+            // InternalWebDsl.g:1770:2: ( ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) ) )
+            // InternalWebDsl.g:1771:2: ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) )
             {
-            // InternalWebDsl.g:1739:2: ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) )
-            int alt22=7;
+            // InternalWebDsl.g:1771:2: ( (enumLiteral_0= 'LINK' ) | (enumLiteral_1= 'BUTTON' ) | (enumLiteral_2= 'CHECKBOX' ) | (enumLiteral_3= 'COMBO_BOX' ) | (enumLiteral_4= 'DIV' ) | (enumLiteral_5= 'IMAGE' ) | (enumLiteral_6= 'A' ) )
+            int alt24=7;
             switch ( input.LA(1) ) {
             case 21:
                 {
-                alt22=1;
+                alt24=1;
                 }
                 break;
             case 22:
                 {
-                alt22=2;
+                alt24=2;
                 }
                 break;
             case 27:
                 {
-                alt22=3;
+                alt24=3;
                 }
                 break;
             case 30:
                 {
-                alt22=4;
+                alt24=4;
                 }
                 break;
             case 26:
                 {
-                alt22=5;
+                alt24=5;
                 }
                 break;
             case 23:
                 {
-                alt22=6;
+                alt24=6;
                 }
                 break;
             case 52:
                 {
-                alt22=7;
+                alt24=7;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 24, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt22) {
+            switch (alt24) {
                 case 1 :
-                    // InternalWebDsl.g:1740:3: (enumLiteral_0= 'LINK' )
+                    // InternalWebDsl.g:1772:3: (enumLiteral_0= 'LINK' )
                     {
-                    // InternalWebDsl.g:1740:3: (enumLiteral_0= 'LINK' )
-                    // InternalWebDsl.g:1741:4: enumLiteral_0= 'LINK'
+                    // InternalWebDsl.g:1772:3: (enumLiteral_0= 'LINK' )
+                    // InternalWebDsl.g:1773:4: enumLiteral_0= 'LINK'
                     {
                     enumLiteral_0=(Token)match(input,21,FOLLOW_2); 
 
@@ -4541,10 +4649,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1748:3: (enumLiteral_1= 'BUTTON' )
+                    // InternalWebDsl.g:1780:3: (enumLiteral_1= 'BUTTON' )
                     {
-                    // InternalWebDsl.g:1748:3: (enumLiteral_1= 'BUTTON' )
-                    // InternalWebDsl.g:1749:4: enumLiteral_1= 'BUTTON'
+                    // InternalWebDsl.g:1780:3: (enumLiteral_1= 'BUTTON' )
+                    // InternalWebDsl.g:1781:4: enumLiteral_1= 'BUTTON'
                     {
                     enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
 
@@ -4558,10 +4666,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalWebDsl.g:1756:3: (enumLiteral_2= 'CHECKBOX' )
+                    // InternalWebDsl.g:1788:3: (enumLiteral_2= 'CHECKBOX' )
                     {
-                    // InternalWebDsl.g:1756:3: (enumLiteral_2= 'CHECKBOX' )
-                    // InternalWebDsl.g:1757:4: enumLiteral_2= 'CHECKBOX'
+                    // InternalWebDsl.g:1788:3: (enumLiteral_2= 'CHECKBOX' )
+                    // InternalWebDsl.g:1789:4: enumLiteral_2= 'CHECKBOX'
                     {
                     enumLiteral_2=(Token)match(input,27,FOLLOW_2); 
 
@@ -4575,10 +4683,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalWebDsl.g:1764:3: (enumLiteral_3= 'COMBO_BOX' )
+                    // InternalWebDsl.g:1796:3: (enumLiteral_3= 'COMBO_BOX' )
                     {
-                    // InternalWebDsl.g:1764:3: (enumLiteral_3= 'COMBO_BOX' )
-                    // InternalWebDsl.g:1765:4: enumLiteral_3= 'COMBO_BOX'
+                    // InternalWebDsl.g:1796:3: (enumLiteral_3= 'COMBO_BOX' )
+                    // InternalWebDsl.g:1797:4: enumLiteral_3= 'COMBO_BOX'
                     {
                     enumLiteral_3=(Token)match(input,30,FOLLOW_2); 
 
@@ -4592,10 +4700,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalWebDsl.g:1772:3: (enumLiteral_4= 'DIV' )
+                    // InternalWebDsl.g:1804:3: (enumLiteral_4= 'DIV' )
                     {
-                    // InternalWebDsl.g:1772:3: (enumLiteral_4= 'DIV' )
-                    // InternalWebDsl.g:1773:4: enumLiteral_4= 'DIV'
+                    // InternalWebDsl.g:1804:3: (enumLiteral_4= 'DIV' )
+                    // InternalWebDsl.g:1805:4: enumLiteral_4= 'DIV'
                     {
                     enumLiteral_4=(Token)match(input,26,FOLLOW_2); 
 
@@ -4609,10 +4717,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalWebDsl.g:1780:3: (enumLiteral_5= 'IMAGE' )
+                    // InternalWebDsl.g:1812:3: (enumLiteral_5= 'IMAGE' )
                     {
-                    // InternalWebDsl.g:1780:3: (enumLiteral_5= 'IMAGE' )
-                    // InternalWebDsl.g:1781:4: enumLiteral_5= 'IMAGE'
+                    // InternalWebDsl.g:1812:3: (enumLiteral_5= 'IMAGE' )
+                    // InternalWebDsl.g:1813:4: enumLiteral_5= 'IMAGE'
                     {
                     enumLiteral_5=(Token)match(input,23,FOLLOW_2); 
 
@@ -4626,10 +4734,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalWebDsl.g:1788:3: (enumLiteral_6= 'A' )
+                    // InternalWebDsl.g:1820:3: (enumLiteral_6= 'A' )
                     {
-                    // InternalWebDsl.g:1788:3: (enumLiteral_6= 'A' )
-                    // InternalWebDsl.g:1789:4: enumLiteral_6= 'A'
+                    // InternalWebDsl.g:1820:3: (enumLiteral_6= 'A' )
+                    // InternalWebDsl.g:1821:4: enumLiteral_6= 'A'
                     {
                     enumLiteral_6=(Token)match(input,52,FOLLOW_2); 
 
@@ -4665,7 +4773,7 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAttribute"
-    // InternalWebDsl.g:1799:1: ruleAttribute returns [Enumerator current=null] : ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) ;
+    // InternalWebDsl.g:1831:1: ruleAttribute returns [Enumerator current=null] : ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) ;
     public final Enumerator ruleAttribute() throws RecognitionException {
         Enumerator current = null;
 
@@ -4682,65 +4790,65 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalWebDsl.g:1805:2: ( ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) )
-            // InternalWebDsl.g:1806:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
+            // InternalWebDsl.g:1837:2: ( ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) ) )
+            // InternalWebDsl.g:1838:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
             {
-            // InternalWebDsl.g:1806:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
-            int alt23=8;
+            // InternalWebDsl.g:1838:2: ( (enumLiteral_0= 'LABEL' ) | (enumLiteral_1= 'ID' ) | (enumLiteral_2= 'CLASS' ) | (enumLiteral_3= 'ALT' ) | (enumLiteral_4= 'VALUE' ) | (enumLiteral_5= 'HREF' ) | (enumLiteral_6= 'TITLE' ) | (enumLiteral_7= 'NAME' ) )
+            int alt25=8;
             switch ( input.LA(1) ) {
             case 53:
                 {
-                alt23=1;
+                alt25=1;
                 }
                 break;
             case 54:
                 {
-                alt23=2;
+                alt25=2;
                 }
                 break;
             case 55:
                 {
-                alt23=3;
+                alt25=3;
                 }
                 break;
             case 56:
                 {
-                alt23=4;
+                alt25=4;
                 }
                 break;
             case 57:
                 {
-                alt23=5;
+                alt25=5;
                 }
                 break;
             case 58:
                 {
-                alt23=6;
+                alt25=6;
                 }
                 break;
             case 59:
                 {
-                alt23=7;
+                alt25=7;
                 }
                 break;
             case 60:
                 {
-                alt23=8;
+                alt25=8;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 25, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt23) {
+            switch (alt25) {
                 case 1 :
-                    // InternalWebDsl.g:1807:3: (enumLiteral_0= 'LABEL' )
+                    // InternalWebDsl.g:1839:3: (enumLiteral_0= 'LABEL' )
                     {
-                    // InternalWebDsl.g:1807:3: (enumLiteral_0= 'LABEL' )
-                    // InternalWebDsl.g:1808:4: enumLiteral_0= 'LABEL'
+                    // InternalWebDsl.g:1839:3: (enumLiteral_0= 'LABEL' )
+                    // InternalWebDsl.g:1840:4: enumLiteral_0= 'LABEL'
                     {
                     enumLiteral_0=(Token)match(input,53,FOLLOW_2); 
 
@@ -4754,10 +4862,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalWebDsl.g:1815:3: (enumLiteral_1= 'ID' )
+                    // InternalWebDsl.g:1847:3: (enumLiteral_1= 'ID' )
                     {
-                    // InternalWebDsl.g:1815:3: (enumLiteral_1= 'ID' )
-                    // InternalWebDsl.g:1816:4: enumLiteral_1= 'ID'
+                    // InternalWebDsl.g:1847:3: (enumLiteral_1= 'ID' )
+                    // InternalWebDsl.g:1848:4: enumLiteral_1= 'ID'
                     {
                     enumLiteral_1=(Token)match(input,54,FOLLOW_2); 
 
@@ -4771,10 +4879,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalWebDsl.g:1823:3: (enumLiteral_2= 'CLASS' )
+                    // InternalWebDsl.g:1855:3: (enumLiteral_2= 'CLASS' )
                     {
-                    // InternalWebDsl.g:1823:3: (enumLiteral_2= 'CLASS' )
-                    // InternalWebDsl.g:1824:4: enumLiteral_2= 'CLASS'
+                    // InternalWebDsl.g:1855:3: (enumLiteral_2= 'CLASS' )
+                    // InternalWebDsl.g:1856:4: enumLiteral_2= 'CLASS'
                     {
                     enumLiteral_2=(Token)match(input,55,FOLLOW_2); 
 
@@ -4788,10 +4896,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalWebDsl.g:1831:3: (enumLiteral_3= 'ALT' )
+                    // InternalWebDsl.g:1863:3: (enumLiteral_3= 'ALT' )
                     {
-                    // InternalWebDsl.g:1831:3: (enumLiteral_3= 'ALT' )
-                    // InternalWebDsl.g:1832:4: enumLiteral_3= 'ALT'
+                    // InternalWebDsl.g:1863:3: (enumLiteral_3= 'ALT' )
+                    // InternalWebDsl.g:1864:4: enumLiteral_3= 'ALT'
                     {
                     enumLiteral_3=(Token)match(input,56,FOLLOW_2); 
 
@@ -4805,10 +4913,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalWebDsl.g:1839:3: (enumLiteral_4= 'VALUE' )
+                    // InternalWebDsl.g:1871:3: (enumLiteral_4= 'VALUE' )
                     {
-                    // InternalWebDsl.g:1839:3: (enumLiteral_4= 'VALUE' )
-                    // InternalWebDsl.g:1840:4: enumLiteral_4= 'VALUE'
+                    // InternalWebDsl.g:1871:3: (enumLiteral_4= 'VALUE' )
+                    // InternalWebDsl.g:1872:4: enumLiteral_4= 'VALUE'
                     {
                     enumLiteral_4=(Token)match(input,57,FOLLOW_2); 
 
@@ -4822,10 +4930,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalWebDsl.g:1847:3: (enumLiteral_5= 'HREF' )
+                    // InternalWebDsl.g:1879:3: (enumLiteral_5= 'HREF' )
                     {
-                    // InternalWebDsl.g:1847:3: (enumLiteral_5= 'HREF' )
-                    // InternalWebDsl.g:1848:4: enumLiteral_5= 'HREF'
+                    // InternalWebDsl.g:1879:3: (enumLiteral_5= 'HREF' )
+                    // InternalWebDsl.g:1880:4: enumLiteral_5= 'HREF'
                     {
                     enumLiteral_5=(Token)match(input,58,FOLLOW_2); 
 
@@ -4839,10 +4947,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalWebDsl.g:1855:3: (enumLiteral_6= 'TITLE' )
+                    // InternalWebDsl.g:1887:3: (enumLiteral_6= 'TITLE' )
                     {
-                    // InternalWebDsl.g:1855:3: (enumLiteral_6= 'TITLE' )
-                    // InternalWebDsl.g:1856:4: enumLiteral_6= 'TITLE'
+                    // InternalWebDsl.g:1887:3: (enumLiteral_6= 'TITLE' )
+                    // InternalWebDsl.g:1888:4: enumLiteral_6= 'TITLE'
                     {
                     enumLiteral_6=(Token)match(input,59,FOLLOW_2); 
 
@@ -4856,10 +4964,10 @@ public class InternalWebDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 8 :
-                    // InternalWebDsl.g:1863:3: (enumLiteral_7= 'NAME' )
+                    // InternalWebDsl.g:1895:3: (enumLiteral_7= 'NAME' )
                     {
-                    // InternalWebDsl.g:1863:3: (enumLiteral_7= 'NAME' )
-                    // InternalWebDsl.g:1864:4: enumLiteral_7= 'NAME'
+                    // InternalWebDsl.g:1895:3: (enumLiteral_7= 'NAME' )
+                    // InternalWebDsl.g:1896:4: enumLiteral_7= 'NAME'
                     {
                     enumLiteral_7=(Token)match(input,60,FOLLOW_2); 
 

@@ -6,11 +6,13 @@ package fr.imta.renaud.ssinigaglia.webDsl.impl;
 import fr.imta.renaud.ssinigaglia.webDsl.AssertContains;
 import fr.imta.renaud.ssinigaglia.webDsl.Attribute;
 import fr.imta.renaud.ssinigaglia.webDsl.HtmlElement;
+import fr.imta.renaud.ssinigaglia.webDsl.Var;
 import fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getText <em>Text</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.impl.AssertContainsImpl#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @generated
@@ -111,6 +114,16 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
    * @ordered
    */
   protected String value = VALUE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getVar() <em>Var</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar()
+   * @generated
+   * @ordered
+   */
+  protected Var var;
 
   /**
    * <!-- begin-user-doc -->
@@ -230,6 +243,49 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
    * <!-- end-user-doc -->
    * @generated
    */
+  public Var getVar()
+  {
+    if (var != null && var.eIsProxy())
+    {
+      InternalEObject oldVar = (InternalEObject)var;
+      var = (Var)eResolveProxy(oldVar);
+      if (var != oldVar)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, WebDslPackage.ASSERT_CONTAINS__VAR, oldVar, var));
+      }
+    }
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Var basicGetVar()
+  {
+    return var;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVar(Var newVar)
+  {
+    Var oldVar = var;
+    var = newVar;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WebDslPackage.ASSERT_CONTAINS__VAR, oldVar, var));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -243,6 +299,9 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return getText();
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         return getValue();
+      case WebDslPackage.ASSERT_CONTAINS__VAR:
+        if (resolve) return getVar();
+        return basicGetVar();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,6 +327,9 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return;
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         setValue((String)newValue);
+        return;
+      case WebDslPackage.ASSERT_CONTAINS__VAR:
+        setVar((Var)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -295,6 +357,9 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
+      case WebDslPackage.ASSERT_CONTAINS__VAR:
+        setVar((Var)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -317,6 +382,8 @@ public class AssertContainsImpl extends AssertImpl implements AssertContains
         return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
       case WebDslPackage.ASSERT_CONTAINS__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case WebDslPackage.ASSERT_CONTAINS__VAR:
+        return var != null;
     }
     return super.eIsSet(featureID);
   }

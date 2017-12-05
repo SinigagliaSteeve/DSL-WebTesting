@@ -94,6 +94,7 @@
     <genClasses ecoreClass="WebDsl.ecore#//SetAction">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//SetAction/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//SetAction/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebDsl.ecore#//SetAction/var"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//TypeSelection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//TypeSelection/attribute"/>
@@ -106,6 +107,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//AssertContains/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//AssertContains/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WebDsl.ecore#//AssertContains/value"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference WebDsl.ecore#//AssertContains/var"/>
     </genClasses>
     <genClasses ecoreClass="WebDsl.ecore#//AssertEquals">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WebDsl.ecore#//AssertEquals/c1"/>

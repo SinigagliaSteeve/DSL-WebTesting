@@ -15,6 +15,7 @@ package fr.imta.renaud.ssinigaglia.webDsl;
  * <ul>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.SetAction#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.SetAction#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.SetAction#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSetAction()
@@ -77,5 +78,31 @@ public interface SetAction extends GeneralAction
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' reference.
+   * @see #setVar(Var)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getSetAction_Var()
+   * @model
+   * @generated
+   */
+  Var getVar();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.SetAction#getVar <em>Var</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' reference.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(Var value);
 
 } // SetAction

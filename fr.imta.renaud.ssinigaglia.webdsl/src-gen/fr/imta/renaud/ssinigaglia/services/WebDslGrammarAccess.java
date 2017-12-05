@@ -700,15 +700,19 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAttributeAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cAttributeAttributeEnumRuleCall_1_0 = (RuleCall)cAttributeAssignment_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_0_0 = (RuleCall)cValueAssignment_3_0.eContents().get(0);
+		private final Assignment cVarAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final CrossReference cVarVarCrossReference_3_1_0 = (CrossReference)cVarAssignment_3_1.eContents().get(0);
+		private final RuleCall cVarVarIDTerminalRuleCall_3_1_0_1 = (RuleCall)cVarVarCrossReference_3_1_0.eContents().get(1);
 		
 		////
 		//SetAction:
-		//	'set' attribute=Attribute ':' value=STRING;
+		//	'set' attribute=Attribute ':' (value=STRING | var=[Var]);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'set' attribute=Attribute ':' value=STRING
+		//'set' attribute=Attribute ':' (value=STRING | var=[Var])
 		public Group getGroup() { return cGroup; }
 		
 		//'set'
@@ -723,11 +727,23 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
+		//value=STRING | var=[Var]
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
 		//value=STRING
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_3_0() { return cValueAssignment_3_0; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_3_0_0() { return cValueSTRINGTerminalRuleCall_3_0_0; }
+		
+		//var=[Var]
+		public Assignment getVarAssignment_3_1() { return cVarAssignment_3_1; }
+		
+		//[Var]
+		public CrossReference getVarVarCrossReference_3_1_0() { return cVarVarCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getVarVarIDTerminalRuleCall_3_1_0_1() { return cVarVarIDTerminalRuleCall_3_1_0_1; }
 	}
 	public class TypeSelectionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.TypeSelection");
@@ -840,14 +856,18 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTextAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
 		private final Keyword cTextTEXTKeyword_1_1_0 = (Keyword)cTextAssignment_1_1.eContents().get(0);
 		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cValueSTRINGTerminalRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cValueSTRINGTerminalRuleCall_3_0_0 = (RuleCall)cValueAssignment_3_0.eContents().get(0);
+		private final Assignment cVarAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final CrossReference cVarVarCrossReference_3_1_0 = (CrossReference)cVarAssignment_3_1.eContents().get(0);
+		private final RuleCall cVarVarIDTerminalRuleCall_3_1_0_1 = (RuleCall)cVarVarCrossReference_3_1_0.eContents().get(1);
 		
 		//AssertContains:
-		//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING;
+		//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' (value=STRING | var=[Var]);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING
+		//'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' (value=STRING | var=[Var])
 		public Group getGroup() { return cGroup; }
 		
 		//'contains'
@@ -880,11 +900,23 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 		
+		//value=STRING | var=[Var]
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
+		
 		//value=STRING
-		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+		public Assignment getValueAssignment_3_0() { return cValueAssignment_3_0; }
 		
 		//STRING
-		public RuleCall getValueSTRINGTerminalRuleCall_3_0() { return cValueSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getValueSTRINGTerminalRuleCall_3_0_0() { return cValueSTRINGTerminalRuleCall_3_0_0; }
+		
+		//var=[Var]
+		public Assignment getVarAssignment_3_1() { return cVarAssignment_3_1; }
+		
+		//[Var]
+		public CrossReference getVarVarCrossReference_3_1_0() { return cVarVarCrossReference_3_1_0; }
+		
+		//ID
+		public RuleCall getVarVarIDTerminalRuleCall_3_1_0_1() { return cVarVarIDTerminalRuleCall_3_1_0_1; }
 	}
 	public class AssertEqualsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.imta.renaud.ssinigaglia.WebDsl.AssertEquals");
@@ -1469,7 +1501,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	////
 	//SetAction:
-	//	'set' attribute=Attribute ':' value=STRING;
+	//	'set' attribute=Attribute ':' (value=STRING | var=[Var]);
 	public SetActionElements getSetActionAccess() {
 		return pSetAction;
 	}
@@ -1503,7 +1535,7 @@ public class WebDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//AssertContains:
-	//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' value=STRING;
+	//	'contains' (htmlElement=HtmlElement attribute=Attribute | text='TEXT') ':' (value=STRING | var=[Var]);
 	public AssertContainsElements getAssertContainsAccess() {
 		return pAssertContains;
 	}

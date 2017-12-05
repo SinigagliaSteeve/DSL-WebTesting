@@ -1257,20 +1257,36 @@ ruleSetAction returns [EObject current=null]
 		}
 		(
 			(
-				lv_value_3_0=RULE_STRING
-				{
-					newLeafNode(lv_value_3_0, grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getSetActionRule());
+				(
+					lv_value_3_0=RULE_STRING
+					{
+						newLeafNode(lv_value_3_0, grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0_0());
 					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_3_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSetActionRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_3_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getSetActionRule());
+						}
+					}
+					otherlv_4=RULE_ID
+					{
+						newLeafNode(otherlv_4, grammarAccess.getSetActionAccess().getVarVarCrossReference_3_1_0());
+					}
+				)
 			)
 		)
 	)
@@ -1499,20 +1515,36 @@ ruleAssertContains returns [EObject current=null]
 		}
 		(
 			(
-				lv_value_5_0=RULE_STRING
-				{
-					newLeafNode(lv_value_5_0, grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAssertContainsRule());
+				(
+					lv_value_5_0=RULE_STRING
+					{
+						newLeafNode(lv_value_5_0, grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0_0());
 					}
-					setWithLastConsumed(
-						$current,
-						"value",
-						lv_value_5_0,
-						"org.eclipse.xtext.common.Terminals.STRING");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAssertContainsRule());
+						}
+						setWithLastConsumed(
+							$current,
+							"value",
+							lv_value_5_0,
+							"org.eclipse.xtext.common.Terminals.STRING");
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAssertContainsRule());
+						}
+					}
+					otherlv_6=RULE_ID
+					{
+						newLeafNode(otherlv_6, grammarAccess.getAssertContainsAccess().getVarVarCrossReference_3_1_0());
+					}
+				)
 			)
 		)
 	)

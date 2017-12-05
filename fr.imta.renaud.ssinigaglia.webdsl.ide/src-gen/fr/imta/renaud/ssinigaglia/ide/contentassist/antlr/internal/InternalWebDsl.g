@@ -872,6 +872,27 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__SetAction__Alternatives_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSetActionAccess().getValueAssignment_3_0()); }
+		(rule__SetAction__ValueAssignment_3_0)
+		{ after(grammarAccess.getSetActionAccess().getValueAssignment_3_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getSetActionAccess().getVarAssignment_3_1()); }
+		(rule__SetAction__VarAssignment_3_1)
+		{ after(grammarAccess.getSetActionAccess().getVarAssignment_3_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__TypeSelection__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -968,6 +989,27 @@ rule__AssertContains__Alternatives_1
 		{ before(grammarAccess.getAssertContainsAccess().getTextAssignment_1_1()); }
 		(rule__AssertContains__TextAssignment_1_1)
 		{ after(grammarAccess.getAssertContainsAccess().getTextAssignment_1_1()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__AssertContains__Alternatives_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAssertContainsAccess().getValueAssignment_3_0()); }
+		(rule__AssertContains__ValueAssignment_3_0)
+		{ after(grammarAccess.getAssertContainsAccess().getValueAssignment_3_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getAssertContainsAccess().getVarAssignment_3_1()); }
+		(rule__AssertContains__VarAssignment_3_1)
+		{ after(grammarAccess.getAssertContainsAccess().getVarAssignment_3_1()); }
 	)
 ;
 finally {
@@ -2812,9 +2854,9 @@ rule__SetAction__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getSetActionAccess().getValueAssignment_3()); }
-	(rule__SetAction__ValueAssignment_3)
-	{ after(grammarAccess.getSetActionAccess().getValueAssignment_3()); }
+	{ before(grammarAccess.getSetActionAccess().getAlternatives_3()); }
+	(rule__SetAction__Alternatives_3)
+	{ after(grammarAccess.getSetActionAccess().getAlternatives_3()); }
 )
 ;
 finally {
@@ -3055,9 +3097,9 @@ rule__AssertContains__Group__3__Impl
 	}
 :
 (
-	{ before(grammarAccess.getAssertContainsAccess().getValueAssignment_3()); }
-	(rule__AssertContains__ValueAssignment_3)
-	{ after(grammarAccess.getAssertContainsAccess().getValueAssignment_3()); }
+	{ before(grammarAccess.getAssertContainsAccess().getAlternatives_3()); }
+	(rule__AssertContains__Alternatives_3)
+	{ after(grammarAccess.getAssertContainsAccess().getAlternatives_3()); }
 )
 ;
 finally {
@@ -3892,15 +3934,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SetAction__ValueAssignment_3
+rule__SetAction__ValueAssignment_3_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0()); }
+		{ before(grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0()); }
+		{ after(grammarAccess.getSetActionAccess().getValueSTRINGTerminalRuleCall_3_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SetAction__VarAssignment_3_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getSetActionAccess().getVarVarCrossReference_3_1_0()); }
+		(
+			{ before(grammarAccess.getSetActionAccess().getVarVarIDTerminalRuleCall_3_1_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getSetActionAccess().getVarVarIDTerminalRuleCall_3_1_0_1()); }
+		)
+		{ after(grammarAccess.getSetActionAccess().getVarVarCrossReference_3_1_0()); }
 	)
 ;
 finally {
@@ -4005,15 +4066,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__AssertContains__ValueAssignment_3
+rule__AssertContains__ValueAssignment_3_0
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0()); }
+		{ before(grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0_0()); }
 		RULE_STRING
-		{ after(grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0()); }
+		{ after(grammarAccess.getAssertContainsAccess().getValueSTRINGTerminalRuleCall_3_0_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__AssertContains__VarAssignment_3_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAssertContainsAccess().getVarVarCrossReference_3_1_0()); }
+		(
+			{ before(grammarAccess.getAssertContainsAccess().getVarVarIDTerminalRuleCall_3_1_0_1()); }
+			RULE_ID
+			{ after(grammarAccess.getAssertContainsAccess().getVarVarIDTerminalRuleCall_3_1_0_1()); }
+		)
+		{ after(grammarAccess.getAssertContainsAccess().getVarVarCrossReference_3_1_0()); }
 	)
 ;
 finally {

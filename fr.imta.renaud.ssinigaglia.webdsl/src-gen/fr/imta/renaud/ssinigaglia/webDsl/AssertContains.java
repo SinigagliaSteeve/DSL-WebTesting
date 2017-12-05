@@ -17,6 +17,7 @@ package fr.imta.renaud.ssinigaglia.webDsl;
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getText <em>Text</em>}</li>
  *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getValue <em>Value</em>}</li>
+ *   <li>{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getVar <em>Var</em>}</li>
  * </ul>
  *
  * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAssertContains()
@@ -134,5 +135,31 @@ public interface AssertContains extends Assert
    * @generated
    */
   void setValue(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var</em>' reference.
+   * @see #setVar(Var)
+   * @see fr.imta.renaud.ssinigaglia.webDsl.WebDslPackage#getAssertContains_Var()
+   * @model
+   * @generated
+   */
+  Var getVar();
+
+  /**
+   * Sets the value of the '{@link fr.imta.renaud.ssinigaglia.webDsl.AssertContains#getVar <em>Var</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var</em>' reference.
+   * @see #getVar()
+   * @generated
+   */
+  void setVar(Var value);
 
 } // AssertContains

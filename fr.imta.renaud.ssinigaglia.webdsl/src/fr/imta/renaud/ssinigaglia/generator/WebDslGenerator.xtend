@@ -289,7 +289,7 @@ class WebDslGenerator extends AbstractGenerator {
 			//«attType = getTypeAttribute(selection.attribute)»
 			//«attValue = if (selection.value !== null) selection.value else selection.^var.name»
 		«ELSE»
-			//Faire quelque chose si c'est PARENT/FIRST/...
+			// TODO
 		«ENDIF»
 		
 		«IF htmlElem == "button"»
@@ -301,7 +301,6 @@ class WebDslGenerator extends AbstractGenerator {
 			WebElement «htmlElem»«i» = findElementByTagAndAttribute("«htmlElem»", "«attType»", "«attValue»");
 			«ENDIF»
 		«ENDIF»
-		«for (generalAction : action.generalActions) generalAction.createAction(i)»
 		«FOR click : action.clicks»
 			clickElem(«htmlElem»«i»);
 		«ENDFOR»
@@ -332,6 +331,8 @@ class WebDslGenerator extends AbstractGenerator {
 		
 		«FOR generalAction : action.generalActions»
 			«if (generalAction instanceof SetAction) createSetAction(generalAction as SetAction, elem)»
+			«if (generalAction instanceof StoreAction) createStoreAction(generalAction as StoreAction, elem)»
+			«if (generalAction instanceof Selection) createSelectionAction(generalAction as Selection, elem)»
 		«ENDFOR»
 	'''
 	
@@ -339,7 +340,7 @@ class WebDslGenerator extends AbstractGenerator {
 		«val htmlElem = getTypeHtmlElement(action.typeElement)»
 		«val elem = htmlElem+i»
 		«IF action.typeSelection !== null»
-			«val attValue = if (action.typeSelection.value !== null) action.typeSelection.value else action.typeSelection.^var.name»
+			«val attValue = if (action.typeSelection !== null && action.typeSelection.value !== null) action.typeSelection.value else action.typeSelection.^var.name»
 			WebElement «elem» = findCheckbox("«attValue»");
 			«action.action»Checkbox(«elem»);
 		«ELSE»
@@ -359,7 +360,7 @@ class WebDslGenerator extends AbstractGenerator {
 	
 	dispatch def createAction(PageSelection action, int i) '''
 		«FOR sa : action.storeActions»
-			«sa.createAction(i)»
+«««			«createStoreAction(sa)»
 		«ENDFOR»
 		«FOR a : action.assertions»
 			«a.createAssert()»
@@ -395,8 +396,14 @@ class WebDslGenerator extends AbstractGenerator {
 		«elem».sendKeys("«action.value»");
 	'''
 	
-	dispatch def createAction(StoreAction action, int i) '''
-	Store
+	def createStoreAction(StoreAction action, String parent) '''
+		«IF action.^val === Attribute.TITLE»
+			String «action.^var.name» = «parent».getText();
+		«ENDIF»
+	'''
+	
+	def createSelectionAction(Selection action, String elem) '''
+		WebElement «elem»Parent = findParent(«elem»);
 	'''
 	
 	dispatch def createAction(CallProcedure action, int i) '''
