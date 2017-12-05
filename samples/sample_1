@@ -3,8 +3,10 @@ Test 1 (result=TRUE)
 * go to the url "http://www.imt-atlantique.fr/fr"
 * verify that the page contains a link "Toutes les actualités"
 
-open browser chrome
+test firstTest {
+	open_browser chrome
 	go "http://www.imt-atlantique.fr/fr"
 	PAGE {
-		verify contains (LINK LABEL:"Toutes les actualités")
+		verify contains LINK LABEL:"Toutes les actualités"
 	}
+}

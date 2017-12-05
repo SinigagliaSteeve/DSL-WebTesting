@@ -5,14 +5,19 @@ Test 4 (result=TRUE)
 * click on the button "Appliquer les filtres"
 * verify that the page contains the text "Aucun résultat ne correspond à votre recherche"
 
-open browser chrome
+test fourthTest {
+	open_browser chrome
 	go "http://www.imt-atlantique.fr/fr/rechercher"
-	SEARCH_FIELD FIRST {
-		set "Donald Trump"
+	
+	SEARCH_FIELD NAME:"search_api_fulltext" {
+		set VALUE:"Donald Trump"
 	}
+	
 	BUTTON LABEL:"Appliquer les filtres" {
 		click
 	}
-	LINK ALL {
-		verify contains LABEL:"Aucun résultat ne correspond à votre recherche"
+	
+	PAGE {
+		verify contains TEXT:"Aucun résultat ne correspond à votre recherche"
 	}
+}

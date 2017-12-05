@@ -6,21 +6,23 @@ Test 7 (result=TRUE)
 * paste the title in the search field * click on the button "Appliquer les filtres" 
 * verify that the page contains a link to the previous url 
 
-open browser chrome
-go "http://www.imt-atlantique.fr/fr"
-DIV CLASS=”actu_home_ctner_inner_cell1_titre” {
-	store TITLE in ”title”
-		A PARENT {
-			store href in “url”
+test seventhTest{
+	open_browser chrome
+	go "http://www.imt-atlantique.fr/fr"
+	DIV CLASS:"actu_home_ctner_inner_cell1_titre" {
+		store (TITLE) in title
+		LINK PARENT {
+			store (HREF) in url
 		}
-}
-go "http://www.imt-atlantique.fr/fr/rechercher"
-SEARCH_FIELD FIRST {
-		set VAR:”title”
 	}
-BUTTON LABEL:"Appliquer les filtres" {
+	go "http://www.imt-atlantique.fr/fr/rechercher"
+	SEARCH_FIELD FIRST {
+			set VALUE:title
+	}
+	BUTTON LABEL:"Appliquer les filtres" {
 		click
 	}
 	PAGE {
-		verify contains HREF equals VAR:“url”
+		verify contains A HREF:url
 	}
+}

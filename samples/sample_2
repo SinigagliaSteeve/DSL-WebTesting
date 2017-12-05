@@ -4,7 +4,8 @@ Test 2 (result=TRUE)
 * click on the link "Toutes les actualités"
 * verify that the page contains a link "Accueil"
 
-open browser chrome
+test secondTest{
+	open_browser chrome
 	go "http://www.imt-atlantique.fr/fr"
 	LINK LABEL:"Toutes les actualités" {
 		click
@@ -12,3 +13,4 @@ open browser chrome
 	PAGE {
 		verify contains LINK LABEL:"Accueil"
 	}
+}

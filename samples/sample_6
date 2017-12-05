@@ -6,10 +6,11 @@ Test 6 (result=FALSE)
 * click on the button "Appliquer les filtres"
 * verify that the page contains the text "Aucun résultat ne correspond à votre recherche"
 
-open browser chrome
+test sixthTest{
+	open_browser chrome
 	go "http://www.imt-atlantique.fr/fr/rechercher"
-	SEARCH_FIELD FIRST {
-		set "2007"
+	SEARCH_FIELD NAME:"search_api_fulltext" {
+		set VALUE:"2007"
 	}
 	COMBO_BOX FIRST {
 		select "Le mois dernier"
@@ -20,3 +21,4 @@ open browser chrome
 	PAGE {
 		verify contains TEXT:"Aucun résultat ne correspond à votre recherche"
 	}
+}

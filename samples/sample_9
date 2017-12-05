@@ -20,9 +20,11 @@ PROCEDURE test_link(nom){
 	}
 }
 
-open_browser chrome
-PROC:test_link("COMMUNIQUES DE PRESSE")
-PROC:test_link("VISUELS POUR LA PRESSE")
-PROC:test_link("LA PRESSE EN PARLE")
-PROC:test_link("TRIBUNES DE PRESSE")
-PROC:test_link("LES PALMARÈS")
+test ninethTest{
+	open_browser chrome
+	PROC:test_link("COMMUNIQUES DE PRESSE")
+	PROC:test_link("VISUELS POUR LA PRESSE")
+	PROC:test_link("LA PRESSE EN PARLE")
+	PROC:test_link("TRIBUNES DE PRESSE")
+	PROC:test_link("LES PALMARÈS")
+}

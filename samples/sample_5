@@ -6,7 +6,8 @@ Test 5 (result=TRUE)
 * click on the button "Appliquer les critères"
 * verify that the page contains the text "Aucune formation trouvée répondant à vos critères"
 
-open browser chrome
+test fifthTest{
+	open_browser chrome
 	go "http://www.imt-atlantique.fr/fr/formation/trouver-ma-formation"
 	CHECKBOX ALL {
 		uncheck
@@ -17,9 +18,10 @@ open browser chrome
 	CHECKBOX LABEL:"A domicile" {
 		check
 	}
-	BUTTON LABEL:"Appliquer les filtres" {
+	BUTTON LABEL:"Appliquer les critères" {
 		click
 	}
 	PAGE {
 		verify contains TEXT:"Aucune formation trouvée répondant à vos critères"
 	}
+}
